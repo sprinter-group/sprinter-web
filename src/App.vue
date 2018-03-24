@@ -48,6 +48,7 @@ $whiteGrey:    #f4f4f4;
 $listBase:     #F8F8F9;
 $brand:        #327DE1;
 $brand-hover:  #2968BC;
+$white:        #ffffff;
 $disabled:       rgba(55, 55, 70, 16);
 
 // media query breakpoints
@@ -83,6 +84,22 @@ $grid16x: ($defaultGrid * 16);
     opacity: $opacity;
     $opacity-ie: $opacity * 100;
     filter: alpha(opacity=$opacity-ie);
+}
+
+/* ===============
+    pseudo class
+=============== */
+
+::selection {
+    background-color: $brand;
+    color: $white;
+}
+img::selection {
+    visibility:hidden;
+    background:transparent;
+}
+input[type=text]::-ms-clear {
+    display: none;
 }
 
 /* ===============
