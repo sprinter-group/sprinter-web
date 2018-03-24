@@ -37,10 +37,11 @@ export default {
 }
 
 // media query breakpoints
-$tablet: "only screen and (max-width : 768px)";
-$landsc: "only screen and (max-width : 600px)";
-$middle: "only screen and (max-width : 520px)";
-$mobile: "only screen and (max-width : 420px)";
+$tablet:       "only screen and (max-width : 768px)";
+$landsc:       "only screen and (max-width : 600px)";
+$middle:       "only screen and (max-width : 520px)";
+$mobile:       "only screen and (max-width : 420px)";
+$mobile-small: "only screen and (max-width : 360px)";
 
 // default font-size, line-height
 @function calculateRem($size) {
@@ -64,9 +65,10 @@ $mobile: "only screen and (max-width : 420px)";
 }
 
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @include font-size(16px);
+  @include line-height(16px);
+  @include font-stack-html();
+  @include font-settings();
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
