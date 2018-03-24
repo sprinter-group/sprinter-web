@@ -30,26 +30,26 @@ export default {
 // text rendering
 @mixin font-settings() {
     direction: ltr;
-    font-feature-settings: 'liga';
+         font-feature-settings: 'liga';
     -moz-font-feature-settings: 'liga';
     text-rendering: optimizeLegibility;
     -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
+     -webkit-font-smoothing: antialiased;
     -webkit-text-decoration-skip: ink;
 }
 
 // color stack
-$textDark:     #373746;
-$textGrey:     #797980;
-$textLightGrey:#9898A1;
-$before:       #babac0;
-$lightGrey:    #D0D0D7;
-$whiteGrey:    #f4f4f4;
-$listBase:     #F8F8F9;
-$brand:        #327DE1;
-$brand-hover:  #2968BC;
-$white:        #ffffff;
-$disabled:       rgba(55, 55, 70, 16);
+$textDark:      #373746;
+$textGrey:      #797980;
+$textLightGrey: #9898A1;
+$before:        #babac0;
+$lightGrey:     #D0D0D7;
+$whiteGrey:     #f4f4f4;
+$listBase:      #F8F8F9;
+$brand:         #327DE1;
+$brand-hover:   #2968BC;
+$white:         #ffffff;
+$disabled:      rgba(55, 55, 70, 16);
 
 // media query breakpoints
 $tablet:       "only screen and (max-width : 768px)";
@@ -60,10 +60,10 @@ $mobile-small: "only screen and (max-width : 360px)";
 
 // 4px grid system
 $defaultGrid: 4px;
-$grid2x:  ($defaultGrid * 2 );
-$grid4x:  ($defaultGrid * 4 );
-$grid8x:  ($defaultGrid * 8 );
-$grid16x: ($defaultGrid * 16);
+$grid2x:     ($defaultGrid * 2 );
+$grid4x:     ($defaultGrid * 4 );
+$grid8x:     ($defaultGrid * 8 );
+$grid16x:    ($defaultGrid * 16);
 
 // default font-size, line-height
 @function calculateRem($size) {
@@ -140,5 +140,8 @@ li {
 
 a {
   color: $brand;
+  &:hover {
+    color: $brand-hover;
+  }
 }
 </style>
