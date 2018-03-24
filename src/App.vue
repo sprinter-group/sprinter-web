@@ -37,14 +37,16 @@ export default {
 }
 
 // color stack
-$black87:     rgba(0,0,0,0.87);
-$black78:     rgba(0,0,0,0.78);
-$black54:     rgba(0,0,0,0.54);
-$black38:     rgba(0,0,0,0.38);
-$black16:     rgba(0,0,0,0.16);
-$lightgrey:   #f4f4f4;
-$brand:       #327DE1;
-$brand-hover: #327DE1;
+$textDark:     #373746;
+$textGrey:     #797980;
+$textLightGrey:#9898A1;
+$before:       #babac0;
+$lightGrey:    #D0D0D7;
+$whiteGrey:    #f4f4f4;
+$listBase:     #F8F8F9;
+$brand:        #327DE1;
+$brand-hover:  #2968BC;
+$disabled:       rgba(55, 55, 70, 16);
 
 // media query breakpoints
 $tablet:       "only screen and (max-width : 768px)";
@@ -79,8 +81,8 @@ $mobile-small: "only screen and (max-width : 360px)";
   @include line-height(16px);
   @include font-stack-html();
   @include font-settings();
+  color: $textDark;
   text-align: center;
-  color: #2c3e50;
   margin-top: 60px;
 }
 
