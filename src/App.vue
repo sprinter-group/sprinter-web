@@ -36,6 +36,16 @@ export default {
     -webkit-text-decoration-skip: ink;
 }
 
+// color stack
+$black87:     rgba(0,0,0,0.87);
+$black78:     rgba(0,0,0,0.78);
+$black54:     rgba(0,0,0,0.54);
+$black38:     rgba(0,0,0,0.38);
+$black16:     rgba(0,0,0,0.16);
+$lightgrey:   #f4f4f4;
+$brand:       #327DE1;
+$brand-hover: #327DE1;
+
 // media query breakpoints
 $tablet:       "only screen and (max-width : 768px)";
 $landsc:       "only screen and (max-width : 600px)";
