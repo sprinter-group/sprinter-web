@@ -17,7 +17,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import "../src/normalize.css";
 @import url(https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
 // mixin default font
 @mixin font-stack-html() {
@@ -55,6 +57,13 @@ $middle:       "only screen and (max-width : 520px)";
 $mobile:       "only screen and (max-width : 420px)";
 $mobile-small: "only screen and (max-width : 360px)";
 
+// 4px grid system
+$defaultGrid: 4px;
+$grid2x:  ($defaultGrid * 2 );
+$grid4x:  ($defaultGrid * 4 );
+$grid8x:  ($defaultGrid * 8 );
+$grid16x: ($defaultGrid * 16);
+
 // default font-size, line-height
 @function calculateRem($size) {
     $remSize: $size / 16px;
@@ -76,6 +85,10 @@ $mobile-small: "only screen and (max-width : 360px)";
     filter: alpha(opacity=$opacity-ie);
 }
 
+/* ===============
+    stylesheet
+=============== */
+
 #app {
   @include font-size(16px);
   @include line-height(16px);
@@ -86,7 +99,7 @@ $mobile-small: "only screen and (max-width : 360px)";
   margin-top: 60px;
 }
 
-// fonts
+// default font settings
 body {
     @include font-size(16px);
     @include line-height(16px);
@@ -109,6 +122,6 @@ li {
 }
 
 a {
-  color: #42b983;
+  color: $brand;
 }
 </style>
