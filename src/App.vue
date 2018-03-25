@@ -21,6 +21,8 @@ export default {
 @import url(https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css);
 @import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 
+*{box-sizing:border-box}
+
 // mixin default font
 @mixin font-stack-html() {
     font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
@@ -118,6 +120,7 @@ input[type=text]::-ms-clear {
 
 // default font settings
 body {
+    outline: none;
     @include font-size(16px);
     @include line-height(16px);
     @include font-stack-html();
