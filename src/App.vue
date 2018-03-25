@@ -25,7 +25,7 @@ export default {
 
 // mixin default font
 @mixin font-stack-html() {
-    font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
+            font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
     -webkit-font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
 }
 
@@ -53,22 +53,28 @@ $brand-hover:   #2968BC;
 $white:         #ffffff;
 $disabled:      rgba(55, 55, 70, 16);
 
-// media query breakpoints
+/* ==============================
+    media query breakpoints
+============================== */
 $tablet:       "only screen and (max-width : 768px)";
 $landsc:       "only screen and (max-width : 600px)";
 $middle:       "only screen and (max-width : 520px)";
 $mobile:       "only screen and (max-width : 420px)";
 $mobile-small: "only screen and (max-width : 360px)";
 
-// 4px grid system
-$defaultGrid: 4px;
-$grid2x:     ($defaultGrid * 2 );
-$grid4x:     ($defaultGrid * 4 );
-$grid8x:     ($defaultGrid * 8 );
-$grid16x:    ($defaultGrid * 16);
-$grid32x:    ($defaultGrid * 32);
+/* ==============================
+    4px grid system
+============================== */
+$grid:     4px;
+$grid2x:  ($grid * 2 );
+$grid4x:  ($grid * 4 );
+$grid8x:  ($grid * 8 );
+$grid16x: ($grid * 16);
+$grid32x: ($grid * 32);
 
-// default font-size, line-height
+/* ==============================
+    default font-size, line-height
+============================== */
 @function calculateRem($size) {
     $remSize: $size / 16px;
     @return $remSize * 1rem;
@@ -82,17 +88,18 @@ $grid32x:    ($defaultGrid * 32);
     line-height: calculateRem($size) * 1.6;
 }
 
-// opacity
+/* ==============================
+    opacity
+============================== */
 @mixin opacity($opacity) {
     opacity: $opacity;
     $opacity-ie: $opacity * 100;
     filter: alpha(opacity=$opacity-ie);
 }
 
-/* ===============
+/* ==============================
     pseudo class
-=============== */
-
+============================== */
 ::selection {
     background-color: $brand;
     color: $white;
@@ -104,11 +111,16 @@ img::selection {
 input[type=text]::-ms-clear {
     display: none;
 }
+select, button, input:focus {
+    outline: none;
+}
+select::-ms-expand {
+    display: none;
+}
 
-/* ===============
+/* ==============================
     stylesheet
-=============== */
-
+============================== */
 #app {
   @include font-size(16px);
   @include line-height(16px);
