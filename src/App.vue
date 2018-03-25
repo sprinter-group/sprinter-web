@@ -66,6 +66,7 @@ $grid2x:     ($defaultGrid * 2 );
 $grid4x:     ($defaultGrid * 4 );
 $grid8x:     ($defaultGrid * 8 );
 $grid16x:    ($defaultGrid * 16);
+$grid32x:    ($defaultGrid * 32);
 
 // default font-size, line-height
 @function calculateRem($size) {
