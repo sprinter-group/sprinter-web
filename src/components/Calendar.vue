@@ -1,5 +1,7 @@
 <template>
-  <h>This is calendar components</h>
+  <div id="calendar-base">
+    Hello world! 1234567890
+  </div>
 </template>
 
 <script>
