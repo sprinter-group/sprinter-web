@@ -71,6 +71,16 @@ $grid32x: ($grid * 32);
     line-height: calculateRem($size) * 1.6;
 }
 
+// mixin icon font
+// http://google.github.io/material-design-icons/
+@mixin font-stack-icon() {
+            font-family: 'Material Icons';
+    -webkit-font-family: 'Material Icons';
+    @include font-size(24px);
+    @include font-settings();
+    line-height: 1;
+}
+
 /* ==============================
     box border bgcolor
 ============================== */
