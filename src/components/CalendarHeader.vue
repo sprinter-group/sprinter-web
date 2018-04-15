@@ -1,4 +1,4 @@
-<template>
+<template lang="pug">
     <div class="row">
       <div class="col-sm-4">
         <div class="form-group">
@@ -6,9 +6,9 @@
       </div>
       <div class="col-sm-4 header-center">
         <div class="btn-gourp">
-          <button @click.stop="goPrev" class="btn btn-outline btn-primary">{{$t('generic.previous')}}</button>
-          <button @click.stop="goToday" class="btn btn-outline btn-default today-button">&dArr; {{ $t('generic.today')}}</button>
-          <button @click.stop="goNext" class="btn btn-outline btn-primary">{{ $t('generic.next')}} &rArr;</button>
+          <button @click.stop="goPrev" class="btn btn-outline btn-primary"> <i class="fa fa-chevron-left"></i> {{$t('generic.previous')}}</button>
+          <button @click.stop="goToday" class="btn btn-outline btn-default today-button"> {{ $t('generic.today')}}</button>
+          <button @click.stop="goNext" class="btn btn-outline btn-primary">{{ $t('generic.next')}} <i class="fa fa-chevron-right"></i> </button>
         </div>
       </div>
       <div class="col-sm-4">
@@ -65,6 +65,35 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../assets/css/style.scss";
 
+.header-center {
+  .btn-gourp {
+    .btn {
+      width: ($grid * 24);
+      background-color: white;
+      @include transition(background-color .25s ease);
+      &:focus{
+        outline: none;
+      }
+      &:hover{
+        background-color: $white-hover;
+      }
+      &:not(:nth-child(2)){
+        background-color: $brand;
+        &:hover{
+          background-color: $brand-hover;
+        }
+      }
+    }
+  }
+}
+.show-year {
+  float: right;
+  @include font-size(24px);
+  @include line-height(32px);
+  color: $textDark;
+  font-weight: 900;
+}
 </style>
