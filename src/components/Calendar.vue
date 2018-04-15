@@ -17,12 +17,9 @@
 
               <div class="dates" ref="dates">
                 <week v-for="(week, idx) in Weeks" :firstDay="firstDay" :key="idx" :week="week">
-
                 </week>
-
               </div>
             </div>
-
           </div>
         </div>
       </div>
