@@ -21,6 +21,15 @@
     -webkit-text-decoration-skip: ink;
 }
 
+/* ==============================
+    opacity
+============================== */
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie);
+}
+
 // color stack
 $textDark:      #373746;
 $textGrey:      #797980;
@@ -101,15 +110,6 @@ $grid32x: ($grid * 32);
     -ms-transition:     $transition;
     -o-transition:      $transition;
     transition:         $transition;
-}
-
-/* ==============================
-    opacity
-============================== */
-@mixin opacity($opacity) {
-    opacity: $opacity;
-    $opacity-ie: $opacity * 100;
-    filter: alpha(opacity=$opacity-ie);
 }
 
 /* ==============================

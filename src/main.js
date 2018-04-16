@@ -11,6 +11,7 @@ window.i18n = new VueI18n({
   locale: 'en',
   messages
 });
+
 new Vue({
   el: '#app',
   i18n,

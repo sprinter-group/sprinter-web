@@ -58,45 +58,53 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../assets/css/style.scss";
+
   .day-cell{
     flex: 1;
-    min-height: 110px;
-    padding: 4px;
-    border-right:1px solid ghostwhite;
-    border-bottom:1px solid ghostwhite;
-    background: lightgray;
-
+    padding: $grid;
+    background: $listBase;
+    min-height: ($grid * 28);
+    @include font-size(24px);
+    border-right:1px solid $stroke;
+    border-bottom:1px solid $stroke;
+    &:hover {
+      cursor: default;
+      background-color: $listBase;
+    }
   }
   .day-number {
+    padding: $grid;
+    color: $textDark;
     text-align: right;
-    color: black;
-    font-size: 1em;
-    padding: 5px;
+    @include font-size(24px);
   }
   .current-month {
     background-color: white;
-  }
-  .current-month p{
-    color: black;
-    font-size: 1.5em;
+    &:hover {
+      cursor: pointer;
+    }
+    p {
+      color: black;
+      @include font-size(24px);
+    }
   }
   .weekend p {
-    color: mediumvioletred;
+    color: $textLightGrey;
   }
-  .today{
-    background-color: floralwhite;
+  .today {
+    background-color: $listBase;
+    p {
+      color: $brand;
+      font-weight: bolder;
+      @include font-size(24px);
+    }
   }
-  .today p{
-    font-size: 2em;
-    font-weight: bolder;
-    color: black;
-  }
-  .selected-day{
-
-  }
-  .selected-day p{
-    font-size: 2em;
-    font-weight: bold;
+  .selected-day {
+    p {
+      font-weight: bolder;
+      @include font-size(24px);
+    }
   }
 </style>
