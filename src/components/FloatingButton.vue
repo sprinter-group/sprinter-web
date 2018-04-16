@@ -1,11 +1,26 @@
 <template lang="pug">
-  button#floating-button-body
+  button#floating-button-body(@click='FABready')
     span.plus +
+    FABmodal.modal-before
 </template>
 
 <script>
-export default {
+import FABmodal from './FABmodal.vue'
 
+export default {
+  data() {
+    return{
+
+    }
+  },
+  components: {
+    'FABmodal': FABmodal
+  },
+  methods: {
+    FABready: function(){
+      console.log('Haywe')
+    }
+  }
 }
 </script>
 
@@ -40,5 +55,9 @@ export default {
     box-shadow: 0px $grid2x $grid2x $textLightGrey;
     background-color: $brand-hover;
   }
+}
+
+.modal-before {
+  visibility: hidden;
 }
 </style>

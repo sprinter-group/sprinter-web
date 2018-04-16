@@ -19,6 +19,7 @@ export default {
   },
   components: {
     'Calendar': Calendar,
+    // 'FABModal':FABModal,
     'FloatingButton':FloatingButton
   },
   mounted() {
