@@ -49,7 +49,7 @@
 <style scoped>
   .week-row {
     width: 100%;
-    border-left: 1px solid #e1e1e1;
+    border-left: 1px solid white;
     display: flex;
     cursor:pointer;
   }
@@ -57,7 +57,7 @@
     border: 1px solid #e1e1e1;
     border-right: 0px;
     border-radius: 5px 0 0 5px;
-    background-color: #fafafa;
+    background-color: white;
     text-align: right;
     position: absolute;
     width: 70px;

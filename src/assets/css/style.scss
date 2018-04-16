@@ -138,6 +138,11 @@ select, button, input:focus {
 select::-ms-expand {
     display: none;
 }
+button {
+  &:hover{
+    cursor: pointer !important;
+  }
+}
 
 /* ==============================
     stylesheet

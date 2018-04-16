@@ -32,6 +32,6 @@ export default {
 // 양쪽 패딩 맞추기
 *{
   max-width: 100vw !important;
-  max-height: 100vh !important;
+  // max-height: 100vh !important;
 }
 </style>

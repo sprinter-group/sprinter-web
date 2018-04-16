@@ -7,7 +7,7 @@
       <div class="col-sm-4 header-center">
         <div class="btn-gourp">
           <button @click.stop="goPrev" class="btn btn-outline btn-primary" :title="$t('generic.previous')"> <i class="fa fa-chevron-left"></i> {{ $t('generic.previous') }}</button>
-          <button @click.stop="goToday" class="btn btn-outline btn-default today-button" :title="$t('generic.today')"> {{ $t('generic.today') }}</button>
+          <button @click.stop="goToday" class="btn btn-outline btn-default today-button" :title="$t('generic.today')"> <i class="fa fa-calendar-o"></i> {{ $t('generic.today') }}</button>
           <button @click.stop="goNext" class="btn btn-outline btn-primary" :title="$t('generic.next')">{{ $t('generic.next') }} <i class="fa fa-chevron-right"></i> </button>
         </div>
       </div>

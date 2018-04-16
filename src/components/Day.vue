@@ -8,10 +8,11 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <p class="day-number" :title="day.date.format('D')">{{ day.date.format('D') }}</p>
+          <div class="today-circle">
+            <p class="day-number" :title="day.date.format('D')">{{ day.date.format('D') }}</p>
+          </div>
         </div>
       </div>
-
     </div>
 </template>
 
@@ -76,13 +77,25 @@
     @include font-size(24px);
     @include border-ways(1px, solid, $stroke);
     &:hover {
-      cursor: default;
+      cursor: pointer;
       background-color: $listBase;
+    }
+    .row {
+      .col-sm-6{
+        float: right;
+        @media #{$mobile}{
+          float: none;
+        }
+        .today-circle{
+          position: absolute;
+        }
+      }
     }
   }
   .day-number {
-    padding: $grid;
-    text-align: right;
+    z-index: 2;
+    padding: $grid2x;
+    text-align: center;
     @include font-size(24px);
     color: $before !important;
   }
@@ -103,18 +116,34 @@
   }
   .today {
     background-color: $listBase;
-    // @include border-ways(1px, solid, $brand);
+    .today-circle {
+      visibility: hidden;
+      border-radius: $grid8x;
+      background-color: $brand !important;
+      p {
+        color: white !important;
+        font-weight: bolder;
+        @include font-size(24px);
+        visibility: visible;
+      }
+    }
+  }
+  .selected-day {
+    .today-circle {
+      visibility: visible;
+      border-radius: $grid8x;
+      background-color: transparent;
+      box-shadow:0px 0px 0px 2px $brand inset;
+    }
     p {
-      color: $brand !important;
       font-weight: bolder;
       @include font-size(24px);
     }
   }
-  .selected-day {
-    p {
-      text-decoration: underline;
-      font-weight: bolder;
-      @include font-size(24px);
-    }
+
+// global
+  .today-circle {
+    width: $grid8x;
+    height: $grid8x;
   }
 </style>
