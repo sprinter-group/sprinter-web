@@ -1,11 +1,18 @@
 <template lang="pug">
-  div#modal-body
-    | Hello
+  div#modal-body(v-if='FABtoggle')
+    input
+    button(type='submit')
 </template>
 
 <script>
-export default {
+import FloatingButton from './FloatingButton.vue'
 
+export default {
+  data(){
+    return{
+      FABtoggle: false
+    }
+  }
 }
 </script>
 
@@ -13,7 +20,13 @@ export default {
 @import "../assets/css/style.scss";
 
 #modal-body {
-  position: absolute;
+  background-color: black;
+  color: white;
+  position: fixed;
   display: block;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
 }
 </style>

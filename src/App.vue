@@ -1,14 +1,14 @@
 <template lang="pug">
-  <div id="app">
-    <Calendar :first-day="1" :all-events="events"></Calendar>
+  div#app
+    Calendar(:first-day='1', :all-events='events')
     FloatingButton
-  </div>
-
+    FABmodal
 </template>
 
 <script>
 import Calendar from './components/Calendar.vue'
 import FloatingButton from './components/FloatingButton.vue'
+import FABmodal from './components/FABmodal.vue'
 
 export default {
   name: 'app',
@@ -19,11 +19,8 @@ export default {
   },
   components: {
     'Calendar': Calendar,
-    // 'FABModal':FABModal,
-    'FloatingButton':FloatingButton
-  },
-  mounted() {
-
+    'FloatingButton':FloatingButton,
+    'FABmodal': FABmodal
   }
 }
 </script>
