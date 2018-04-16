@@ -46,7 +46,9 @@
     }
 </script>
 
-<style scoped>
+<style lang="scss">
+@import "../assets/css/style.scss";
+
   .week-row {
     width: 100%;
     border-left: 1px solid white;
@@ -56,11 +58,19 @@
   .week-num {
     border: 1px solid #e1e1e1;
     border-right: 0px;
-    border-radius: 5px 0 0 5px;
+    border-radius: $grid 0 0 $grid;
     background-color: white;
     text-align: right;
     position: absolute;
     width: 70px;
     left: -70px;
+  }
+  .weeks {
+    vertical-align: middle;
+    .week{
+      color: $textDark;
+      @include font-size(21px);
+      // font-weight: 100;
+    }
   }
 </style>

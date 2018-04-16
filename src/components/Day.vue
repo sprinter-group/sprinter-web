@@ -136,6 +136,7 @@
       box-shadow:0px 0px 0px 2px $brand inset;
     }
     p {
+      color: $brand !important;
       font-weight: bolder;
       @include font-size(24px);
     }

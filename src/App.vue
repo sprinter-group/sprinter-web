@@ -1,12 +1,14 @@
-<template>
+<template lang="pug">
   <div id="app">
     <Calendar :first-day="1" :all-events="events"></Calendar>
+    FloatingButton
   </div>
 
 </template>
 
 <script>
 import Calendar from './components/Calendar.vue'
+import FloatingButton from './components/FloatingButton.vue'
 
 export default {
   name: 'app',
@@ -16,7 +18,8 @@ export default {
     }
   },
   components: {
-    'Calendar': Calendar
+    'Calendar': Calendar,
+    'FloatingButton':FloatingButton
   },
   mounted() {
 

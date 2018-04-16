@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="col-sm-4">
-        <div class="show-year">{{nowYear}}</div>
+        <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
       </div>
     </div>
 </template>

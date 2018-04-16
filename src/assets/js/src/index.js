@@ -19,9 +19,11 @@
 ============================== */
 (function(){
   var getDay = document.querySelectorAll('.today');
-  getDay.forEach(function(days){
+  getDay.forEach(function(days)
+  {
     var getDayToday = document.querySelectorAll('.today .today-circle');
-    getDayToday.forEach(function(today){
+    getDayToday.forEach(function(today)
+    {
       today.style.visibility = 'visible';
     })
   })
