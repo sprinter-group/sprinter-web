@@ -8,7 +8,7 @@
           </div>
         </div>
         <div class="col-sm-6">
-          <p class="day-number">{{day.date.format('D')}}</p>
+          <p class="day-number" :title="day.date.format('D')">{{ day.date.format('D') }}</p>
         </div>
       </div>
 
@@ -60,6 +60,13 @@
 
 <style lang="scss">
 @import "../assets/css/style.scss";
+// 9564
+@mixin border-ways($val, $line, $color){
+  // border-top: $val $line $color;
+  // border-left: $val $line $color;
+  border-right: $val $line $color;
+  border-bottom: $val $line $color;
+}
 
   .day-cell{
     flex: 1;
@@ -67,8 +74,7 @@
     background: $listBase;
     min-height: ($grid * 28);
     @include font-size(24px);
-    border-right:1px solid $stroke;
-    border-bottom:1px solid $stroke;
+    @include border-ways(1px, solid, $stroke);
     &:hover {
       cursor: default;
       background-color: $listBase;
@@ -76,9 +82,9 @@
   }
   .day-number {
     padding: $grid;
-    color: $textDark;
     text-align: right;
     @include font-size(24px);
+    color: $before !important;
   }
   .current-month {
     background-color: white;
@@ -86,23 +92,27 @@
       cursor: pointer;
     }
     p {
-      color: black;
+      color: $textDark !important;
       @include font-size(24px);
     }
   }
-  .weekend p {
-    color: $textLightGrey;
+  .weekend {
+    p{
+      color: $textLightGrey !important;
+    }
   }
   .today {
     background-color: $listBase;
+    // @include border-ways(1px, solid, $brand);
     p {
-      color: $brand;
+      color: $brand !important;
       font-weight: bolder;
       @include font-size(24px);
     }
   }
   .selected-day {
     p {
+      text-decoration: underline;
       font-weight: bolder;
       @include font-size(24px);
     }

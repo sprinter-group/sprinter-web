@@ -2,7 +2,13 @@
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
-*{ box-sizing:border-box }
+@mixin box-sizing($val){
+  box-sizing: $val;
+  -moz-box-sizing: $val;
+  -webkit-box-sizing: $val;
+}
+
+*{ @include box-sizing(border-box) }
 
 // mixin default font
 @mixin font-stack-html() {
