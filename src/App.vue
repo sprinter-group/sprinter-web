@@ -1,8 +1,8 @@
 <template lang="pug">
   div#app
     Calendar(:first-day='1', :all-events='events')
-    FloatingButton
-    FABmodal
+    FloatingButton(@click.native='FABready')
+    FABmodal(v-if='FABvalue')
 </template>
 
 <script>
@@ -14,7 +14,15 @@ export default {
   name: 'app',
   data() {
     return {
-      events: []  //i didn't make them.
+      FABvalue: false,
+      events: []
+    }
+  },
+  methods: {
+    FABready: function(){
+      this.FABvalue = !this.FABvalue
+      console.log(this.FABvalue)
+      return this.FABvalue
     }
   },
   components: {

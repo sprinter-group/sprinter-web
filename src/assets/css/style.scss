@@ -50,6 +50,7 @@ $brand-hover:   #2968BC;
 $white-hover:   #f4f4f4;
 $white:         #ffffff;
 $disabled:      rgba(55, 55, 70, 16);
+$black38:       rgba(0,0,0,0.38);
 
 /* ==============================
     media query breakpoints
@@ -194,4 +195,14 @@ a {
 #calendar-base {
   @include box-settings();
   width: 100vw;
+}
+
+
+@mixin border-radius($val){
+  -webkit-border-radius: $val;
+  -khtml-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  -o-border-radius: $val;
+  border-radius: $val;
 }

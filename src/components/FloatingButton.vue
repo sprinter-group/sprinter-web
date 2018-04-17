@@ -4,24 +4,25 @@
 </template>
 
 <script>
-import FABmodal from './FABmodal.vue'
-
 // TODO by Hyouk
 // FABtoggle 이 true 일 경우 모달창 display: block;
-// 모달창이 열려있는 동안 FABtoggle 은 true 유지
 // 모달창이 닫힐때는 FABtoggle 에서 false 를 반환
 export default {
   data() {
     return{
-
+      FABvalue: false,
+      events: []
     }
   },
   methods: {
     FABready: function(){
-      this.FABtoggle = true
-      console.log(this.FABtoggle)
-      return this.FABtoggle
+      this.FABvalue = !this.FABvalue
+      console.log(this.FABvalue)
+      return this.FABvalue
     }
+  },
+  components: {
+
   }
 }
 </script>
@@ -29,16 +30,8 @@ export default {
 <style lang="scss">
 @import "../assets/css/style.scss";
 
-@mixin border-radius($val){
-  -webkit-border-radius: $val;
-  -khtml-border-radius: $val;
-  -moz-border-radius: $val;
-  -ms-border-radius: $val;
-  -o-border-radius: $val;
-  border-radius: $val;
-}
-
 #floating-button-body {
+  z-index: 2;
   border: none;
   position: fixed;
   right: $grid6x;
