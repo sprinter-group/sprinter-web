@@ -1,28 +1,23 @@
 <template lang="pug">
-  button#floating-button-body(@click='FABready')
-    span.plus +
+  FBA
 </template>
 
 <script>
-// TODO by Hyouk
-// FABtoggle 이 true 일 경우 모달창 display: block;
-// 모달창이 닫힐때는 FABtoggle 에서 false 를 반환
+var FBA = {
+  template: '<button id="floating-button-body"><span class="plus">+</span></button>'
+}
+
 export default {
   data() {
     return{
-      FABvalue: false,
       events: []
     }
   },
   methods: {
-    FABready: function(){
-      this.FABvalue = !this.FABvalue
-      console.log(this.FABvalue)
-      return this.FABvalue
-    }
+
   },
   components: {
-
+    'FBA': FBA
   }
 }
 </script>

@@ -206,3 +206,34 @@ a {
   -o-border-radius: $val;
   border-radius: $val;
 }
+
+@mixin animation-settings($name, $dur){
+  -webkit-animation: $name $dur;
+  -khtml-animation: $name $dur;
+  -moz-animation: $name $dur;
+  -ms-animation: $name $dur;
+  -o-animation: $name $dur;
+  animation: $name $dur;
+  -webkit-animation-iteration-count: 1;
+  -khtml-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -msanimation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@mixin keyframes($name, $dur){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+  @include animation-settings($name, $dur);
+}

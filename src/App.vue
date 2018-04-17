@@ -1,34 +1,26 @@
 <template lang="pug">
   div#app
     Calendar(:first-day='1', :all-events='events')
-    FloatingButton(@click.native='FABready')
-    FABmodal(v-if='FABvalue')
+    FABcomps
 </template>
 
 <script>
 import Calendar from './components/Calendar.vue'
-import FloatingButton from './components/FloatingButton.vue'
-import FABmodal from './components/FABmodal.vue'
+import FABcomps from './components/FABcomps.vue'
 
 export default {
   name: 'app',
   data() {
     return {
-      FABvalue: false,
       events: []
     }
   },
   methods: {
-    FABready: function(){
-      this.FABvalue = !this.FABvalue
-      console.log(this.FABvalue)
-      return this.FABvalue
-    }
+
   },
   components: {
     'Calendar': Calendar,
-    'FloatingButton':FloatingButton,
-    'FABmodal': FABmodal
+    'FABcomps':FABcomps
   }
 }
 </script>
