@@ -145,7 +145,7 @@ input[type=text]::-ms-clear {
     display: none;
 }
 select, button, input:focus {
-    outline: none;
+    outline: none !important;
 }
 select::-ms-expand {
     display: none;

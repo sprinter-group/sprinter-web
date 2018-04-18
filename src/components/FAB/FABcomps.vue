@@ -3,7 +3,7 @@
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
     div.modal-body(v-if='FABvalue')
-      i.fa.fa-times(@click='FABfalse', style='padding:8px')
+      i.fa.fa-times(@click='FABfalse')
       br
       span.modal-title Hello
       br
@@ -30,14 +30,16 @@ export default {
         this.FABvalue = !this.FABvalue
       }
       console.log('Modal ' + this.FABvalue)
+      return this.FABvalue
     },
     FABfalse: function(){
       this.FABvalue = !this.FABvalue
       console.log('Modal ' + this.FABvalue)
+      return this.FABvalue
     }
   },
   components: {
-    'FloatingButton': FloatingButton,
+    'FloatingButton': FloatingButton
   },
 }
 </script>
@@ -59,23 +61,37 @@ export default {
 }
 .modal-body {
   z-index: 5;
+  width: 64vw;
+  position: fixed;
+  color: $textDark;
+  background-color: white;
   @include border-radius($grid2x);
   @include keyframes(pos, 0.35s){
     0%   { opacity: 0; top: 48%; }
     100% { opacity: 1; top: 50%; }
   }
-  background-color: white;
-  color: $textDark;
-  position: fixed;
-  width: 64vw;
   max-width: 480px !important;
   min-width: 320px !important;
   height: 320px;
   min-height: 240px;
   @include set-center();
+  > .fa-times {
+    top: 0;
+    right: 0;
+    position: fixed;
+    cursor: pointer;
+    padding: $grid4x;
+    margin-top: $grid;
+    margin-right: $grid2x;
+    color: $textLightGrey;
+    @include font-size(24px);
+    @include transition(color .25s ease);
+    &:hover {
+      color: $textDark;
+    }
+  }
 
   // height: auto;
-
 }
 
 </style>

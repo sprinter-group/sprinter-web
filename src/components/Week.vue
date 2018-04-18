@@ -26,6 +26,7 @@
           showWeekNum() {
             let me = this;
             me.showWeekNumFlag = true;
+            // 콘솔창에서 띄워주는 메세지
             console.log("SELECTED week num : " + {weekDate:me.week[0].date});
             this.$root.$emit(WEEK_SELECTED, {weekDate:me.week[0].date});
           }
@@ -51,13 +52,10 @@
 
   .week-row {
     width: 100%;
-    border-left: 1px solid white;
     display: flex;
     cursor:pointer;
   }
   .week-num {
-    border: 1px solid #e1e1e1;
-    border-right: 0px;
     border-radius: $grid 0 0 $grid;
     background-color: white;
     text-align: right;

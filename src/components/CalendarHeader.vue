@@ -1,25 +1,28 @@
 <template lang="pug">
-    <div class="row">
-      <div class="col-sm-4">
+    <div class="row" tabindex="0">
+      <div class="col-sm-2 hide-me">
         <div class="form-group">
         </div>
       </div>
-      <div class="col-sm-4 header-center">
+      <div class="col-sm-8 header-center" @keydown.left="goPrev" @keydown.right="goNext">
         <div class="btn-gourp">
-          <button @click.stop="goPrev" class="btn btn-outline btn-primary" :title="$t('generic.previous')"> <i class="fa fa-chevron-left"></i> {{ $t('generic.previous') }}</button>
-          <button @click.stop="goToday" class="btn btn-outline btn-default today-button" :title="$t('generic.today')"> <i class="fa fa-calendar-o"></i> {{ $t('generic.today') }}</button>
-          <button @click.stop="goNext" class="btn btn-outline btn-primary" :title="$t('generic.next')">{{ $t('generic.next') }} <i class="fa fa-chevron-right"></i> </button>
+          <button @click.stop="goPrev" class="btn btn-outline btn-primary" :title="$t('generic.previous')"> <i class="fa fa-chevron-left"></i> <span>{{ $t('generic.previous') }}</span></button>
+          <button @click.stop="goToday" class="btn btn-outline btn-default today-button" :title="$t('generic.today')"> <i class="fa fa-calendar-o"></i> <span>{{ $t('generic.today') }}</span></button>
+          <button @click.stop="goNext" class="btn btn-outline btn-primary" :title="$t('generic.next')"><span>{{ $t('generic.next') }}</span> <i class="fa fa-chevron-right"></i> </button>
         </div>
       </div>
-      <div class="col-sm-4">
+      <div class="col-sm-2">
         <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
       </div>
     </div>
 </template>
 
 <script>
-  import moment from 'moment';
-  import {CHANGE_MONTH} from "../actions";
+import moment from 'moment';
+import {CHANGE_MONTH} from "../actions";
+
+// TODO by Hyouk
+// 버튼 누르기 전에도 @keydown 적용 가능하도록 수정
 
   export default {
       data() {
@@ -67,11 +70,35 @@
 
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
+.hide-me{display:none}
 
 .header-center {
   .btn-gourp {
+    float: left;
     .btn {
+      padding: 0;
+      height: ($grid * 10);
+      text-align: center;
+      vertical-align: middle;
       width: ($grid * 24);
+      &:nth-child(2){
+        margin: auto $grid;
+      }
+      @media #{$middle}{
+        width: ($grid * 16);
+        span {
+          display: none;
+        }
+        &:nth-child(2){
+          margin: auto ($grid / 2);
+        }
+      }
+      @media #{$mobile}{
+        width: ($grid * 12)
+      }
+      @media #{$mobile-small}{
+        width: ($grid * 10);
+      }
       background-color: white;
       @include transition(background-color .25s ease);
       &:focus{
@@ -89,11 +116,14 @@
     }
   }
 }
-.show-year {
+.col-sm-2 {
   float: right;
-  color: $textDark;
-  font-weight: 900;
-  @include font-size(24px);
-  @include line-height(32px);
+  .show-year {
+    color: $textDark;
+    font-weight: 900;
+    text-align: right;
+    @include font-size(24px);
+    @include line-height(32px);
+  }
 }
 </style>
