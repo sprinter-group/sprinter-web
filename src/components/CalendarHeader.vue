@@ -1,5 +1,5 @@
 <template lang="pug">
-    <div class="row" tabindex="0">
+    <div class="row main-div-header" tabindex="0">
       <div class="col-sm-2 hide-me">
         <div class="form-group">
         </div>
@@ -11,7 +11,7 @@
           <button @click.stop="goNext" class="btn btn-outline btn-primary" :title="$t('generic.next')"><span>{{ $t('generic.next') }}</span> <i class="fa fa-chevron-right"></i> </button>
         </div>
       </div>
-      <div class="col-sm-2">
+      <div class="col-sm-2 year-bound">
         <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
       </div>
     </div>
@@ -93,16 +93,11 @@ import {CHANGE_MONTH} from "../actions";
           margin: auto ($grid / 2);
         }
       }
-      @media #{$mobile}{
-        width: ($grid * 12)
-      }
-      @media #{$mobile-small}{
-        width: ($grid * 10);
-      }
-      background-color: white;
+      @media #{$mobile}{ width: ($grid * 12) }
+      @media #{$mobile-small}{ width: ($grid * 10); }
       @include transition(background-color .25s ease);
       &:focus{
-        outline: none;
+        outline: none; // 무쓸모
       }
       &:hover{
         background-color: $white-hover;
@@ -116,8 +111,9 @@ import {CHANGE_MONTH} from "../actions";
     }
   }
 }
-.col-sm-2 {
+.year-bound {
   float: right;
+  padding-top: $grid;
   .show-year {
     color: $textDark;
     font-weight: 900;

@@ -63,11 +63,4 @@
     width: 70px;
     left: -70px;
   }
-  .weeks {
-    vertical-align: middle;
-    .week{
-      color: $textDark;
-      @include font-size(21px);
-    }
-  }
 </style>

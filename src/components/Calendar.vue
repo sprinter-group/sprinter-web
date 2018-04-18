@@ -154,6 +154,8 @@
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/css/style.scss";
+
   h1, h2 {
     font-weight: normal;
   }
@@ -162,11 +164,14 @@
   }
   .weeks {
     display: flex;
+    height: $grid8x;
   }
   .week {
     flex: 1;
-    padding: 5px;
+    color: $textDark;
+    padding: $grid2x;
     text-align: center;
+    @include font-size(18px);
   }
 
   .dates {

@@ -16,6 +16,8 @@ import FloatingButton from './FloatingButton.vue'
 // TODO by Hyouk
 // Escape 키로 모달창 닫히도록
 // Date Picker
+// 모달창에 selected 날짜 가져오기 (selected 가 없으면 today)
+// 가져온 날짜 표시
 
 export default {
   data() {

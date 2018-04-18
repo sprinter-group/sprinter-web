@@ -40,13 +40,16 @@ body { height: 100vh !important }
       margin-bottom: 0;
       > .panel-heading {
         border: none;
+        padding: $grid4x;
       }
       > .panel-body {
+        padding: $grid4x;
         > .row {
           &:focus {
             outline: none !important; // It doesn't work and I don't know why
           }
           .full-calendar-body {
+            margin-top: $grid4x;
             @include inner-border(0.75px, $stroke);
             .weeks, .dates, .week, .week-row, .day-cell {
               border: none;
