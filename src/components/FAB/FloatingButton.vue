@@ -1,9 +1,9 @@
 <template lang="pug">
-  FBA
+  FAB
 </template>
 
 <script>
-var FBA = {
+var FAB = {
   template: '<button id="floating-button-body"><span class="plus">+</span></button>'
 }
 
@@ -17,13 +17,13 @@ export default {
 
   },
   components: {
-    'FBA': FBA
+    'FAB': FAB
   }
 }
 </script>
 
 <style lang="scss">
-@import "../assets/css/style.scss";
+@import "../../assets/css/style.scss";
 
 #floating-button-body {
   z-index: 2;

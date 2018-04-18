@@ -189,8 +189,20 @@ a {
   }
 }
 
+
 /* ==============================
-    calendar div
+  make center
+============================== */
+@mixin set-center(){
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+
+/* ==============================
+  calendar div
 ============================== */
 #calendar-base {
   @include box-settings();

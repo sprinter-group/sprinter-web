@@ -1,7 +1,8 @@
 <template lang="pug">
-  div#modal-bground(v-if='FABvalue')
-    div.modal-dark-bg(@click='FABfalse')
-    div.modal-body
+  div#app
+    FloatingButton(@click.native='FABready')
+    div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
+    div.modal-body(v-if='FABvalue')
       i.fa.fa-times(@click='FABfalse', style='padding:8px')
       br
       span.modal-title Hello
@@ -10,42 +11,46 @@
 </template>
 
 <script>
-// TODO by Hyouk
-// 모달창 본체를 클릭했을때도 모달창이 닫히는 문제 해결
 import FloatingButton from './FloatingButton.vue'
+// import FABmodal from './FABmodal.vue'
+// import 'es6-promise/auto'
 
+//나눠서 홀수면 show
 export default {
-  data(){
+  data() {
     return{
-      FABvalue: true,
+      FABvalue: false,
       events: []
     }
   },
-  components: {
-    'FloatingButton':FloatingButton
-  },
   methods: {
+    FABready: function(){
+      if (this.FABvalue === false){
+        this.FABvalue = !this.FABvalue
+      }
+      console.log('Modal ' + this.FABvalue)
+    },
     FABfalse: function(){
       this.FABvalue = !this.FABvalue
-      console.log(this.FABvalue + ' !--modal off--!')
-      FloatingButton.FABvalue = !FloatingButton.FABvalue
+      console.log('Modal ' + this.FABvalue)
     }
-  }
+  },
+  components: {
+    'FloatingButton': FloatingButton,
+    // 'FABmodal': FABmodal
+  },
 }
 </script>
 
 <style lang="scss">
-@import "../assets/css/style.scss";
+@import "../../assets/css/style.scss";
 
 .modal-dark-bg{
   z-index: 3;
   width: 200vw;
   height: 200vh;
   position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  @include set-center();
   background-color: $black38;
   @include keyframes(opct, 0.35s){
     0%   { opacity: 0 }
@@ -53,7 +58,7 @@ export default {
   }
 }
 .modal-body {
-  z-index: 4;
+  z-index: 5;
   @include border-radius($grid2x);
   @include keyframes(pos, 0.35s){
     0%   { opacity: 0; top: 48% }
@@ -68,9 +73,6 @@ export default {
   height: 320px;
   // height: auto;
   min-height: 240px;
-  top: 50%;
-  left: 50%;
-  margin-right: -50%;
-  transform: translate(-50%, -50%);
+  @include set-center();
 }
 </style>

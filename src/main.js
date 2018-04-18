@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueI18n from 'vue-i18n'
+import Vuex from 'vuex'
 
+Vue.use(Vuex);
 Vue.use(VueI18n);
 
 //var messages = require('./locale').default;

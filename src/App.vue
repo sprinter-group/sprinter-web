@@ -6,7 +6,7 @@
 
 <script>
 import Calendar from './components/Calendar.vue'
-import FABcomps from './components/FABcomps.vue'
+import FABcomps from './components/FAB/FABcomps.vue'
 
 export default {
   name: 'app',

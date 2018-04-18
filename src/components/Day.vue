@@ -59,7 +59,7 @@
     }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import "../assets/css/style.scss";
 // 9564
 @mixin border-ways($val, $line, $color){

@@ -3,11 +3,12 @@
 </template>
 
 <script>
-    export default {
-        name: "common"
-    }
+  export default {
+      name: "common"
+  }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import "../../assets/css/style.scss";
 
 </style>
