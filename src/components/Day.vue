@@ -121,10 +121,10 @@
       border-radius: $grid8x;
       background-color: $brand !important;
       p {
-        color: white !important;
-        font-weight: bolder;
-        @include font-size(24px);
         visibility: visible;
+        font-weight: bolder;
+        color: white !important;
+        @include font-size(24px);
       }
     }
   }
@@ -133,7 +133,7 @@
       visibility: visible;
       border-radius: $grid8x;
       background-color: transparent;
-      box-shadow:0px 0px 0px 2px $brand inset;
+      box-shadow: 0px 0px 0px 2px $brand inset;
     }
     p {
       color: $brand !important;
@@ -144,7 +144,7 @@
 
 // global
   .today-circle {
-    width: $grid8x;
+    width:  $grid8x;
     height: $grid8x;
   }
 </style>

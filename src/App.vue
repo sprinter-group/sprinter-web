@@ -20,13 +20,14 @@ export default {
   },
   components: {
     'Calendar': Calendar,
-    'FABcomps':FABcomps
+    'FABcomps': FABcomps
   }
 }
 </script>
 
 <style lang="scss">
 @import "./assets/css/style.scss";
+// temp
 body { height: 100vh !important }
 #app {
   margin-top: 0 !important;
@@ -42,7 +43,7 @@ body { height: 100vh !important }
         > .row {
           .full-calendar-body {
             @include inner-border(0.75px, $stroke);
-              .weeks, .dates, .week, .week-row, .day-cell {
+            .weeks, .dates, .week, .week-row, .day-cell {
               border: none;
               @include box-sizing(border-box);
               @include inner-border(0.5px, $stroke);

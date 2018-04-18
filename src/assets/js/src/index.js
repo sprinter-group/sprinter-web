@@ -14,15 +14,6 @@
 })();
 
 
-// (function(){
-//   let getModalBody = document.querySelector('.modal-body');
-//   let getCloseBtn = document.querySelector('.fa-times');
-//   getCloseBtn.onClick = function(){
-//     getModalBody.className += " modal-leave";
-//   }
-// })();
-
-
 /* ==============================
   set today icon visible
 ============================== */

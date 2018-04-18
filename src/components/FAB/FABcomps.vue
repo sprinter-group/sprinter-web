@@ -12,10 +12,11 @@
 
 <script>
 import FloatingButton from './FloatingButton.vue'
-// import FABmodal from './FABmodal.vue'
-// import 'es6-promise/auto'
 
-//나눠서 홀수면 show
+// TODO by Hyouk
+// Escape 키로 모달창 닫히도록
+// Date Picker
+
 export default {
   data() {
     return{
@@ -37,7 +38,6 @@ export default {
   },
   components: {
     'FloatingButton': FloatingButton,
-    // 'FABmodal': FABmodal
   },
 }
 </script>
@@ -56,7 +56,6 @@ export default {
     0%   { opacity: 0 }
     100% { opacity: 1 }
   }
-  // @include transition(all, .35s, ease);
 }
 .modal-body {
   z-index: 5;
@@ -72,10 +71,11 @@ export default {
   max-width: 480px !important;
   min-width: 320px !important;
   height: 320px;
-  // height: auto;
   min-height: 240px;
   @include set-center();
-  // @include transition(all, .35s, ease);
+
+  // height: auto;
+
 }
 
 </style>

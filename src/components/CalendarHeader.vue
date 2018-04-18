@@ -91,9 +91,9 @@
 }
 .show-year {
   float: right;
-  @include font-size(24px);
-  @include line-height(32px);
   color: $textDark;
   font-weight: 900;
+  @include font-size(24px);
+  @include line-height(32px);
 }
 </style>

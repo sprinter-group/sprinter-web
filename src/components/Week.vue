@@ -70,7 +70,6 @@
     .week{
       color: $textDark;
       @include font-size(21px);
-      // font-weight: 100;
     }
   }
 </style>
