@@ -56,13 +56,14 @@ export default {
     0%   { opacity: 0 }
     100% { opacity: 1 }
   }
+  // @include transition(all, .35s, ease);
 }
 .modal-body {
   z-index: 5;
   @include border-radius($grid2x);
   @include keyframes(pos, 0.35s){
-    0%   { opacity: 0; top: 48% }
-    100% { opacity: 1; top: 50% }
+    0%   { opacity: 0; top: 48%; }
+    100% { opacity: 1; top: 50%; }
   }
   background-color: white;
   color: $textDark;
@@ -74,5 +75,7 @@ export default {
   // height: auto;
   min-height: 240px;
   @include set-center();
+  // @include transition(all, .35s, ease);
 }
+
 </style>

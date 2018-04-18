@@ -162,15 +162,11 @@
   }
   .weeks {
     display: flex;
-    border-top: 1px solid #e0e0e0;
-    border-bottom: 1px solid #e0e0e0;
-    border-left: 1px solid #e0e0e0;
   }
   .week {
     flex: 1;
     padding: 5px;
     text-align: center;
-    border-right: 1px solid #e0e0e0;
   }
 
   .dates {
