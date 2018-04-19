@@ -46,16 +46,11 @@ export default {
       > .panel-body {
         padding: $grid4x;
         > .row {
-          &:focus {
-            outline: none !important; // It doesn't work and I don't know why
-          }
           .full-calendar-body {
             margin-top: $grid4x;
             @include inner-border(0.75px, $stroke);
             .weeks, .dates, .week, .week-row, .day-cell, .current-month {
               border: none;
-              @include box-sizing(border-box);
-              // @include box-sizing(content-box);
               @include inner-border(0.5px, $stroke);
             }
           }

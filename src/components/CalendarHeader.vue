@@ -122,4 +122,9 @@ import {CHANGE_MONTH} from "../actions";
     @include line-height(32px);
   }
 }
+.main-div-header {
+  &:focus {
+    outline: none;
+  }
+}
 </style>
