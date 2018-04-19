@@ -1,10 +1,10 @@
 <template lang="pug">
-    <div class="row main-div-header" tabindex="0">
+    <div class="row main-div-header" tabindex="0" @keydown.left="goPrev" @keydown.right="goNext">
       <div class="col-sm-2 hide-me">
         <div class="form-group">
         </div>
       </div>
-      <div class="col-sm-8 header-center" @keydown.left="goPrev" @keydown.right="goNext">
+      <div class="col-sm-8 header-center">
         <div class="btn-gourp">
           <button @click.stop="goPrev" class="btn btn-outline btn-primary" :title="$t('generic.previous')"> <i class="fa fa-chevron-left"></i> <span>{{ $t('generic.previous') }}</span></button>
           <button @click.stop="goToday" class="btn btn-outline btn-default today-button" :title="$t('generic.today')"> <i class="fa fa-calendar-o"></i> <span>{{ $t('generic.today') }}</span></button>
@@ -63,7 +63,6 @@ import {CHANGE_MONTH} from "../actions";
           goToday(){
             this.$root.$emit(CHANGE_MONTH, moment());
           }
-
       }
     }
 </script>

@@ -1,5 +1,5 @@
 <template lang="pug">
-  div#app
+  div#app(@keydown='watchKeydown')
     Calendar(:first-day='1', :all-events='events')
     FABcomps
 </template>
@@ -21,6 +21,20 @@ export default {
   components: {
     'Calendar': Calendar,
     'FABcomps': FABcomps
+  },
+  computed: {
+    // TODO by Hyouk
+    // 'left', 'right' 누를때 달력 넘기기
+    watchKeydown: function(){
+      window.addEventListener('keydown', function(e) {
+          if (e.keyCode == 37){
+            console.log('left')
+          }
+          else if (e.keyCode == 39){
+            console.log('right')
+          }
+      });
+    },
   }
 }
 </script>

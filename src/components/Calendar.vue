@@ -43,7 +43,7 @@
         return {
           loading: false,
           error: null,
-          currentMonth: moment().startOf('month')
+          currentMonth: moment().startOf('month'),
         }
       },
       props: {
@@ -119,7 +119,6 @@
             start.subtract(7, 'days');
 
           }
-
           start.add(firstDay, 'days');
           return start;
         },
@@ -132,7 +131,6 @@
             date: moment(mm),
             events: this.getEvents(mm)
           }
-
         },
         getEvents(date) {
           return this.events.filter(event => {
@@ -147,9 +145,6 @@
           console.log("now CM : " + this.currentMonth);
         })
       }
-
-
-
     }
 </script>
 
