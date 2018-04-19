@@ -28,10 +28,10 @@ export default {
 #floating-button-body {
   z-index: 2;
   border: none;
-  position: fixed;
   right: $grid6x;
-  width: $grid * 14;
   bottom: $grid6x;
+  position: fixed;
+  width: $grid * 14;
   height: $grid * 14;
   background-color: $brand;
   @include border-radius($grid16x);
@@ -42,8 +42,8 @@ export default {
     @include font-size($grid12x);
   }
   &:hover {
-    box-shadow: 0px $grid2x $grid2x $textLightGrey;
     background-color: $brand-hover;
+    box-shadow: 0px $grid2x $grid2x $textLightGrey;
   }
 }
 </style>

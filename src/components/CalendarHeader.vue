@@ -77,10 +77,10 @@ import {CHANGE_MONTH} from "../actions";
     float: left;
     .btn {
       padding: 0;
-      height: ($grid * 10);
       text-align: center;
-      vertical-align: middle;
       width: ($grid * 24);
+      height: ($grid * 10);
+      vertical-align: middle;
       &:nth-child(2){
         margin: auto $grid;
       }

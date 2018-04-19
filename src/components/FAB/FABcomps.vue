@@ -57,8 +57,8 @@ export default {
   @include set-center();
   background-color: $black38;
   @include keyframes(opct, 0.35s){
-    0%   { opacity: 0 }
-    100% { opacity: 1 }
+    0%   { @include opacity(0) }
+    100% { @include opacity(1) }
   }
 }
 .modal-body {
@@ -69,8 +69,8 @@ export default {
   background-color: white;
   @include border-radius($grid2x);
   @include keyframes(pos, 0.35s){
-    0%   { opacity: 0; top: 48%; }
-    100% { opacity: 1; top: 50%; }
+    0%   { @include opacity(0); top: 48%; }
+    100% { @include opacity(1); top: 50%; }
   }
   max-width: 480px !important;
   min-width: 320px !important;
@@ -91,6 +91,9 @@ export default {
     &:hover {
       color: $textDark;
     }
+  }
+  @media #{$mobile}{
+    min-width: 280px !important;
   }
 
   // height: auto;

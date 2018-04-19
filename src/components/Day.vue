@@ -118,7 +118,7 @@
     background-color: $listBase;
     .today-circle {
       visibility: hidden;
-      border-radius: $grid8x;
+      @include border-radius($grid8x);
       background-color: $brand !important;
       p {
         visibility: visible;
@@ -131,9 +131,10 @@
   .selected-day {
     .today-circle {
       visibility: visible;
-      border-radius: $grid8x;
       background-color: transparent;
-      box-shadow: 0px 0px 0px 2px $brand inset;
+      @include border-radius($grid8x);
+           box-shadow: 0px 0px 0px 2px $brand inset;
+      -moz-box-shadow: 0px 0px 0px 2px $brand inset;
     }
     p {
       color: $brand !important;

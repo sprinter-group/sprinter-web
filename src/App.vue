@@ -28,9 +28,10 @@ export default {
 <style lang="scss">
 @import "./assets/css/style.scss";
 // temp
-body { height: 100vh !important }
+
 // TODO by Hyouk
 // 스타일 컴포넌트로 옮기기
+// 행 높이 vh 단위로 맞추기
 #app {
   margin-top: 0 !important;
   > .row {
@@ -51,9 +52,10 @@ body { height: 100vh !important }
           .full-calendar-body {
             margin-top: $grid4x;
             @include inner-border(0.75px, $stroke);
-            .weeks, .dates, .week, .week-row, .day-cell {
+            .weeks, .dates, .week, .week-row, .day-cell, .current-month {
               border: none;
               @include box-sizing(border-box);
+              // @include box-sizing(content-box);
               @include inner-border(0.5px, $stroke);
             }
           }

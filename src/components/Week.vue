@@ -56,11 +56,12 @@
     cursor:pointer;
   }
   .week-num {
-    border-radius: $grid 0 0 $grid;
-    background-color: white;
+    left: -70px;
+    width: 70px;
     text-align: right;
     position: absolute;
-    width: 70px;
-    left: -70px;
+    background-color: white;
+            border-radius: $grid 0 0 $grid;
+    -webkit-border-radius: $grid 0 0 $grid;
   }
 </style>
