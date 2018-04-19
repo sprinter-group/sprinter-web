@@ -18,14 +18,14 @@
 </template>
 
 <script>
-import moment from 'moment';
-import {CHANGE_MONTH} from "../actions";
+import moment from 'moment'
+import {CHANGE_MONTH} from "../actions"
 
 // TODO by Hyouk
 // 버튼 누르기 전에도 @keydown 적용 가능하도록 수정
 
   export default {
-      data() {
+      data: function() {
           return {
             localeSelect: 'en'
           }
@@ -38,7 +38,7 @@ import {CHANGE_MONTH} from "../actions";
       },
       computed: {
         nowYear() {
-          if( !this.currentMonth) return;
+          if(!this.currentMonth) return;
           return this.currentMonth.locale(this.locale).format('MMMM YYYY');
         }
       },

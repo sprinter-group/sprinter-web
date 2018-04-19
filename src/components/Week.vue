@@ -12,7 +12,7 @@
   import Day from './Day';
 
   export default {
-      data() {
+      data: function() {
           return {
             showWeekNumFlag: false,
           }

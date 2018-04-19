@@ -1,16 +1,19 @@
 <template lang="pug">
+  //- div#app(@keydown.left="goPrev" @keydown.right="goNext")
   div#app(@keydown='watchKeydown')
     Calendar(:first-day='1', :all-events='events')
     FABcomps
 </template>
 
 <script>
+import moment from 'moment'
 import Calendar from './components/Calendar.vue'
 import FABcomps from './components/FAB/FABcomps.vue'
+import {CHANGE_MONTH} from "./actions"
 
 export default {
   name: 'app',
-  data() {
+  data: function() {
     return {
       events: []
     }
@@ -28,13 +31,17 @@ export default {
     watchKeydown: function(){
       window.addEventListener('keydown', function(e) {
           if (e.keyCode == 37){
-            console.log('left')
+            let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month');
+            pl.month = (pl.month() + 1)
+            console.log('left ' + pl.month)
           }
           else if (e.keyCode == 39){
-            console.log('right')
+            let pl = moment(this.currentMonth).add(1, 'months').startOf('month');
+            pl.month = (pl.month() + 1)
+            console.log('right ' + pl.month)
           }
-      });
-    },
+      })
+    }
   }
 }
 </script>

@@ -20,7 +20,7 @@
   import moment from 'moment';
   import {DAY_SELECTED, CHANGE_MONTH} from '../actions';
     export default {
-      data() {
+      data: function() {
           return {
             isDaySelected: false,
           }
