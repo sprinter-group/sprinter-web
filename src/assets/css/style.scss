@@ -1,4 +1,5 @@
 @import "/dist/normalize.css";
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
@@ -19,15 +20,16 @@
     -webkit-font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
 }
 
+
 // text rendering
 @mixin font-settings() {
-    direction: ltr;
-         font-feature-settings: 'liga';
-    -moz-font-feature-settings: 'liga';
-    text-rendering: optimizeLegibility;
-    -moz-osx-font-smoothing: grayscale;
-     -webkit-font-smoothing: antialiased;
-    -webkit-text-decoration-skip: ink;
+  direction: ltr;
+       font-feature-settings: 'liga';
+  -moz-font-feature-settings: 'liga';
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+   -webkit-font-smoothing: antialiased;
+  -webkit-text-decoration-skip: ink;
 }
 
 /* ==============================
@@ -78,6 +80,7 @@ $grid2x:  ($grid * 2 );
 $grid4x:  ($grid * 4 );
 $grid6x:  ($grid * 6 );
 $grid8x:  ($grid * 8 );
+$grid10x: ($grid * 10);
 $grid12x: ($grid * 12);
 $grid16x: ($grid * 16);
 $grid32x: ($grid * 32);
@@ -98,16 +101,6 @@ $grid32x: ($grid * 32);
     line-height: calculateRem($size) * 1.6;
 }
 
-// mixin icon font
-// http://google.github.io/material-design-icons/
-// @mixin font-stack-icon() {
-//             font-family: 'Material Icons';
-//     -webkit-font-family: 'Material Icons';
-//     @include font-size(24px);
-//     @include font-settings();
-//     line-height: 1;
-// }
-
 /* ==============================
     box border bgcolor
 ============================== */
@@ -124,6 +117,21 @@ $grid32x: ($grid * 32);
     border-radius: $n;
 }
 
+
+// mixin icon font
+@mixin font-stack-icon() {
+          font-family: 'Material Icons';
+     -moz-font-family: 'Material Icons';
+  -webkit-font-family: 'Material Icons';
+  @include font-settings();
+}
+
+$sizes: '16', '24', '36', '48';
+@each $size in $sizes {
+  .md-#{$size} {font-size: #{$size}px}
+}
+
+
 /* ==============================
     transition
 ============================== */
@@ -139,6 +147,9 @@ $grid32x: ($grid * 32);
 /* ==============================
     pseudo class
 ============================== */
+::placeholder {
+  color: $before;
+}
 ::selection {
     background-color: $brand;
     color: $white;

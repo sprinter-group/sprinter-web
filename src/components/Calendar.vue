@@ -157,7 +157,7 @@
     font-weight: normal;
   }
   .full-calendar-body {
-    margin-top: 20px;
+    margin-top: ($grid * 5);
   }
   .weeks {
     display: flex;
@@ -168,7 +168,7 @@
     color: $textDark;
     padding: $grid2x;
     text-align: center;
-    @include font-size(18px);
+    @include font-size(($grid4x));
   }
 
   .dates {

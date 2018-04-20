@@ -3,11 +3,10 @@
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
     div.modal-body(v-if='FABvalue')
-      i.fa.fa-times(@click='FABfalse')
-      br
-      span.modal-title Hello
-      br
-      input(placeholder='Your todo')
+      i.material-icons.md-close(@click='FABfalse') close
+      form
+        input.modal-input-title(placeholder='New event')
+        input.modal-input-text(:type='textfield')
 </template>
 
 <script>
@@ -65,8 +64,10 @@ export default {
   z-index: 5;
   width: 64vw;
   position: fixed;
+  padding: $grid4x;
   color: $textDark;
   background-color: white;
+  @include box-sizing(border-box);
   @include border-radius($grid2x);
   @include keyframes(pos, 0.35s){
     0%   { @include opacity(0); top: 48%; }
@@ -77,26 +78,36 @@ export default {
   height: 320px;
   min-height: 240px;
   @include set-center();
-  > .fa-times {
+  > .md-close {
     top: 0;
     right: 0;
     position: fixed;
     cursor: pointer;
     padding: $grid4x;
-    margin-top: $grid;
-    margin-right: $grid2x;
     color: $textLightGrey;
-    @include font-size(24px);
+    @include font-size(36px);
     @include transition(color .25s ease);
     &:hover {
       color: $textDark;
     }
   }
-  @media #{$mobile}{
+  @media #{$mobile} {
     min-width: 280px !important;
   }
-
-  // height: auto;
+  form{
+    .modal-input-title {
+      float: left;
+      width: 100%;
+      border: none;
+      color: $textDark;
+      height: $grid10x;
+      margin-top: $grid8x;
+      @include font-size(($grid8x));
+    }
+    .modal-input-text {
+      @include font-size(($grid4x));
+    }
+  }
 }
 
 </style>
