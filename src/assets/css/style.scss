@@ -216,6 +216,14 @@ a {
   }
 }
 
+@mixin transform($val){
+  transform: $val;
+  -o-transform: $val;
+  -ms-transform: $val;
+  -moz-transform: $val;
+  -khtml-transform: $val;
+  -webkit-transform: $val;
+}
 
 /* ==============================
   make center
@@ -224,12 +232,7 @@ a {
   top: 50%;
   left: 50%;
   margin-right: -50%;
-  transform: translate(-50%, -50%);
-  -o-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  -moz-transform: translate(-50%, -50%);
-  -khtml-transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
+  @include transform(translate(-50%, -50%));
 }
 
 

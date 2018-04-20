@@ -26,7 +26,7 @@ export default {
   components: {
     'Calendar': Calendar,
     'FABcomps': FABcomps,
-    'CalendarHeader': CalendarHeader
+    'CalendarHeader': CalendarHeader,
   },
   computed: {
     // TODO by Hyouk
