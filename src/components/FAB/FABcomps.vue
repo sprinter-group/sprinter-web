@@ -6,7 +6,9 @@
       i.material-icons.md-close(@click='FABfalse') close
       form
         input.modal-input-title(placeholder='New event')
-        input.modal-input-text(:type='textfield')
+        textarea.modal-input-text(placeholder='Details about your task...')
+        button.modal-save-btn(type='submit') Save
+        button.modal-set-time Set time
 </template>
 
 <script>
@@ -48,6 +50,22 @@ export default {
 <style lang="scss">
 @import "../../assets/css/style.scss";
 
+%modal-btns {
+  float: right;
+  border: none;
+  color: white;
+  height: $grid8x;
+  font-weight: 900;
+  width: ($grid * 24);
+  background-color: $brand;
+  @include font-size(20px);
+  @include border-radius($grid);
+  @include transition(background-color .25s ease);
+  &:hover {
+    background-color: $brand-hover;
+  }
+}
+
 .modal-dark-bg{
   z-index: 3;
   width: 200vw;
@@ -75,8 +93,6 @@ export default {
   }
   max-width: 480px !important;
   min-width: 320px !important;
-  height: 320px;
-  min-height: 240px;
   @include set-center();
   > .md-close {
     top: 0;
@@ -94,18 +110,41 @@ export default {
   @media #{$mobile} {
     min-width: 280px !important;
   }
-  form{
+  form {
+    width: 100%;
+    color: $textDark;
     .modal-input-title {
       float: left;
       width: 100%;
       border: none;
-      color: $textDark;
       height: $grid10x;
-      margin-top: $grid8x;
+      font-weight: 900;
+      margin-top: $grid4x;
       @include font-size(($grid8x));
     }
     .modal-input-text {
-      @include font-size(($grid4x));
+      width: 100%;
+      border: none;
+      resize: none;
+      outline: none;
+      height: ($grid * 20);
+      margin: $grid2x 0 $grid4x;
+      vertical-align: top;
+      @include line-height(24px);
+      @include font-size(($grid6x));
+    }
+    .modal-save-btn {
+      @extend %modal-btns;
+    }
+    .modal-set-time {
+      color: $textGrey;
+      margin-right: $grid2x;
+      background-color: white;
+      @extend %modal-btns;
+      &:hover{
+        background-color: $white-hover;
+      }
+      @include transition(background-color .25s ease);
     }
   }
 }
