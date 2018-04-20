@@ -1,17 +1,21 @@
 <template lang="pug">
+  //- div#app(@keydown='watchKeydown')
   div#app
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
     div.modal-body(v-if='FABvalue')
-      i.material-icons.md-close(@click='FABfalse') close
+      i.material-icons.md-close(@click='FABfalse', title='Exit') close
       form
         input.modal-input-title(placeholder='New event')
         textarea.modal-input-text(placeholder='Details about your task...')
-        button.modal-save-btn(type='submit') Save
-        button.modal-set-time Set time
+        button.modal-save-btn(type='submit', :title='Submit') {{Submit}}
+        button.modal-set-time(:title='SetTime') {{SetTime}}
 </template>
 
 <script>
+// import moment from 'moment'
+import Calendar from '../Calendar.vue'
+// import {CHANGE_MONTH} from "../../actions"
 import FloatingButton from './FloatingButton.vue'
 
 // TODO by Hyouk
@@ -24,7 +28,11 @@ export default {
   data() {
     return{
       FABvalue: false,
-      events: []
+      currentMonth: {},
+      events: [],
+      Exit: 'Exit',
+      Submit: 'Submit',
+      SetTime: 'Set Time',
     }
   },
   methods: {
@@ -42,8 +50,12 @@ export default {
     }
   },
   components: {
+    'Calendar': Calendar,
     'FloatingButton': FloatingButton
   },
+  computed: {
+
+  }
 }
 </script>
 
@@ -137,14 +149,15 @@ export default {
       @extend %modal-btns;
     }
     .modal-set-time {
-      color: $textGrey;
+      color: $textLightGrey;
       margin-right: $grid2x;
       background-color: white;
       @extend %modal-btns;
       &:hover{
+        color: $textGrey;
         background-color: $white-hover;
       }
-      @include transition(background-color .25s ease);
+      @include transition(all .25s ease);
     }
   }
 }
