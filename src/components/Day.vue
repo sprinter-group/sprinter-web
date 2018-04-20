@@ -21,27 +21,27 @@
   import {DAY_SELECTED, CHANGE_MONTH} from '../actions';
     export default {
       data: function() {
-          return {
-            isDaySelected: false,
-          }
+        return {
+          isDaySelected: false,
+        }
       },
       props: {
-          day: {
-            type: Object
-          },
+        day: {
+          type: Object
+        },
         firstDay: {
-            type: String
+          type: String
         }
       },
       methods: {
-          showDayOptions() {
-            let me = this;
-            let startOfToday = moment().startOf('D');
-            if(this.day.date.isAfter(startOfToday) || this.day.date.isSame(startOfToday)) {
-              this.isDaySelected = true;
-              this.$root.$emit(DAY_SELECTED, {dayDate:me.day.date});
-            }
+        showDayOptions() {
+          let me = this;
+          let startOfToday = moment().startOf('D');
+          if(this.day.date.isAfter(startOfToday) || this.day.date.isSame(startOfToday)) {
+            this.isDaySelected = true;
+            this.$root.$emit(DAY_SELECTED, {dayDate:me.day.date});
           }
+        }
       },
       created() {
         let me = this;

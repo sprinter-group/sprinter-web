@@ -25,46 +25,49 @@ import {CHANGE_MONTH} from "../actions"
 // 버튼 누르기 전에도 @keydown 적용 가능하도록 수정
 
   export default {
-      data: function() {
-          return {
-            localeSelect: 'en'
-          }
-      },
-      props: {
-          currentMonth: {},
-          locale: {
-            type: String,
-          }
-      },
-      computed: {
-        nowYear() {
-          if(!this.currentMonth) return;
-          return this.currentMonth.locale(this.locale).format('MMMM YYYY');
+    data: function() {
+        return {
+          localeSelect: 'en'
+        }
+    },
+    props: {
+        currentMonth: {},
+        locale: {
+          type: String,
+        }
+    },
+    computed: {
+      nowYear() {
+        if(!this.currentMonth) return;
+        return this.currentMonth.locale(this.locale).format('MMMM YYYY');
+      }
+    },
+    methods: {
+      setLocale(){
+        if(i18n) {
+          i18n.locale = this.localeSelect;
+        } else {
+          console.warn('Plz define global vue locale value');
         }
       },
-      methods: {
-          setLocale(){
-            if(i18n) {
-              i18n.locale = this.localeSelect;
-            } else {
-              console.warn('Plz define global vue locale value');
-            }
-          },
-          goPrev() {
-            let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month');
-            this.$root.$emit(CHANGE_MONTH, pl);
-            console.log(pl.month());
-          },
-          goNext() {
-            let pl = moment(this.currentMonth).add(1, 'months').startOf('month');
-            this.$root.$emit(CHANGE_MONTH, pl);
-            console.log(pl.month());
-          },
-          goToday(){
-            this.$root.$emit(CHANGE_MONTH, moment());
-          }
+      goPrev() {
+        let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month');
+        this.$root.$emit(CHANGE_MONTH, pl);
+        console.log(pl.month());
+      },
+      goNext() {
+        let pl = moment(this.currentMonth).add(1, 'months').startOf('month');
+        this.$root.$emit(CHANGE_MONTH, pl);
+        console.log(pl.month());
+      },
+      goToday() {
+        this.$root.$emit(CHANGE_MONTH, moment());
+      },
+      events: function() {
+        return this.currentMonth;
       }
     }
+  }
 </script>
 
 <style lang="scss" scoped>
