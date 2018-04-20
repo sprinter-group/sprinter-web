@@ -83,9 +83,9 @@ export default {
   border: none;
   color: white;
   cursor: pointer;
+  width: $grid24x;
   height: $grid8x;
   font-weight: 900;
-  width: ($grid * 24);
   background-color: $brand;
   @include line-height($grid8x);
   @include border-radius($grid);
@@ -118,14 +118,18 @@ export default {
   padding: $grid4x;
   color: $textDark;
   background-color: white;
-  max-width: 480px !important;
-  min-width: 320px !important;
+  width: 64%;
+  max-width: 560px;
+  min-width: 296px;
   @include set-center();
   @include border-radius($grid);
   @include box-sizing(border-box);
   @include keyframes(pos, 0.25s){
-    0%   { @include opacity(0); top: 48%; }
-    100% { @include opacity(1); top: 50%; }
+    0%   { @include opacity(0); top: 47.5%; }
+    100% { @include opacity(1); top: 50.0%; }
+  }
+  @media #{$mobile-small} {
+    min-width: 280px !important;
   }
   > .md-close {
     top: 0;
@@ -134,14 +138,11 @@ export default {
     cursor: pointer;
     padding: $grid4x;
     color: $textLightGrey;
-    @include font-size(36px);
+    @include font-size($grid8x + $grid);
     @include transition(color .25s ease);
     &:hover {
       color: $textDark;
     }
-  }
-  @media #{$mobile} {
-    min-width: 280px !important;
   }
   form {
     width: 100%;
@@ -163,8 +164,11 @@ export default {
       height: ($grid * 20);
       margin: $grid2x 0 $grid4x;
       vertical-align: top;
-      @include line-height(24px);
-      @include font-size(($grid6x));
+      @include font-size($grid6x);
+      @include line-height($grid6x);
+      @media #{$mobile-small}{
+        margin: $grid 0 $grid4x;
+      }
     }
     .modal-save-btn {
       @extend %modal-btns;
@@ -196,7 +200,6 @@ export default {
       0%   { @include opacity(0); }
       100% { @include opacity(1); }
     }
-    // @include transition(all .25s ease);
   }
 }
 
