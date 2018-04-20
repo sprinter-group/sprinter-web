@@ -58,7 +58,7 @@ export default {
   font-weight: 900;
   width: ($grid * 24);
   background-color: $brand;
-  @include font-size(20px);
+  @include font-size(($grid * 5));
   @include border-radius($grid);
   @include transition(background-color .25s ease);
   &:hover {
@@ -80,20 +80,20 @@ export default {
 }
 .modal-body {
   z-index: 5;
-  width: 64vw;
+  width: $grid16x;
   position: fixed;
   padding: $grid4x;
   color: $textDark;
   background-color: white;
+  max-width: 480px !important;
+  min-width: 320px !important;
+  @include set-center();
   @include box-sizing(border-box);
-  @include border-radius($grid2x);
+  @include border-radius($grid);
   @include keyframes(pos, 0.35s){
     0%   { @include opacity(0); top: 48%; }
     100% { @include opacity(1); top: 50%; }
   }
-  max-width: 480px !important;
-  min-width: 320px !important;
-  @include set-center();
   > .md-close {
     top: 0;
     right: 0;
