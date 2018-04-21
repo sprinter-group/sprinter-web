@@ -129,8 +129,8 @@ Vue.component('my-component', {
   }
 }
 .year-bound {
+  padding: 0;
   float: right;
-  padding: none;
   padding-top: $grid;
   .show-year {
     color: $textDark;
@@ -145,4 +145,5 @@ Vue.component('my-component', {
     outline: none;
   }
 }
+
 </style>

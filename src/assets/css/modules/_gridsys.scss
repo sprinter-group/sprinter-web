@@ -17,3 +17,20 @@ $grid36x: ($grid * 36);
 $grid48x: ($grid * 48);
 $grid56x: ($grid * 56);
 $grid64x: ($grid * 64);
+
+
+/* ==============================
+    default font-size, line-height
+============================== */
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
+@mixin line-height($size) {
+  line-height: $size * 1.6;
+  line-height: calculateRem($size) * 1.6;
+}
