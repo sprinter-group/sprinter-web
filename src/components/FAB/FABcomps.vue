@@ -103,12 +103,12 @@ export default {
   padding: $grid4x;
   color: $textDark;
   background-color: white;
-  width: 64%;
   max-width: 560px;
   min-width: 296px;
+  width: 64%;
   @include set-center();
   @include border-radius($grid);
-  @include box-sizing(border-box);
+  @include box-shadow($grid4x, $grid8x, $color:$textGrey);
   @include keyframes(pos, 0.25s){
     0%   { @include opacity(0); top: 47.5%; }
     100% { @include opacity(1); top: 50.0%; }

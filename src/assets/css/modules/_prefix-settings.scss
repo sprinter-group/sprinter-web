@@ -1,22 +1,21 @@
 /* ==============================
   box sizing prefix
 ============================== */
-@mixin box-sizing($val){
+@mixin     box-sizing($val){
   -webkit-box-sizing: $val;
-  -khtml-box-sizing: $val;
-  -moz-box-sizing: $val;
-  -ms-box-sizing: $val;
-  -o-box-sizing: $val;
-  box-sizing: $val;
+  -khtml-box-sizing:  $val;
+  -moz-box-sizing:    $val;
+  -ms-box-sizing:     $val;
+  -o-box-sizing:      $val;
+  box-sizing:         $val;
 }
-
 *{ @include box-sizing(border-box) }
 
 
 /* ==============================
     transition
 ============================== */
-@mixin transition($transition...) {
+@mixin       transition($transition...) {
     -webkit-transition: $transition;
     -khtml-transition:  $transition;
     -moz-transition:    $transition;
@@ -29,12 +28,12 @@
 /* ==============================
   transform
 ============================== */
-@mixin transform($val){
-  transform: $val;
-  -o-transform: $val;
-  -ms-transform: $val;
-  -moz-transform: $val;
-  -khtml-transform: $val;
+@mixin     transform($val){
+  transform:         $val;
+  -o-transform:      $val;
+  -ms-transform:     $val;
+  -moz-transform:    $val;
+  -khtml-transform:  $val;
   -webkit-transform: $val;
 }
 
@@ -42,32 +41,32 @@
 /* ==============================
   border radius
 ============================== */
-@mixin border-radius($val){
+@mixin     border-radius($val){
   -webkit-border-radius: $val;
-  -khtml-border-radius: $val;
-  -moz-border-radius: $val;
-  -ms-border-radius: $val;
-  -o-border-radius: $val;
-  border-radius: $val;
+  -khtml-border-radius:  $val;
+  -moz-border-radius:    $val;
+  -ms-border-radius:     $val;
+  -o-border-radius:      $val;
+  border-radius:         $val;
 }
 
 
 /* ==============================
   animations
 ============================== */
-@mixin animation-settings($name, $dur){
-  -webkit-animation: $name $dur;
-  -khtml-animation: $name $dur;
-  -moz-animation: $name $dur;
-  -ms-animation: $name $dur;
-  -o-animation: $name $dur;
-  animation: $name $dur;
+@mixin animation-settings($name,$dur){
+  -webkit-animation:      $name $dur;
+  -khtml-animation:       $name $dur;
+  -moz-animation:         $name $dur;
+  -ms-animation:          $name $dur;
+  -o-animation:           $name $dur;
+  animation:              $name $dur;
   -webkit-animation-iteration-count: 1;
-  -khtml-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  -ms-animation-iteration-count: 1;
-  -o-animation-iteration-count: 1;
-  animation-iteration-count: 1;
+  -khtml-animation-iteration-count:  1;
+  -moz-animation-iteration-count:    1;
+  -ms-animation-iteration-count:     1;
+  -o-animation-iteration-count:      1;
+  animation-iteration-count:         1;
 }
 
 @mixin keyframes($name, $dur){
@@ -92,26 +91,37 @@
 ============================== */
 @mixin inner-border($val, $color){
   -webkit-box-shadow: inset 0px 0px 0px $val $color;
-  -khtml-box-shadow: inset 0px 0px 0px $val $color;
-  -moz-box-shadow: inset 0px 0px 0px $val $color;
-  -ms-box-shadow: inset 0px 0px 0px $val $color;
-  -o-box-shadow: inset 0px 0px 0px $val $color;
-  box-shadow: inset 0px 0px 0px $val $color;
+  -khtml-box-shadow:  inset 0px 0px 0px $val $color;
+  -moz-box-shadow:    inset 0px 0px 0px $val $color;
+  -ms-box-shadow:     inset 0px 0px 0px $val $color;
+  -o-box-shadow:      inset 0px 0px 0px $val $color;
+  box-shadow:         inset 0px 0px 0px $val $color;
 }
 
+@mixin box-shadow($val:$grid2x, $val2:$grid4x, $color:$lightGrey){
+  -webkit-box-shadow:  0px $val $val2 $color;
+  -khtml-box-shadow:   0px $val $val2 $color;
+  -moz-box-shadow:     0px $val $val2 $color;
+  -ms-box-shadow:      0px $val $val2 $color;
+  -o-box-shadow:       0px $val $val2 $color;
+  box-shadow:          0px $val $val2 $color;
+}
 
 /* ==============================
     box border bgcolor
 ============================== */
 @mixin box-settings($bd: $stroke, $bg: white, $n: 0px) {
   -webkit-border: 1px solid $bd;
-  -mozborder: 1px solid $bd;
-  border: 1px solid $bd;
+  -khtml-border:  1px solid $bd;
+  -moz-border:    1px solid $bd;
+  -ms-border:     1px solid $bd;
+  -o-border:      1px solid $bd;
+  border:         1px solid $bd;
   background-color: $bg;
   -webkit-border-radius: $n;
-  -khtml-border-radius: $n;
-  -moz-border-radius: $n;
-  -ms-border-radius: $n;
-  -o-border-radius: $n;
-  border-radius: $n;
+  -khtml-border-radius:  $n;
+  -moz-border-radius:    $n;
+  -ms-border-radius:     $n;
+  -o-border-radius:      $n;
+  border-radius:         $n;
 }

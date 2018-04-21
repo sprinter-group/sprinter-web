@@ -73,7 +73,7 @@
     overflow-x: hidden;
     overflow-y: hidden;
     border: 1px solid $stroke;
-    box-shadow: 0px $grid2x $grid4x $lightGrey;
+    @include box-shadow();
     @include font-size($grid4x);
     @include border-radius($grid);
     // @include inner-border(1px, $stroke);

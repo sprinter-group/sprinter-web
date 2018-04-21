@@ -21,12 +21,12 @@
   global (tags)
 ============================== */
 body {
+  outline: none;
     color: $textDark;
-    outline: none;
     @include font-size(16px);
+    @include font-settings();
     @include line-height(16px);
     @include font-stack-html();
-    @include font-settings();
 }
 
 h1, h2 {
@@ -34,13 +34,13 @@ h1, h2 {
 }
 
 ul {
-  list-style-type: none;
   padding: 0;
+  list-style-type: none;
 }
 
 li {
-  display: inline-block;
   margin: 0 10px;
+  display: inline-block;
 }
 
 a {
@@ -66,8 +66,8 @@ a {
   calendar div
 ============================== */
 #calendar-base {
-  @include box-settings();
   width: 100vw;
+  @include box-settings();
 }
 
 
