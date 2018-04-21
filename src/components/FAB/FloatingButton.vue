@@ -41,9 +41,10 @@ export default {
     vertical-align: middle;
     @include font-size($grid12x);
   }
+  box-shadow: 0px $grid $grid $lightGrey;
   &:hover {
     background-color: $brand-hover;
-    box-shadow: 0px $grid2x $grid2x $textLightGrey;
+    box-shadow: 0px $grid2x $grid2x $before;
   }
 }
 </style>

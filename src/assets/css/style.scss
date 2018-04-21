@@ -13,20 +13,13 @@
 @import '/modules/font-settings';
 @import '/modules/prefix-settings';
 @import '/modules/pseudo-classes';
+@import '/modules/buttons';
 @import '/modules/timepicker';
 
 
 /* ==============================
-  opacity
+  global (tags)
 ============================== */
-@mixin opacity($opacity) {
-  opacity: $opacity;
-  $opacity-ie: $opacity * 100;
-  filter: alpha(opacity=$opacity-ie);
-}
-
-
-// default font settings
 body {
     color: $textDark;
     outline: none;

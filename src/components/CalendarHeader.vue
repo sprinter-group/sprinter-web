@@ -94,12 +94,14 @@ Vue.component('my-component', {
     float: left;
     .btn {
       padding: 0;
-      text-align: center;
       width: ($grid * 24);
       height: ($grid * 10);
-      vertical-align: middle;
+      @extend %global-btns;
       &:nth-child(2){
         margin: auto $grid;
+        width: ($grid * 24);
+        height: ($grid * 10);
+        @extend %global-btns-white;
       }
       @media #{$middle}{
         width: ($grid * 16);
@@ -107,6 +109,7 @@ Vue.component('my-component', {
           display: none;
         }
         &:nth-child(2){
+          width: ($grid * 16);
           margin: auto ($grid / 2);
         }
       }

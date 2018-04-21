@@ -2,12 +2,12 @@
   box sizing prefix
 ============================== */
 @mixin box-sizing($val){
-  box-sizing: $val;
-  -o-box-sizing: $val;
-  -ms-box-sizing: $val;
-  -moz-box-sizing: $val;
-  -khtml-box-sizing: $val;
   -webkit-box-sizing: $val;
+  -khtml-box-sizing: $val;
+  -moz-box-sizing: $val;
+  -ms-box-sizing: $val;
+  -o-box-sizing: $val;
+  box-sizing: $val;
 }
 
 *{ @include box-sizing(border-box) }
@@ -23,6 +23,19 @@
     -ms-transition:     $transition;
     -o-transition:      $transition;
     transition:         $transition;
+}
+
+
+/* ==============================
+  transform
+============================== */
+@mixin transform($val){
+  transform: $val;
+  -o-transform: $val;
+  -ms-transform: $val;
+  -moz-transform: $val;
+  -khtml-transform: $val;
+  -webkit-transform: $val;
 }
 
 

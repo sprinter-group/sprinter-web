@@ -84,29 +84,8 @@ export default {
 <style lang="scss">
 @import "../../assets/css/style.scss";
 
-%modal-btns {
-  float: right;
-  border: none;
-  color: white;
-  cursor: pointer;
-  width: $grid24x;
-  height: $grid8x;
-  font-weight: 900;
-  background-color: $brand;
-  @include line-height($grid8x);
-  @include border-radius($grid);
-  @include font-size(($grid * 5));
-  @include transition(background-color .25s ease);
-  &:hover {
-    background-color: $brand-hover;
-  }
-  &::selection {
-    background-color: transparent;
-  }
-}
-
 .modal-dark-bg{
-  z-index: 3;
+  z-index: 11;
   width: 200vw;
   height: 200vh;
   position: fixed;
@@ -118,7 +97,7 @@ export default {
   }
 }
 .modal-body {
-  z-index: 5;
+  z-index: 12;
   width: $grid16x;
   position: fixed;
   padding: $grid4x;
@@ -167,7 +146,7 @@ export default {
       border: none;
       resize: none;
       outline: none;
-      height: ($grid * 20);
+      height: $grid20x;
       margin: $grid2x 0 $grid4x;
       vertical-align: top;
       @include font-size($grid6x);
@@ -177,24 +156,13 @@ export default {
       }
     }
     .modal-submit-btn {
-      @extend %modal-btns;
+      float: right;
+      @extend %global-btns;
     }
     .modal-set-time {
-      color: $textLightGrey;
+      float: right;
       margin-right: $grid2x;
-      background-color: white;
-      @extend %modal-btns;
-      @include transition(all .25s ease);
-      &::selection {
-        color: $textLightGrey;
-      }
-      &:hover{
-        color: $textGrey;
-        background-color: $white-hover;
-        &::selection {
-          color: $textGrey;
-        }
-      }
+      @extend %global-btns-white;
     }
   }
   .sub-set-time {

@@ -1,0 +1,41 @@
+/* ==============================
+  extends
+============================== */
+%global-btns {
+  border: none;
+  color: white;
+  cursor: pointer;
+  width: $grid24x;
+  height: $grid8x;
+  font-weight: 900;
+  text-align: center;
+  vertical-align: middle;
+  background-color: $brand;
+  @include line-height($grid8x);
+  @include border-radius($grid);
+  @include font-size($grid5x);
+  @include transition(background-color .25s ease);
+  &:hover {
+    background-color: $brand-hover;
+  }
+  &::selection {
+    background-color: transparent;
+  }
+}
+
+%global-btns-white {
+  @extend %global-btns;
+  color: $textLightGrey;
+  background-color: white;
+  @include transition(all .25s ease);
+  &::selection {
+    color: $textLightGrey;
+  }
+  &:hover{
+    color: $textGrey;
+    background-color: $white-hover;
+    &::selection {
+      color: $textGrey;
+    }
+  }
+}

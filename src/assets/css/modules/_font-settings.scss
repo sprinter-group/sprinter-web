@@ -2,6 +2,7 @@
   text rendering
 ============================== */
 @mixin font-settings() {
+  // color: $textDark;
   direction: ltr;
        font-feature-settings: 'liga';
   -moz-font-feature-settings: 'liga';
@@ -32,7 +33,7 @@
   @include font-settings();
 }
 
-$sizes: '16', '24', '36', '48';
+$sizes: '16', '18', '24', '32', '36', '48';
 @each $size in $sizes {
   .md-#{$size} {font-size: #{$size}px}
 }
