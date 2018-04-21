@@ -14,8 +14,9 @@
 </template>
 
 <script>
-import Calendar from '../Calendar.vue'
-import FloatingButton from './FloatingButton.vue'
+import moment from 'moment';
+import Calendar from '../Calendar.vue';
+import FloatingButton from './FloatingButton.vue';
 
 // TODO by Hyouk
 // Escape 키로 모달창 닫히도록
@@ -71,6 +72,7 @@ export default {
     }
   },
   components: {
+    'moment': moment,
     'Calendar': Calendar,
     'FloatingButton': FloatingButton,
     'sub-set-time': SubSetTime

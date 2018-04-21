@@ -59,7 +59,7 @@
     }
   }
   .placeholder {
-    color: $textLightGrey;
+    color: $before;
   }
   .date-popover {
     z-index: 6;
@@ -93,12 +93,12 @@
     position: relative;
   }
   .month-year-display {
-    font-weight: 400;
-    color: $textLightGrey;
+    font-weight: 900;
+    color: $textGrey;
     @include transition(color .25s ease);
     &:hover {
       cursor: pointer;
-      color: $textGrey;
+      color: $textDark;
     }
   }
   .next,

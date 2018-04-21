@@ -8,43 +8,45 @@
 </template>
 
 <script>
-  import {WEEK_SELECTED} from "../actions";
-  import Day from './Day';
+import moment from 'moment'
+import {WEEK_SELECTED} from "../actions";
+import Day from './Day';
 
-  export default {
-      data: function() {
-          return {
-            showWeekNumFlag: false,
-          }
-      },
-      props: {
-          week: {
-            type: Array
-          }
-      },
-      methods: {
-          showWeekNum() {
-            let me = this;
-            me.showWeekNumFlag = true;
-            // 콘솔창에서 띄워주는 메세지
-            console.log("SELECTED week num : " + {weekDate:me.week[0].date});
-            this.$root.$emit(WEEK_SELECTED, {weekDate:me.week[0].date});
-          }
-      },
-      components: {
-          'Day': Day,
-      },
-      created() {
-        let me = this;
-        this.$root.$on(WEEK_SELECTED, function (pl) {
-          if (pl.weekDate != me.week[0].date) {
-            me.showWeekNumFlag = false;
-            //console.log("week : " + me.week[0].date);
-          }
-        })
-
-      }
+export default {
+  data: function() {
+    return {
+      showWeekNumFlag: false,
     }
+  },
+  props: {
+    week: {
+      type: Array
+    }
+  },
+  methods: {
+    showWeekNum() {
+      let me = this;
+      me.showWeekNumFlag = true;
+      // 콘솔창에서 띄워주는 메세지
+      console.log("SELECTED week num : " + {weekDate:me.week[0].date});
+      this.$root.$emit(WEEK_SELECTED, {weekDate:me.week[0].date});
+    }
+  },
+  components: {
+    'moment': moment,
+    'Day': Day,
+  },
+  created() {
+    let me = this;
+    this.$root.$on(WEEK_SELECTED, function (pl) {
+      if (pl.weekDate != me.week[0].date) {
+        me.showWeekNumFlag = false;
+        //console.log("week : " + me.week[0].date);
+      }
+    })
+
+  }
+}
 </script>
 
 <style lang="scss" scoped>

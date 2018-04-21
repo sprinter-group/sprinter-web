@@ -17,46 +17,47 @@
 </template>
 
 <script>
-  import moment from 'moment';
-  import {DAY_SELECTED, CHANGE_MONTH} from '../actions';
-    export default {
-      data: function() {
-        return {
-          isDaySelected: false,
-        }
-      },
-      props: {
-        day: {
-          type: Object
-        },
-        firstDay: {
-          type: String
-        }
-      },
-      methods: {
-        showDayOptions() {
-          let me = this;
-          let startOfToday = moment().startOf('D');
-          if(this.day.date.isAfter(startOfToday) || this.day.date.isSame(startOfToday)) {
-            this.isDaySelected = true;
-            this.$root.$emit(DAY_SELECTED, {dayDate:me.day.date});
-          }
-        }
-      },
-      created() {
-        let me = this;
-        this.$root.$on(DAY_SELECTED, function (pl) {
-          if (pl.dayDate != me.day.date) {
-            //console.log("day : "+ me.day.date);
-            me.isDaySelected = false;
-          }
-        })
+import moment from 'moment';
+import {DAY_SELECTED, CHANGE_MONTH} from '../actions';
 
-        this.$root.$on(CHANGE_MONTH, function(pl){
-          me.isDaySelected = false;
-        })
+export default {
+  data: function() {
+    return {
+      isDaySelected: false,
+    }
+  },
+  props: {
+    day: {
+      type: Object
+    },
+    firstDay: {
+      type: String
+    }
+  },
+  methods: {
+    showDayOptions() {
+      let me = this;
+      let startOfToday = moment().startOf('D');
+      if(this.day.date.isAfter(startOfToday) || this.day.date.isSame(startOfToday)) {
+        this.isDaySelected = true;
+        this.$root.$emit(DAY_SELECTED, {dayDate:me.day.date});
       }
     }
+  },
+  created() {
+    let me = this;
+    this.$root.$on(DAY_SELECTED, function (pl) {
+      if (pl.dayDate != me.day.date) {
+        //console.log("day : "+ me.day.date);
+        me.isDaySelected = false;
+      }
+    })
+
+    this.$root.$on(CHANGE_MONTH, function(pl){
+      me.isDaySelected = false;
+    })
+  }
+}
 </script>
 
 <style lang="scss" scoped>

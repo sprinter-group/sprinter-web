@@ -13,7 +13,10 @@
       </div>
       <div class="col-sm-2 year-bound">
         //- <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
-        <vue-monthly-picker class="show-year" v-model="selectedMonth"> <i class="fa fa-calendar-o"></i> </vue-monthly-picker>
+        //- TODO by Hyouk
+        //- vue-monthly-picker 에서 선택한 날짜로 이동
+        <vue-monthly-picker class="show-year" v-model="nowYear" :title="nowYear" @selected="handleSelect">{{ nowYear }}</vue-monthly-picker>
+          <span v-model="nowYear"></span>
       </div>
     </div>
 </template>
@@ -22,67 +25,64 @@
 import Vue from 'vue'
 import moment from 'moment'
 import {CHANGE_MONTH} from "../actions"
-
 import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
 
-Vue.component('my-component', {
-  components: {
-    VueMonthlyPicker
-  }
-})
-
 // TODO by Hyouk
 // 바운드 누르기 전에도 @keydown 적용 가능하도록 수정
-
-  export default {
-    data: function() {
-        return {
-          localeSelect: 'en',
-          selectedMonth: this.currentMonth
-        }
-    },
-    components: {
-      'VueMonthlyPicker': VueMonthlyPicker
-    },
-    props: {
-        currentMonth: {},
-        locale: {
-          type: String,
-        }
-    },
-    computed: {
-      nowYear() {
-        if(!this.currentMonth) return;
-        return this.currentMonth.locale(this.locale).format('MMMM YYYY');
-      }
-    },
-    methods: {
-      setLocale(){
-        if(i18n) {
-          i18n.locale = this.localeSelect;
-        } else {
-          console.warn('Plz define global vue locale value');
-        }
-      },
-      goPrev() {
-        let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month');
-        this.$root.$emit(CHANGE_MONTH, pl);
-        console.log(pl.month());
-      },
-      goNext() {
-        let pl = moment(this.currentMonth).add(1, 'months').startOf('month');
-        this.$root.$emit(CHANGE_MONTH, pl);
-        console.log(pl.month());
-      },
-      goToday() {
-        this.$root.$emit(CHANGE_MONTH, moment());
-      },
-      events: function() {
-        return this.currentMonth;
-      }
+export default {
+  data: function() {
+    return {
+      localeSelect: 'en',
+      selectedMonth: moment(this.currentMonth),
     }
+  },
+  props: {
+    currentMonth: {},
+    locale: {
+      type: String,
+    },
+  },
+  computed: {
+    nowYear() {
+      if(!this.currentMonth) return;
+      return this.currentMonth.locale(this.locale).format('MMMM YYYY');
+    }
+  },
+  methods: {
+    handleSelect (value) {
+      console.log('Select', value)
+    },
+    setLocale(){
+      if(i18n) {
+        i18n.locale = this.localeSelect;
+      } else {
+        console.warn('Plz define global vue locale value');
+      }
+    },
+    goPrev() {
+      let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month');
+      this.$root.$emit(CHANGE_MONTH, pl);
+      console.log(pl.month());
+    },
+    goNext() {
+      let pl = moment(this.currentMonth).add(1, 'months').startOf('month');
+      this.$root.$emit(CHANGE_MONTH, pl);
+      console.log(pl.month());
+    },
+    goToday() {
+      this.$root.$emit(CHANGE_MONTH, moment());
+      console.log('asdfasdf. ' + this.currentMonth.locale(this.locale).format('MMMM YYYY'))
+    },
+    events: function() {
+      return this.currentMonth;
+    }
+  },
+  components: {
+    'moment': moment,
+    'VueMonthlyPicker': VueMonthlyPicker
   }
+}
 </script>
 
 <style lang="scss" scoped>
