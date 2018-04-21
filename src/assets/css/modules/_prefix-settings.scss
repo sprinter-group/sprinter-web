@@ -116,6 +116,8 @@
   -ms-box-shadow:     inset 0px 0px 0px $val $color;
   -o-box-shadow:      inset 0px 0px 0px $val $color;
   box-shadow:         inset 0px 0px 0px $val $color;
+  // TODO by Hyouk
+  // IE 필터 대응
   // filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
 	// -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
   // zoom: 1;

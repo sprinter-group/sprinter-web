@@ -45,6 +45,7 @@ export default {
 
 // TODO by Hyouk
 // 행 높이 vh 단위로 맞추기
+// safari inset 대응
 #app {
   text-align: center;
   margin-top: 0 !important;
