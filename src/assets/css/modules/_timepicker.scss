@@ -8,17 +8,26 @@
 // TODO by Hyouk
 // mqbp tablet 이상에서 monthly-picker 화면 밖으로 나가는 이슈
 .vue-monthly-picker {
-  margin-right: $grid4x;
+  right: 0;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  position: absolute;
+  margin-right: -100%;
+  @include transform(translate(-100%, 0%));
+  @media #{$tablet}{
+    right: auto;
+    padding-right: $grid4x;
+  }
   .picker {
-    min-width: 28vw !important;
     @media #{$tablet} {
-      min-width: 32vw !important;
-    }
-    @media #{$mobile} {
       min-width: 36vw !important;
     }
     @media #{$mobile} {
       min-width: 48vw !important;
+    }
+    @media #{$mobile} {
+      min-width: 56vw !important;
     }
     .next,
     .prev {
@@ -72,9 +81,11 @@
     @include font-size($grid4x);
   }
   .month-picker-wrapper {
-    display: inline-block;
-    // padding-right: $grid4x;
+    display: block;
     min-width: 0px !important;
+    @media #{$tablet-min}{
+      right: -25%;
+    }
   }
   .month-year-label {
     outline: none;

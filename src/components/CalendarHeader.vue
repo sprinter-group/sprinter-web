@@ -13,7 +13,7 @@
       </div>
       <div class="col-sm-2 year-bound">
         //- <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
-        vue-monthly-picker.show-year(v-model='selectedMonth') {{nowYear}}
+        <vue-monthly-picker class="show-year" v-model="selectedMonth"> <i class="fa fa-calendar-o"></i> </vue-monthly-picker>
       </div>
     </div>
 </template>

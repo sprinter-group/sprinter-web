@@ -141,14 +141,6 @@ a {
   }
 }
 
-@mixin transform($val){
-  transform: $val;
-  -o-transform: $val;
-  -ms-transform: $val;
-  -moz-transform: $val;
-  -khtml-transform: $val;
-  -webkit-transform: $val;
-}
 
 /* ==============================
   make center

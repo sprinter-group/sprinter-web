@@ -1,5 +1,5 @@
 /* ==============================
-    4px grid system
+  4px grid system
 ============================== */
 $grid:     4px;
 $grid2x:  ($grid * 2 );
@@ -20,7 +20,7 @@ $grid64x: ($grid * 64);
 
 
 /* ==============================
-    default font-size, line-height
+  default font-size, line-height
 ============================== */
 @function calculateRem($size) {
   $remSize: $size / 16px;
@@ -33,4 +33,17 @@ $grid64x: ($grid * 64);
 @mixin line-height($size) {
   line-height: $size * 1.6;
   line-height: calculateRem($size) * 1.6;
+}
+
+
+/* ==============================
+  transform
+============================== */
+@mixin transform($val){
+  transform: $val;
+  -o-transform: $val;
+  -ms-transform: $val;
+  -moz-transform: $val;
+  -khtml-transform: $val;
+  -webkit-transform: $val;
 }
