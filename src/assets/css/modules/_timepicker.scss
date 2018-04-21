@@ -1,10 +1,3 @@
-/* ==============================
-  import modules (dependencies)
-============================== */
-// @import './colors';
-// @import './gridsys';
-
-
 // TODO by Hyouk
 // mqbp tablet 이상에서 monthly-picker 화면 밖으로 나가는 이슈
 .vue-monthly-picker {
@@ -37,7 +30,7 @@
     }
     .monthItem {
       .item {
-        border-top: 1px solid $stroke;
+        // border-top: 1px solid $stroke;
         &.active {
           &:hover {
             cursor: pointer;
@@ -74,7 +67,7 @@
     outline: none;
     max-width: 320px;
     font-weight: 900;
-    background: #fff;
+    background: $white;
     position: absolute;
     overflow-x: hidden;
     overflow-y: hidden;
@@ -110,7 +103,6 @@
       left: 50%;
       content: "";
       position: absolute;
-      // border: 6px solid transparent;
               transform: translateX(-50%) translateY(-50%);
       -webkit-transform: translateX(-50%) translateY(-50%);
     }
@@ -133,6 +125,7 @@
       }
     }
   }
+
   .input {
     -moz-appearance: none;
     -webkit-appearance: none;
@@ -145,7 +138,7 @@
     justify-content: flex-start;
     position: relative;
     vertical-align: top;
-    background-color: #fff;
+    background-color: $white;
     color: $textGrey;
     border-color: $stroke;
     width: 100%;

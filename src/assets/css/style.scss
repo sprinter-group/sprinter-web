@@ -11,35 +11,9 @@
 @import '/modules/gridsys';
 @import '/modules/mqbp';
 @import '/modules/font-settings';
+@import '/modules/prefix-settings';
+@import '/modules/pseudo-classes';
 @import '/modules/timepicker';
-
-
-/* ==============================
-  box sizing prefix
-============================== */
-@mixin box-sizing($val){
-  box-sizing: $val;
-  -o-box-sizing: $val;
-  -ms-box-sizing: $val;
-  -moz-box-sizing: $val;
-  -khtml-box-sizing: $val;
-  -webkit-box-sizing: $val;
-}
-*{ @include box-sizing(border-box) }
-
-
-/* ==============================
-  text rendering
-============================== */
-@mixin font-settings() {
-  direction: ltr;
-       font-feature-settings: 'liga';
-  -moz-font-feature-settings: 'liga';
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-   -webkit-font-smoothing: antialiased;
-  -webkit-text-decoration-skip: ink;
-}
 
 
 /* ==============================
@@ -51,64 +25,6 @@
   filter: alpha(opacity=$opacity-ie);
 }
 
-
-/* ==============================
-    box border bgcolor
-============================== */
-@mixin box-settings($bd: $stroke, $bg: white, $n: 0px) {
-    -webkit-border: 1px solid $bd;
-    -mozborder: 1px solid $bd;
-    border: 1px solid $bd;
-    background-color: $bg;
-    -webkit-border-radius: $n;
-    -khtml-border-radius: $n;
-    -moz-border-radius: $n;
-    -ms-border-radius: $n;
-    -o-border-radius: $n;
-    border-radius: $n;
-}
-
-
-/* ==============================
-    transition
-============================== */
-@mixin transition($transition...) {
-    -webkit-transition: $transition;
-    -khtml-transition:  $transition;
-    -moz-transition:    $transition;
-    -ms-transition:     $transition;
-    -o-transition:      $transition;
-    transition:         $transition;
-}
-
-/* ==============================
-    pseudo class
-============================== */
-::placeholder {
-  color: $before;
-}
-::selection {
-    background-color: $brand;
-    color: $white;
-}
-img::selection {
-    visibility:hidden;
-    background:transparent;
-}
-input[type=text]::-ms-clear {
-    display: none;
-}
-select, button, input:focus {
-    outline: none !important;
-}
-select::-ms-expand {
-    display: none;
-}
-button {
-  &:hover{
-    cursor: pointer !important;
-  }
-}
 
 // default font settings
 body {
@@ -162,93 +78,12 @@ a {
 }
 
 
-@mixin border-radius($val){
-  -webkit-border-radius: $val;
-  -khtml-border-radius: $val;
-  -moz-border-radius: $val;
-  -ms-border-radius: $val;
-  -o-border-radius: $val;
-  border-radius: $val;
-}
-
-@mixin animation-settings($name, $dur){
-  -webkit-animation: $name $dur;
-  -khtml-animation: $name $dur;
-  -moz-animation: $name $dur;
-  -ms-animation: $name $dur;
-  -o-animation: $name $dur;
-  animation: $name $dur;
-  -webkit-animation-iteration-count: 1;
-  -khtml-animation-iteration-count: 1;
-  -moz-animation-iteration-count: 1;
-  -ms-animation-iteration-count: 1;
-  -o-animation-iteration-count: 1;
-  animation-iteration-count: 1;
-}
-
-@mixin keyframes($name, $dur){
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-  @-moz-keyframes #{$name} {
-    @content;
-  }
-  @-ms-keyframes #{$name} {
-    @content;
-  }
-  @keyframes #{$name} {
-    @content;
-  }
-  @include animation-settings($name, $dur);
-}
-
-@mixin inner-border($val, $color){
-  -webkit-box-shadow: inset 0px 0px 0px $val $color;
-  -khtml-box-shadow: inset 0px 0px 0px $val $color;
-  -moz-box-shadow: inset 0px 0px 0px $val $color;
-  -ms-box-shadow: inset 0px 0px 0px $val $color;
-  -o-box-shadow: inset 0px 0px 0px $val $color;
-  box-shadow: inset 0px 0px 0px $val $color;
-}
-
-
 /* ==============================
-  App.Vue
+  global
 ============================== */
-// TODO by Hyouk
-// 행 높이 vh 단위로 맞추기
 #app {
   @include font-size(16px);
   @include font-settings();
   @include line-height(16px);
   @include font-stack-html();
-  text-align: center;
-  margin-top: 60px;
-  margin-top: 0 !important;
-  > .row {
-    margin: 0;
-    > .panel {
-      border: none;
-      margin-bottom: 0;
-      > .panel-heading {
-        border: none;
-        padding: $grid4x;
-      }
-      > .panel-body {
-        padding: $grid4x;
-        > .row {
-          .full-calendar-body {
-            margin-top: $grid4x;
-            @include inner-border(0.75px, $stroke);
-            .weeks, .dates, .week, .week-row, .day-cell, .current-month {
-              border: none;
-              @include inner-border(0.5px, $stroke);
-            }
-          }
-        }
-      }
-    }
-  }
-  // temp
-  .week-num { display: none }
 }

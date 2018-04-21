@@ -53,5 +53,37 @@ export default {
 <style lang="scss">
 @import "./assets/css/style.scss";
 
-// @import './assets/css/modules/timepicker';
+// TODO by Hyouk
+// 행 높이 vh 단위로 맞추기
+#app {
+  text-align: center;
+  margin-top: 60px;
+  margin-top: 0 !important;
+  > .row {
+    margin: 0;
+    > .panel {
+      border: none;
+      margin-bottom: 0;
+      > .panel-heading {
+        border: none;
+        padding: $grid4x;
+      }
+      > .panel-body {
+        padding: $grid4x;
+        > .row {
+          .full-calendar-body {
+            margin-top: $grid4x;
+            @include inner-border(0.75px, $stroke);
+            .weeks, .dates, .week, .week-row, .day-cell, .current-month {
+              border: none;
+              @include inner-border(0.5px, $stroke);
+            }
+          }
+        }
+      }
+    }
+  }
+  // temp
+  .week-num { display: none }
+}
 </style>

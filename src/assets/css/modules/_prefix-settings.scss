@@ -1,0 +1,104 @@
+/* ==============================
+  box sizing prefix
+============================== */
+@mixin box-sizing($val){
+  box-sizing: $val;
+  -o-box-sizing: $val;
+  -ms-box-sizing: $val;
+  -moz-box-sizing: $val;
+  -khtml-box-sizing: $val;
+  -webkit-box-sizing: $val;
+}
+
+*{ @include box-sizing(border-box) }
+
+
+/* ==============================
+    transition
+============================== */
+@mixin transition($transition...) {
+    -webkit-transition: $transition;
+    -khtml-transition:  $transition;
+    -moz-transition:    $transition;
+    -ms-transition:     $transition;
+    -o-transition:      $transition;
+    transition:         $transition;
+}
+
+
+/* ==============================
+  border radius
+============================== */
+@mixin border-radius($val){
+  -webkit-border-radius: $val;
+  -khtml-border-radius: $val;
+  -moz-border-radius: $val;
+  -ms-border-radius: $val;
+  -o-border-radius: $val;
+  border-radius: $val;
+}
+
+
+/* ==============================
+  animations
+============================== */
+@mixin animation-settings($name, $dur){
+  -webkit-animation: $name $dur;
+  -khtml-animation: $name $dur;
+  -moz-animation: $name $dur;
+  -ms-animation: $name $dur;
+  -o-animation: $name $dur;
+  animation: $name $dur;
+  -webkit-animation-iteration-count: 1;
+  -khtml-animation-iteration-count: 1;
+  -moz-animation-iteration-count: 1;
+  -ms-animation-iteration-count: 1;
+  -o-animation-iteration-count: 1;
+  animation-iteration-count: 1;
+}
+
+@mixin keyframes($name, $dur){
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+  @include animation-settings($name, $dur);
+}
+
+
+/* ==============================
+  box shadow (inner border)
+============================== */
+@mixin inner-border($val, $color){
+  -webkit-box-shadow: inset 0px 0px 0px $val $color;
+  -khtml-box-shadow: inset 0px 0px 0px $val $color;
+  -moz-box-shadow: inset 0px 0px 0px $val $color;
+  -ms-box-shadow: inset 0px 0px 0px $val $color;
+  -o-box-shadow: inset 0px 0px 0px $val $color;
+  box-shadow: inset 0px 0px 0px $val $color;
+}
+
+
+/* ==============================
+    box border bgcolor
+============================== */
+@mixin box-settings($bd: $stroke, $bg: white, $n: 0px) {
+  -webkit-border: 1px solid $bd;
+  -mozborder: 1px solid $bd;
+  border: 1px solid $bd;
+  background-color: $bg;
+  -webkit-border-radius: $n;
+  -khtml-border-radius: $n;
+  -moz-border-radius: $n;
+  -ms-border-radius: $n;
+  -o-border-radius: $n;
+  border-radius: $n;
+}
