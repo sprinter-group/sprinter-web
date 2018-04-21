@@ -94,9 +94,10 @@
   }
   .day-number {
     z-index: 2;
-    padding: $grid2x;
+    padding: ($grid * 1.9);
+    font-weight: 900;
     text-align: center;
-    @include font-size(24px);
+    @include font-size($grid6x);
     color: $before !important;
   }
   .current-month {
@@ -106,7 +107,7 @@
     }
     p {
       color: $textDark !important;
-      @include font-size(24px);
+      @include font-size($grid6x);
     }
   }
   .weekend {
@@ -124,7 +125,7 @@
         visibility: visible;
         font-weight: bolder;
         color: white !important;
-        @include font-size(24px);
+        @include font-size($grid6x);
       }
     }
   }
@@ -133,13 +134,14 @@
       visibility: visible;
       background-color: transparent;
       @include border-radius($grid8x);
-           box-shadow: 0px 0px 0px 2px $brand inset;
-      -moz-box-shadow: 0px 0px 0px 2px $brand inset;
+              box-shadow: 0px 0px 0px 2px $brand inset;
+         -moz-box-shadow: 0px 0px 0px 2px $brand inset;
+      -webkit-box-shadow: 0px 0px 0px 2px $brand inset;
     }
     p {
       color: $brand !important;
       font-weight: bolder;
-      @include font-size(24px);
+      @include font-size($grid6x);
     }
   }
 

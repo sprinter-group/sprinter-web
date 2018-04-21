@@ -12,23 +12,38 @@
         </div>
       </div>
       <div class="col-sm-2 year-bound">
-        <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
+        //- <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
+        vue-monthly-picker.show-year(v-model='selectedMonth') {{nowYear}}
       </div>
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
 import moment from 'moment'
 import {CHANGE_MONTH} from "../actions"
 
+import VueMonthlyPicker from 'vue-monthly-picker'
+// https://github.com/ittus/vue-monthly-picker
+
+Vue.component('my-component', {
+  components: {
+    VueMonthlyPicker
+  }
+})
+
 // TODO by Hyouk
-// 버튼 누르기 전에도 @keydown 적용 가능하도록 수정
+// 바운드 누르기 전에도 @keydown 적용 가능하도록 수정
 
   export default {
     data: function() {
         return {
-          localeSelect: 'en'
+          localeSelect: 'en',
+          selectedMonth: this.currentMonth
         }
+    },
+    components: {
+      'VueMonthlyPicker': VueMonthlyPicker
     },
     props: {
         currentMonth: {},
@@ -72,7 +87,7 @@ import {CHANGE_MONTH} from "../actions"
 
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
-.hide-me{display:none}
+.hide-me{ display:none }
 
 .header-center {
   .btn-gourp {
@@ -115,13 +130,14 @@ import {CHANGE_MONTH} from "../actions"
 }
 .year-bound {
   float: right;
+  padding: none;
   padding-top: $grid;
   .show-year {
     color: $textDark;
     font-weight: 900;
     text-align: right;
-    @include font-size(24px);
-    @include line-height(32px);
+    @include font-size($grid6x);
+    @include line-height($grid8x);
   }
 }
 .main-div-header {

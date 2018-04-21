@@ -3,6 +3,18 @@
 @import url("https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
+
+/* ==============================
+  import modules (dependencies)
+============================== */
+@import '/modules/timepicker';
+@import '/modules/colors';
+@import '/modules/gridsys';
+
+
+/* ==============================
+  box sizing prefix
+============================== */
 @mixin box-sizing($val){
   box-sizing: $val;
   -o-box-sizing: $val;
@@ -11,17 +23,22 @@
   -khtml-box-sizing: $val;
   -webkit-box-sizing: $val;
 }
-
 *{ @include box-sizing(border-box) }
 
-// mixin default font
+
+/* ==============================
+  mixin font stack default
+============================== */
 @mixin font-stack-html() {
-            font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
-    -webkit-font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
+          font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
+     -moz-font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
+  -webkit-font-family: 'Spoqa Han Sans', 'Source Sans Pro', 'Apple SD Gothic Neo', 'Nanum Barun Gothic', 'Nanum Gothic', '돋움', 'Dotum', 'Verdana', 'Arial', 'sans-serif';
 }
 
 
-// text rendering
+/* ==============================
+  text rendering
+============================== */
 @mixin font-settings() {
   direction: ltr;
        font-feature-settings: 'liga';
@@ -32,8 +49,9 @@
   -webkit-text-decoration-skip: ink;
 }
 
+
 /* ==============================
-    opacity
+  opacity
 ============================== */
 @mixin opacity($opacity) {
   opacity: $opacity;
@@ -41,27 +59,6 @@
   filter: alpha(opacity=$opacity-ie);
 }
 
-// color stack
-$textDark:      #373746;
-$textGrey:      #797980;
-$textLightGrey: #9898A1;
-$before:        #babac0;
-$lightGrey:     #D0D0D7;
-$whiteGrey:     #f4f4f4;
-$listBase:      #F8F8F9;
-$stroke:        #e5e5e5;
-
-$brand:         #327DE1;
-$brand-hover:   #2968BC;
-$white-hover:   #f4f4f4;
-$white:         #ffffff;
-
-$disabled:      rgba(55, 55, 70, 16);
-
-$black16:       rgba(0,0,0,0.16);
-$black38:       rgba(0,0,0,0.38);
-$black54:       rgba(0,0,0,0.54);
-$black78:       rgba(0,0,0,0.78);
 
 /* ==============================
     media query breakpoints
@@ -71,23 +68,6 @@ $landsc:       "only screen and (max-width : 600px)";
 $middle:       "only screen and (max-width : 520px)";
 $mobile:       "only screen and (max-width : 420px)";
 $mobile-small: "only screen and (max-width : 360px)";
-
-/* ==============================
-    4px grid system
-============================== */
-$grid:     4px;
-$grid2x:  ($grid * 2 );
-$grid4x:  ($grid * 4 );
-$grid6x:  ($grid * 6 );
-$grid8x:  ($grid * 8 );
-$grid10x: ($grid * 10);
-$grid12x: ($grid * 12);
-$grid14x: ($grid * 14);
-$grid16x: ($grid * 16);
-$grid24x: ($grid * 24);
-$grid32x: ($grid * 32);
-$grid36x: ($grid * 36);
-$grid64x: ($grid * 64);
 
 
 /* ==============================
