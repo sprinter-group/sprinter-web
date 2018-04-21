@@ -31,4 +31,5 @@ $black78:       rgba(0,0,0,0.87);
   opacity: $opacity;
   $opacity-ie: $opacity * 100;
   filter: alpha(opacity=$opacity-ie);
+  @include render-hack(opacity, filter);
 }

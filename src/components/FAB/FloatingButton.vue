@@ -46,5 +46,6 @@ export default {
     background-color: $brand-hover;
     box-shadow: 0px $grid2x $grid2x $before;
   }
+  @include render-hack(transition, background-color, box-shadow);
 }
 </style>

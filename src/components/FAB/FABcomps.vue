@@ -93,30 +93,32 @@ export default {
   position: fixed;
   @include set-center();
   background-color: $black38;
+  @include render-hack(width, height);
   @include keyframes(opct, 0.25s){
     0%   { @include opacity(0) }
     100% { @include opacity(1) }
   }
 }
 .modal-body {
+  width: 64%;
   z-index: 12;
-  width: $grid16x;
   position: fixed;
   padding: $grid4x;
   color: $textDark;
   background-color: white;
   max-width: 560px;
   min-width: 296px;
-  width: 64%;
   @include set-center();
+  @include render-hack(width);
   @include border-radius($grid);
   @include box-shadow($grid4x, $grid8x, $color:$textGrey);
   @include keyframes(pos, 0.25s){
-    0%   { @include opacity(0); top: 47.5%; }
-    100% { @include opacity(1); top: 50.0%; }
+    0%   { @include opacity(0); @include transform(translate(-50%, -50%) scale(0.9)); }
+    100% { @include opacity(1); @include transform(translate(-50%, -50%) scale(1.0)); }
   }
   @media #{$mobile-small} {
     min-width: 280px !important;
+    @include render-hack(width);
   }
   > .md-close {
     top: 0;
@@ -127,6 +129,7 @@ export default {
     color: $textLightGrey;
     @include font-size($grid8x + $grid);
     @include transition(color .25s ease);
+    @include render-hack(width, top, right, transition);
     &:hover {
       color: $textDark;
     }
@@ -141,7 +144,8 @@ export default {
       height: $grid10x;
       font-weight: 900;
       margin-top: $grid4x;
-      @include font-size(($grid8x));
+      @include font-size($grid8x);
+      @include render-hack(width);
     }
     .modal-input-text {
       width: 100%;
@@ -153,6 +157,7 @@ export default {
       vertical-align: top;
       @include font-size($grid6x);
       @include line-height($grid6x);
+      @include render-hack(width, margin);
       @media #{$mobile-small}{
         margin: $grid 0 $grid4x;
       }
@@ -171,6 +176,7 @@ export default {
     position: absolute;
     background-color: black;
     @include set-center();
+    @include render-hack(opacity);
     @include border-radius($grid);
     @include keyframes(posi, 0.25s){
       0%   { @include opacity(0); }

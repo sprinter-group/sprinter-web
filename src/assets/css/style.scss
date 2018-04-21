@@ -22,11 +22,11 @@
 ============================== */
 body {
   outline: none;
-    color: $textDark;
-    @include font-size(16px);
-    @include font-settings();
-    @include line-height(16px);
-    @include font-stack-html();
+  color: $textDark;
+  @include font-size(16px);
+  @include font-settings();
+  @include line-height(16px);
+  @include font-stack-html();
 }
 
 h1, h2 {
@@ -59,6 +59,7 @@ a {
   left: 50%;
   margin-right: -50%;
   @include transform(translate(-50%, -50%));
+  @include render-hack(top, left, transform);
 }
 
 

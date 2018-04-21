@@ -1,4 +1,17 @@
 /* ==============================
+  gpu hack
+============================== */
+@mixin render-hack($val...){
+  -webkit-will-change: $val;
+  -khtml-will-change:  $val;
+  -moz-will-change:    $val;
+  -ms-will-change:     $val;
+  -o-will-change:      $val;
+  will-change:         $val;
+}
+
+
+/* ==============================
   box sizing prefix
 ============================== */
 @mixin     box-sizing($val){
@@ -8,7 +21,9 @@
   -ms-box-sizing:     $val;
   -o-box-sizing:      $val;
   box-sizing:         $val;
+  @include render-hack(box-sizing);
 }
+
 *{ @include box-sizing(border-box) }
 
 
@@ -22,6 +37,7 @@
     -ms-transition:     $transition;
     -o-transition:      $transition;
     transition:         $transition;
+  @include render-hack  (transition);
 }
 
 
@@ -35,6 +51,7 @@
   -moz-transform:    $val;
   -khtml-transform:  $val;
   -webkit-transform: $val;
+  @include render-hack(transform);
 }
 
 
@@ -48,6 +65,7 @@
   -ms-border-radius:     $val;
   -o-border-radius:      $val;
   border-radius:         $val;
+  @include render-hack(border-radius);
 }
 
 
@@ -67,6 +85,7 @@
   -ms-animation-iteration-count:     1;
   -o-animation-iteration-count:      1;
   animation-iteration-count:         1;
+  @include render-hack(animation);
 }
 
 @mixin keyframes($name, $dur){
@@ -82,6 +101,7 @@
   @keyframes #{$name} {
     @content;
   }
+  @include render-hack(keyframes);
   @include animation-settings($name, $dur);
 }
 
@@ -96,6 +116,7 @@
   -ms-box-shadow:     inset 0px 0px 0px $val $color;
   -o-box-shadow:      inset 0px 0px 0px $val $color;
   box-shadow:         inset 0px 0px 0px $val $color;
+  @include render-hack(box-shadow);
 }
 
 @mixin box-shadow($val:$grid2x, $val2:$grid4x, $color:$lightGrey){
@@ -105,6 +126,7 @@
   -ms-box-shadow:      0px $val $val2 $color;
   -o-box-shadow:       0px $val $val2 $color;
   box-shadow:          0px $val $val2 $color;
+  @include render-hack(box-shadow);
 }
 
 /* ==============================
@@ -117,11 +139,12 @@
   -ms-border:     1px solid $bd;
   -o-border:      1px solid $bd;
   border:         1px solid $bd;
-  background-color: $bg;
-  -webkit-border-radius: $n;
-  -khtml-border-radius:  $n;
-  -moz-border-radius:    $n;
-  -ms-border-radius:     $n;
-  -o-border-radius:      $n;
-  border-radius:         $n;
+  background-color:         $bg;
+  -webkit-border-radius:    $n;
+  -khtml-border-radius:     $n;
+  -moz-border-radius:       $n;
+  -ms-border-radius:        $n;
+  -o-border-radius:         $n;
+  border-radius:            $n;
+  @include render-hack(border-radius, border);
 }

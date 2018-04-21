@@ -76,6 +76,7 @@ export default {
     background: $listBase;
     min-height: ($grid * 28);
     @include font-size(24px);
+    @include render-hack(border, flex);
     @include border-ways(1px, solid, $stroke);
     &:hover {
       cursor: pointer;
@@ -85,7 +86,7 @@ export default {
       .col-sm-6{
         float: right;
         @media #{$mobile}{
-          float: none;
+          float: right;
         }
         .today-circle{
           position: absolute;
@@ -95,11 +96,11 @@ export default {
   }
   .day-number {
     z-index: 2;
-    padding: ($grid * 1.9);
     font-weight: 900;
     text-align: center;
-    @include font-size($grid6x);
+    padding: ($grid * 1.9);
     color: $before !important;
+    @include font-size($grid6x);
   }
   .current-month {
     background-color: white;
@@ -135,6 +136,7 @@ export default {
       visibility: visible;
       background-color: transparent;
       @include border-radius($grid8x);
+      @include render-hack(border, border-radius);
               box-shadow: 0px 0px 0px 2px $brand inset;
          -moz-box-shadow: 0px 0px 0px 2px $brand inset;
       -webkit-box-shadow: 0px 0px 0px 2px $brand inset;
@@ -150,5 +152,6 @@ export default {
   .today-circle {
     width:  $grid8x;
     height: $grid8x;
+    @include render-hack(width, height);
   }
 </style>

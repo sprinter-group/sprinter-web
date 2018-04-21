@@ -14,8 +14,8 @@
       <div class="col-sm-2 year-bound">
         //- <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
         //- TODO by Hyouk
-        //- vue-monthly-picker 에서 선택한 날짜로 이동
-        <vue-monthly-picker class="show-year" v-model="nowYear" :title="nowYear" @selected="handleSelect"></vue-monthly-picker>
+        //- 레이블 변경(April 2018)
+        <vue-monthly-picker class="show-year" v-model="selectedMonth" :title="nowYear" @selected="handleSelect"></vue-monthly-picker>
           <span v-model="nowYear"></span>
       </div>
     </div>
@@ -47,36 +47,40 @@ export default {
     nowYear() {
       if(!this.currentMonth) return;
       return this.currentMonth.locale(this.locale).format('MMMM YYYY');
-    }
+    },
   },
   methods: {
-    setLocale(){
+    setLocale: function(){
       if(i18n) {
         i18n.locale = this.localeSelect;
       } else {
-        console.warn('Plz define global vue locale value');
+        console.warn('Plz define global vue locale value')
       }
     },
-    goPrev() {
-      let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month');
-      this.$root.$emit(CHANGE_MONTH, pl);
-      console.log(pl.month());
+    goPrev: function() {
+      let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month')
+      this.$root.$emit(CHANGE_MONTH, pl)
+      console.log('[goPrev] pressed: ' + pl.month())
+      this.selectedMonth = pl
     },
-    goNext() {
-      let pl = moment(this.currentMonth).add(1, 'months').startOf('month');
-      this.$root.$emit(CHANGE_MONTH, pl);
-      console.log(pl.month());
+    goNext: function() {
+      let pl = moment(this.currentMonth).add(1, 'months').startOf('month')
+      this.$root.$emit(CHANGE_MONTH, pl)
+      console.log('[Next] pressed: ' + pl.month())
+      this.selectedMonth = pl
     },
-    goToday() {
-      this.$root.$emit(CHANGE_MONTH, moment());
-      console.log('asdfasdf. ' + this.currentMonth.locale(this.locale).format('MMMM YYYY'))
+    goToday: function() {
+      let pl = moment(this.currentMonth)
+      this.$root.$emit(CHANGE_MONTH, moment())
+      console.log('[Today] pressed: ' + this.currentMonth.locale(this.locale).format('MMMM YYYY'))
+      this.selectedMonth = pl
     },
     events: function() {
       return this.currentMonth;
     },
-    handleSelect (value) {
-      this.$root.$emit(CHANGE_MONTH, value);
-      console.log('Select', value)
+    handleSelect: function(value) {
+      this.$root.$emit(CHANGE_MONTH, value)
+      console.log('Selected: ' + this.selectedMonth.locale(this.locale).format('MMMM YYYY'))
     },
   },
   components: {
@@ -96,26 +100,31 @@ export default {
       padding: 0;
       width: ($grid * 24);
       height: ($grid * 10);
+      @include render-hack(padding);
       @extend %global-btns;
       &:nth-child(2){
         margin: auto $grid;
         width: ($grid * 24);
         height: ($grid * 10);
         @extend %global-btns-white;
+        @include render-hack(margin);
       }
       @media #{$middle}{
         width: ($grid * 16);
+        @include render-hack(width);
         span {
           display: none;
         }
         &:nth-child(2){
           width: ($grid * 16);
           margin: auto ($grid / 2);
+          @include render-hack(width, margin);
         }
       }
       @media #{$mobile}{ width: ($grid * 12) }
       @media #{$mobile-small}{ width: ($grid * 10); }
       @include transition(background-color .25s ease);
+      @include render-hack(transition);
       &:focus{
         outline: none; // 무쓸모
       }
@@ -135,11 +144,11 @@ export default {
   padding: 0;
   float: right;
   padding-top: $grid;
+  @include render-hack(padding);
   .show-year {
     color: $textDark;
-    font-weight: 900;
     text-align: right;
-    @include font-size($grid6x);
+    @include font-size($grid8x);
     @include line-height($grid8x);
   }
 }

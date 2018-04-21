@@ -56,6 +56,7 @@ export default {
     width: 100%;
     display: flex;
     cursor:pointer;
+    @include render-hack(width);
   }
   .week-num {
     left: -70px;
@@ -65,5 +66,6 @@ export default {
     background-color: white;
             border-radius: $grid 0 0 $grid;
     -webkit-border-radius: $grid 0 0 $grid;
+    @include render-hack(left, border-radius);
   }
 </style>

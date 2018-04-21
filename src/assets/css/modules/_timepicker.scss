@@ -8,6 +8,7 @@
   position: absolute;
   margin-right: -100%;
   @include transform(translate(-100%, 0%));
+  @include render-hack(right, top, left, transform);
   @media #{$tablet}{
     right: auto;
     padding-right: $grid4x;
@@ -46,14 +47,17 @@
       padding: 0;
       display: flex;
       flex-wrap: wrap;
+      @include render-hack(flex-wrap);
       div {
         flex-grow: 1;
         padding: $grid2x 0;
         border: none !important;
+        @include render-hack(flex-grow);
       }
       .item {
         flex: 1;
         flex-basis: 25%;
+        @include render-hack(flex, flex-basis);
         // min-width: 200px !important;
       }
     }
@@ -76,13 +80,18 @@
     @include box-shadow();
     @include font-size($grid4x);
     @include border-radius($grid);
-    // @include inner-border(1px, $stroke);
+    @include render-hack(top, left, margin, transform, width);
+    @include keyframes(popover, 0.25s){
+      0%   { @include opacity(0); @include transform(scale(0.9)); }
+      100% { @include opacity(1); @include transform(scale(1.0)); }
+    }
   }
   .month-picker-wrapper {
     display: block;
     min-width: 0px !important;
     @media #{$tablet-min}{
       right: -25%;
+      @include render-hack(right);
     }
   }
   .month-year-label {
@@ -93,8 +102,8 @@
     position: relative;
   }
   .month-year-display {
-    font-weight: 900;
     color: $textGrey;
+    font-weight: 900;
     @include transition(color .25s ease);
     &:hover {
       cursor: pointer;
@@ -107,11 +116,13 @@
     float: left;
     position: relative;
     text-indent: -10000px;
+    @include render-hack(width);
     &:after {
       top: 50%;
       left: 50%;
       content: "";
       position: absolute;
+      @include render-hack(transform, top, left);
       @include transform(translateX(-50%) translateY(-50%));
     }
   }

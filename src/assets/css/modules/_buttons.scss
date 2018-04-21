@@ -11,10 +11,11 @@
   text-align: center;
   vertical-align: middle;
   background-color: $brand;
+  @include font-size($grid5x);
   @include line-height($grid8x);
   @include border-radius($grid);
-  @include font-size($grid5x);
   @include transition(background-color .25s ease);
+  @include render-hack(width, transition, background-color);
   &:hover {
     background-color: $brand-hover;
   }
@@ -28,6 +29,7 @@
   color: $textLightGrey;
   background-color: white;
   @include transition(all .25s ease);
+  @include render-hack(width, transition, background-color, color);
   &::selection {
     color: $textLightGrey;
   }
