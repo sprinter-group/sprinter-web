@@ -15,7 +15,7 @@
         //- <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
         //- TODO by Hyouk
         //- vue-monthly-picker 에서 선택한 날짜로 이동
-        <vue-monthly-picker class="show-year" v-model="nowYear" :title="nowYear" @selected="handleSelect">{{ nowYear }}</vue-monthly-picker>
+        <vue-monthly-picker class="show-year" v-model="nowYear" :title="nowYear" @selected="handleSelect"></vue-monthly-picker>
           <span v-model="nowYear"></span>
       </div>
     </div>
@@ -34,7 +34,7 @@ export default {
   data: function() {
     return {
       localeSelect: 'en',
-      selectedMonth: moment(this.currentMonth),
+      selectedMonth: moment(),
     }
   },
   props: {
@@ -50,9 +50,6 @@ export default {
     }
   },
   methods: {
-    handleSelect (value) {
-      console.log('Select', value)
-    },
     setLocale(){
       if(i18n) {
         i18n.locale = this.localeSelect;
@@ -76,11 +73,14 @@ export default {
     },
     events: function() {
       return this.currentMonth;
-    }
+    },
+    handleSelect (value) {
+      this.$root.$emit(CHANGE_MONTH, value);
+      console.log('Select', value)
+    },
   },
   components: {
-    'moment': moment,
-    'VueMonthlyPicker': VueMonthlyPicker
+    VueMonthlyPicker
   }
 }
 </script>
