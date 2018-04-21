@@ -2,13 +2,13 @@
   //- div#app(@keydown='watchKeydown')
   div#app
     FloatingButton(@click.native='FABready')
-    div.modal-dark-bg(v-if='FABvalue' @click='FABfalse()')
+    div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
     div.modal-body(v-if='FABvalue')
       i.material-icons.md-close(@click='FABfalse', title='Exit') close
       form
-        input.modal-input-title(placeholder='New event')
-        textarea.modal-input-text(placeholder='Details about your task...')
-        button.modal-save-btn(type='submit', :title='Submit') {{Submit}}
+        input.modal-input-title(v-model='TitleData' placeholder='New event')
+        textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
+        button.modal-submit-btn(@click='ClearData' type='submit', :title='Submit') {{Submit}}
         div.modal-set-time(:title='SetTime' @click='STMreverse') {{SetTime}}
       sub-set-time(v-if='ShowTimeModal')
 </template>
@@ -37,9 +37,15 @@ export default {
       Submit: 'Submit',
       SetTime: 'Set Time',
       ShowTimeModal: false,
+      TitleData: '',
+      DetailsData: '',
     }
   },
   methods: {
+    ClearData: function(){
+      this.TitleData = ''
+      this.DetailsData = ''
+    },
     STMreverse: function(){
       if (this.FABvalue === true){
         this.ShowTimeModal = !this.ShowTimeModal
@@ -69,7 +75,7 @@ export default {
     'FloatingButton': FloatingButton,
     'sub-set-time': SubSetTime
   },
-  computed: {
+  destroyed: {
 
   }
 }
@@ -170,7 +176,7 @@ export default {
         margin: $grid 0 $grid4x;
       }
     }
-    .modal-save-btn {
+    .modal-submit-btn {
       @extend %modal-btns;
     }
     .modal-set-time {
