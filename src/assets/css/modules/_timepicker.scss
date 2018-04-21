@@ -103,7 +103,7 @@
   }
   .month-year-display {
     color: $textGrey;
-    font-weight: 900;
+    font-weight: 400;
     @include transition(color .25s ease);
     &:hover {
       cursor: pointer;

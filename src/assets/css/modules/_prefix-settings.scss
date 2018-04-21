@@ -1,7 +1,7 @@
 /* ==============================
   gpu hack
 ============================== */
-@mixin render-hack($val...){
+@mixin render-hack    ($val...){
   -webkit-will-change: $val;
   -khtml-will-change:  $val;
   -moz-will-change:    $val;
@@ -116,6 +116,9 @@
   -ms-box-shadow:     inset 0px 0px 0px $val $color;
   -o-box-shadow:      inset 0px 0px 0px $val $color;
   box-shadow:         inset 0px 0px 0px $val $color;
+  // filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30);
+	// -ms-filter: "progid:DXImageTransform.Microsoft.Blur(PixelRadius=3,MakeShadow=true,ShadowOpacity=0.30)";
+  // zoom: 1;
   @include render-hack(box-shadow);
 }
 
