@@ -8,6 +8,8 @@
       form
         input.modal-input-title(v-model='TitleData' placeholder='New event')
         textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
+        div.modal-input-date(:title='SetTime', @click='STMreverse') {{ selectedMonth }}
+
         button.modal-submit-btn(@click='ClearData' type='submit', :title='Submit') {{Submit}}
         div.modal-set-time(:title='SetTime' @click='STMreverse') {{SetTime}}
       sub-set-time(v-if='ShowTimeModal')
@@ -28,11 +30,17 @@ let SubSetTime = {
   template: '<div class="sub-set-time">Hello</div>'
 }
 
+// let ShowDate = {
+//   template: '<div>{{date}}</div>',
+//   props: ['date']
+// }
+
 export default {
   data() {
     return{
       FABvalue: false,
       currentMonth: {},
+      selectedMonth: moment().format("MMMM Do YYYY"),
       events: [],
       Exit: 'Exit',
       Submit: 'Submit',
@@ -41,6 +49,9 @@ export default {
       TitleData: '',
       DetailsData: '',
     }
+  },
+  props: {
+
   },
   methods: {
     ClearData: function(){
@@ -75,9 +86,9 @@ export default {
     'moment': moment,
     'Calendar': Calendar,
     'FloatingButton': FloatingButton,
-    'sub-set-time': SubSetTime
+    'sub-set-time': SubSetTime,
   },
-  destroyed: {
+  computed: {
 
   }
 }
@@ -106,12 +117,12 @@ export default {
   padding: $grid4x;
   color: $textDark;
   background-color: white;
-  max-width: 560px;
+  max-width: 480px;
   min-width: 296px;
   @include set-center();
-  @include render-hack(width);
   @include border-radius($grid);
   @include box-shadow($grid4x, $grid8x, $color:$textGrey);
+  @include render-hack(width, transform, opacity, padding);
   @include keyframes(pos, 0.25s){
     0%   { @include opacity(0); @include transform(translate(-50%, -50%) scale(0.9)); }
     100% { @include opacity(1); @include transform(translate(-50%, -50%) scale(1.0)); }
@@ -153,14 +164,11 @@ export default {
       resize: none;
       outline: none;
       height: $grid20x;
-      margin: $grid2x 0 $grid4x;
       vertical-align: top;
+      margin: $grid 0 $grid4x;
       @include font-size($grid6x);
       @include line-height($grid6x);
       @include render-hack(width, margin);
-      @media #{$mobile-small}{
-        margin: $grid 0 $grid4x;
-      }
     }
     .modal-submit-btn {
       float: right;

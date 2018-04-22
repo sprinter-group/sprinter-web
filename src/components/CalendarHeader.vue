@@ -15,8 +15,8 @@
         //- <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
         //- TODO by Hyouk
         //- 레이블 변경(April 2018)
-        <vue-monthly-picker class="show-year" v-model="selectedMonth" :title="nowYear" @selected="handleSelect"></vue-monthly-picker>
-          <span v-model="nowYear"></span>
+        vue-monthly-picker.show-year(v-model='selectedMonth', :title='nowYear', @selected='handleSelect', :dateFormat='dateFormat')
+          span(v-model='nowYear')
       </div>
     </div>
 </template>
@@ -27,6 +27,7 @@ import moment from 'moment'
 import {CHANGE_MONTH} from "../actions"
 import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
+// http://momentjs.com/docs/#/displaying/format/
 
 // TODO by Hyouk
 // 바운드 누르기 전에도 @keydown 적용 가능하도록 수정
@@ -42,6 +43,10 @@ export default {
     locale: {
       type: String,
     },
+    dateFormat: {
+      type: String,
+      default: 'MMMM YYYY'
+    }
   },
   computed: {
     nowYear() {
