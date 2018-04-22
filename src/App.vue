@@ -21,21 +21,10 @@ export default {
       events: []
     }
   },
-  created: function(){
-
-  },
-  methods: {
-
-  },
   components: {
     'Calendar': Calendar,
     'FABcomps': FABcomps,
     'CalendarHeader': CalendarHeader,
-  },
-  computed: {
-    watchKeyDown: function(){
-
-    }
   }
 }
 </script>

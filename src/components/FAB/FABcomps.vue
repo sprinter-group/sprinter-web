@@ -4,14 +4,14 @@
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
     div.modal-body(v-if='FABvalue')
-      i.material-icons.md-close(@click='FABfalse', title='Exit') close
+      i.material-icons.md-close(@click='FABfalse' title='Exit') close
       form
         input.modal-input-title(v-model='TitleData' placeholder='New event')
         textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
-        div.modal-input-date(:title='SetTime', @click='STMreverse') {{ selectedMonth }}
+        div.modal-input-date(:title='SetTime' @click='STMreverse') {{ selectedMonth }}
 
-        button.modal-submit-btn(@click='ClearData' type='submit', :title='Submit') {{Submit}}
-        div.modal-set-time(:title='SetTime' @click='STMreverse') {{SetTime}}
+        button.modal-submit-btn(:title='Save' @click='ClearData' type='submit') {{Save}}
+        //- div.modal-set-time(:title='SetTime' @click='STMreverse') {{SetTime}}
       sub-set-time(v-if='ShowTimeModal')
 </template>
 
@@ -43,7 +43,7 @@ export default {
       selectedMonth: moment().format("MMMM Do YYYY"),
       events: [],
       Exit: 'Exit',
-      Submit: 'Submit',
+      Save: 'Save',
       SetTime: 'Set Time',
       ShowTimeModal: false,
       TitleData: '',
@@ -116,9 +116,9 @@ export default {
   position: fixed;
   padding: $grid4x;
   color: $textDark;
-  background-color: white;
   max-width: 480px;
   min-width: 296px;
+  background-color: white;
   @include set-center();
   @include border-radius($grid);
   @include box-shadow($grid4x, $grid8x, $color:$textGrey);
@@ -157,6 +157,7 @@ export default {
       margin-top: $grid4x;
       @include font-size($grid8x);
       @include render-hack(width);
+      // border: 1px solid red;
     }
     .modal-input-text {
       width: 100%;
@@ -165,20 +166,33 @@ export default {
       outline: none;
       height: $grid20x;
       vertical-align: top;
-      margin: $grid 0 $grid4x;
+      margin: 0 0 $grid;
       @include font-size($grid6x);
       @include line-height($grid6x);
       @include render-hack(width, margin);
+      // border: 1px solid red;
+    }
+    .modal-input-date {
+      cursor: pointer;
+      height: $grid8x;
+      color: $textDark;
+      text-align: left;
+      font-weight: 900;
+      margin: 0 0 $grid4x;
+      @include font-size($grid6x);
+      @include line-height($grid8x);
+      // border: 1px solid red;
     }
     .modal-submit-btn {
       float: right;
       @extend %global-btns;
+      @include line-height($grid6x);
     }
-    .modal-set-time {
-      float: right;
-      margin-right: $grid2x;
-      @extend %global-btns-white;
-    }
+    // .modal-set-time {
+    //   float: right;
+    //   margin-right: $grid2x;
+    //   @extend %global-btns-white;
+    // }
   }
   .sub-set-time {
     position: absolute;

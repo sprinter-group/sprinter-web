@@ -108,6 +108,20 @@ export default {
     }
   },
   methods: {
+    changeMonthKeyup(event) {
+      if (event.keyCode === 37) {
+        let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month')
+        this.$root.$emit(CHANGE_MONTH, pl)
+        console.log('[goPrev] pressed: ' + pl.month())
+        this.selectedMonth = pl
+      }
+      else if (event.keyCode === 39) {
+        let pl = moment(this.currentMonth).add(1, 'months').startOf('month')
+        this.$root.$emit(CHANGE_MONTH, pl)
+        console.log('[Next] pressed: ' + pl.month())
+        this.selectedMonth = pl
+      }
+    },
     getMonthViewStartDate(date, firstDay){
       firstDay = parseInt(firstDay);
       let start = moment(date).local(this.appLocale);
@@ -140,13 +154,18 @@ export default {
       });
     }
   },
-  created() {
+  created: function() {
     let me = this;
     this.$root.$on(CHANGE_MONTH, function(pl){
       me.currentMonth = pl;
       console.log("now CM : " + this.currentMonth);
     })
-  }
+
+    document.addEventListener('keyup', this.changeMonthKeyup);
+  },
+  destroyed: function() {
+    document.removeEventListener('keyup', this.changeMonthKeyup);
+  },
 }
 </script>
 

@@ -70,88 +70,88 @@ export default {
   border-bottom: $val $line $color;
 }
 
-  .day-cell{
-    flex: 1;
-    padding: $grid;
-    background: $listBase;
-    min-height: ($grid * 28);
-    @include font-size(24px);
-    @include render-hack(border, flex);
-    @include border-ways(1px, solid, $stroke);
-    &:hover {
-      cursor: pointer;
-      background-color: $listBase;
-    }
-    .row {
-      .col-sm-6{
+.day-cell{
+  flex: 1;
+  padding: $grid;
+  background: $listBase;
+  min-height: ($grid * 28);
+  @include font-size(24px);
+  @include render-hack(border, flex);
+  @include border-ways(1px, solid, $stroke);
+  &:hover {
+    cursor: pointer;
+    background-color: $listBase;
+  }
+  .row {
+    .col-sm-6{
+      float: right;
+      @media #{$mobile}{
         float: right;
-        @media #{$mobile}{
-          float: right;
-        }
-        .today-circle{
-          position: absolute;
-        }
+      }
+      .today-circle{
+        position: absolute;
       }
     }
   }
-  .day-number {
-    z-index: 2;
-    font-weight: 900;
-    text-align: center;
-    padding: ($grid * 1.9);
-    color: $before !important;
+}
+.day-number {
+  z-index: 2;
+  font-weight: 900;
+  text-align: center;
+  padding: ($grid * 1.9);
+  color: $before !important;
+  @include font-size($grid6x);
+}
+.current-month {
+  background-color: white;
+  &:hover {
+    cursor: pointer;
+  }
+  p {
+    color: $textDark !important;
     @include font-size($grid6x);
   }
-  .current-month {
-    background-color: white;
-    &:hover {
-      cursor: pointer;
-    }
+}
+.weekend {
+  p{
+    color: $textLightGrey !important;
+  }
+}
+.today {
+  background-color: $listBase;
+  .today-circle {
+    visibility: hidden;
+    @include border-radius($grid8x);
+    background-color: $brand !important;
     p {
-      color: $textDark !important;
-      @include font-size($grid6x);
-    }
-  }
-  .weekend {
-    p{
-      color: $textLightGrey !important;
-    }
-  }
-  .today {
-    background-color: $listBase;
-    .today-circle {
-      visibility: hidden;
-      @include border-radius($grid8x);
-      background-color: $brand !important;
-      p {
-        visibility: visible;
-        font-weight: bolder;
-        color: white !important;
-        @include font-size($grid6x);
-      }
-    }
-  }
-  .selected-day {
-    .today-circle {
       visibility: visible;
-      background-color: transparent;
-      @include border-radius($grid8x);
-      @include render-hack(border, border-radius);
-              box-shadow: 0px 0px 0px 2px $brand inset;
-         -moz-box-shadow: 0px 0px 0px 2px $brand inset;
-      -webkit-box-shadow: 0px 0px 0px 2px $brand inset;
-    }
-    p {
-      color: $brand !important;
       font-weight: bolder;
+      color: white !important;
       @include font-size($grid6x);
     }
   }
+}
+.selected-day {
+  .today-circle {
+    visibility: visible;
+    background-color: transparent;
+    @include border-radius($grid8x);
+    @include render-hack(border, border-radius);
+            box-shadow: 0px 0px 0px 2px $brand inset;
+        -moz-box-shadow: 0px 0px 0px 2px $brand inset;
+    -webkit-box-shadow: 0px 0px 0px 2px $brand inset;
+  }
+  p {
+    color: $brand !important;
+    font-weight: bolder;
+    @include font-size($grid6x);
+  }
+}
 
 // global
-  .today-circle {
-    width:  $grid8x;
-    height: $grid8x;
-    @include render-hack(width, height);
-  }
+.today-circle {
+  width:  $grid8x;
+  height: $grid8x;
+  @include render-hack(width, height);
+}
 </style>

@@ -1,5 +1,5 @@
 <template lang="pug">
-    <div class="row main-div-header" tabindex="0" @keydown.left="goPrev" @keydown.right="goNext">
+    <div class="row main-div-header" tabindex="0">
       <div class="col-sm-2 hide-me">
         <div class="form-group">
         </div>
