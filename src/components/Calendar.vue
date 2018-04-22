@@ -52,6 +52,7 @@ export default {
   },
   props: {
     allEvents: {
+      selectedMonth: moment(),
       type: Array,
       default: function(){
         return [];

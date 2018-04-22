@@ -25,6 +25,8 @@ import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
 // http://momentjs.com/docs/#/displaying/format/
 
+// TODO by Hyouk
+// Today 누르면 바로 날짜 레이블 변경되도록 수정
 export default {
   data: function() {
     return {
