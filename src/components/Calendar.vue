@@ -33,6 +33,8 @@ import Week from './Week.vue'
 import CalendarHeader from './CalendarHeader'
 import {CHANGE_MONTH} from '../actions'
 
+// TODO by Hyouk
+// 키보드로 달력 넘겨도 날짜 표시 반영되도록 수정
 export default {
   name: 'calendar',
   components: {
@@ -161,6 +163,7 @@ export default {
       console.log("now CM : " + this.currentMonth);
     })
 
+    // 키보드 이벤트리스너
     document.addEventListener('keyup', this.changeMonthKeyup);
   },
   destroyed: function() {

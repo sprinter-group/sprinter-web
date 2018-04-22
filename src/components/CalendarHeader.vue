@@ -12,11 +12,7 @@
         </div>
       </div>
       <div class="col-sm-2 year-bound">
-        //- <div class="show-year"> {{nowYear}} &nbsp;<i class="fa fa-calendar-o"></i></div>
-        //- TODO by Hyouk
-        //- 레이블 변경(April 2018)
         vue-monthly-picker.show-year(v-model='selectedMonth', :title='nowYear', @selected='handleSelect', :dateFormat='dateFormat')
-          span(v-model='nowYear')
       </div>
     </div>
 </template>
@@ -29,8 +25,6 @@ import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
 // http://momentjs.com/docs/#/displaying/format/
 
-// TODO by Hyouk
-// 바운드 누르기 전에도 @keydown 적용 가능하도록 수정
 export default {
   data: function() {
     return {
@@ -87,9 +81,20 @@ export default {
       this.$root.$emit(CHANGE_MONTH, value)
       console.log('Selected: ' + this.selectedMonth.locale(this.locale).format('MMMM YYYY'))
     },
+    EscapeMonthlyPicker: function(e){
+      if (e.keyCode === 27){
+        console.log(e.keyCode)
+      }
+    }
   },
   components: {
     VueMonthlyPicker
+  },
+  created: function(){
+    document.addEventListener('keyup', this.EscapeMonthlyPicker);
+  },
+  destroyed: function(){
+    document.removeEventListener('keyup', this.EscapeMonthlyPicker);
   }
 }
 </script>

@@ -50,9 +50,6 @@ export default {
       DetailsData: '',
     }
   },
-  props: {
-
-  },
   methods: {
     ClearData: function(){
       this.TitleData = ''
@@ -80,6 +77,13 @@ export default {
       this.FABvalue = !this.FABvalue
       console.log('Modal ' + this.FABvalue)
       return this.FABvalue
+    },
+    // 모달창 닫기
+    EscapeModal: function(e){
+      if (e.keyCode === 27 && this.FABvalue === true){
+        this.FABvalue = !this.FABvalue
+        console.log('Modal ' + this.FABvalue + ' by ' + e.keyCode)
+      }
     }
   },
   components: {
@@ -88,8 +92,11 @@ export default {
     'FloatingButton': FloatingButton,
     'sub-set-time': SubSetTime,
   },
-  computed: {
-
+  created: function(){
+    document.addEventListener('keyup', this.EscapeModal);
+  },
+  destroyed: function(){
+    document.removeEventListener('keyup', this.EscapeModal);
   }
 }
 </script>
