@@ -47,7 +47,7 @@
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      @include render-hack(flex-wrap);
+      @include render-hack(flex-wrap, padding);
       div {
         flex-grow: 1;
         padding: $grid2x 0;
@@ -88,6 +88,7 @@
   .month-picker-wrapper {
     display: block;
     min-width: 0px !important;
+    @include render-hack(width);
     @media #{$tablet-min}{
       right: -25%;
       @include render-hack(right);

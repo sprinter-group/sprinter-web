@@ -8,6 +8,7 @@
 # install dependencies
 npm install
 
+# asset injection, task
 gulp watch
 
 # serve with hot reload at localhost:8080

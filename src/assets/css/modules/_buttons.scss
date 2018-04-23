@@ -15,7 +15,7 @@
   @include line-height($grid8x);
   @include border-radius($grid);
   @include transition(background-color .25s ease);
-  @include render-hack(width, transition, background-color);
+  @include render-hack(width, height, transition, background-color);
   &:hover {
     background-color: $brand-hover;
   }
@@ -29,7 +29,7 @@
   color: $textLightGrey;
   background-color: white;
   @include transition(all .25s ease);
-  @include render-hack(width, transition, background-color, color);
+  @include render-hack(width, height, transition, background-color, color);
   &::selection {
     color: $textLightGrey;
   }

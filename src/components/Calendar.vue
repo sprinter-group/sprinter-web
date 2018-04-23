@@ -180,7 +180,7 @@ h1, h2 {
   font-weight: normal;
 }
 .full-calendar-body {
-  margin-top: ($grid * 5);
+  margin-top: $grid5x;
   @include render-hack(margin-top);
 }
 .weeks {
@@ -193,7 +193,7 @@ h1, h2 {
     font-weight: 400;
     text-align: center;
     @include render-hack(flex);
-    @include font-size($grid * 5);
+    @include font-size($grid5x);
   }
 }
 

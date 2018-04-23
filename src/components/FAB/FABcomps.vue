@@ -1,5 +1,4 @@
 <template lang="pug">
-  //- div#app(@keydown='watchKeydown')
   div#app
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
@@ -9,9 +8,7 @@
         input.modal-input-title(v-model='TitleData' placeholder='New event')
         textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
         div.modal-input-date(:title='SetTime' @click='STMreverse') {{ selectedMonth }}
-
         button.modal-submit-btn(:title='Save' @click='ClearData' type='submit') {{Save}}
-        //- div.modal-set-time(:title='SetTime' @click='STMreverse') {{SetTime}}
       sub-set-time(v-if='ShowTimeModal')
 </template>
 
@@ -29,11 +26,6 @@ import FloatingButton from './FloatingButton.vue';
 let SubSetTime = {
   template: '<div class="sub-set-time">Hello</div>'
 }
-
-// let ShowDate = {
-//   template: '<div>{{date}}</div>',
-//   props: ['date']
-// }
 
 export default {
   data() {
@@ -164,7 +156,6 @@ export default {
       margin-top: $grid4x;
       @include font-size($grid8x);
       @include render-hack(width);
-      // border: 1px solid red;
     }
     .modal-input-text {
       width: 100%;
@@ -177,7 +168,6 @@ export default {
       @include font-size($grid6x);
       @include line-height($grid6x);
       @include render-hack(width, margin);
-      // border: 1px solid red;
     }
     .modal-input-date {
       cursor: pointer;
@@ -188,18 +178,12 @@ export default {
       margin: 0 0 $grid4x;
       @include font-size($grid6x);
       @include line-height($grid8x);
-      // border: 1px solid red;
     }
     .modal-submit-btn {
       float: right;
       @extend %global-btns;
       @include line-height($grid6x);
     }
-    // .modal-set-time {
-    //   float: right;
-    //   margin-right: $grid2x;
-    //   @extend %global-btns-white;
-    // }
   }
   .sub-set-time {
     position: absolute;

@@ -31,8 +31,8 @@ export default {
   right: $grid6x;
   bottom: $grid6x;
   position: fixed;
-  width: $grid * 14;
-  height: $grid * 14;
+  width: $grid14x;
+  height: $grid14x;
   background-color: $brand;
   @include border-radius($grid16x);
   @include transition(all .25s ease);
