@@ -21,7 +21,7 @@ export default {
   props: {
     week: {
       type: Array
-    }
+    },
   },
   methods: {
     showWeekNum() {
@@ -30,7 +30,7 @@ export default {
       // 콘솔창에서 띄워주는 메세지
       console.log("SELECTED week num : " + {weekDate:me.week[0].date});
       this.$root.$emit(WEEK_SELECTED, {weekDate:me.week[0].date});
-    }
+    },
   },
   components: {
     'moment': moment,
@@ -56,7 +56,7 @@ export default {
     width: 100%;
     display: flex;
     cursor:pointer;
-    @include render-hack(width);
+    @include render-hack(width, display);
   }
   .week-num {
     left: -70px;

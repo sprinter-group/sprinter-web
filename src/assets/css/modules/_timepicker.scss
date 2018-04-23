@@ -9,7 +9,7 @@
   position: absolute;
   margin-right: -100%;
   @include transform(translate(-100%, 0%));
-  @include render-hack(right, top, left, transform);
+  @include render-hack(right, top, left, transform, margin-right);
   @media #{$tablet}{
     right: auto;
     padding-right: $grid4x;
@@ -24,6 +24,7 @@
     @media #{$mobile} {
       min-width: 56vw !important;
     }
+    @include render-hack(min-width);
     .next,
     .prev {
       &:hover {
@@ -47,7 +48,7 @@
       padding: 0;
       display: flex;
       flex-wrap: wrap;
-      @include render-hack(flex-wrap, padding);
+      @include render-hack(flex-wrap, display, padding);
       div {
         flex-grow: 1;
         padding: $grid2x 0;
@@ -160,9 +161,10 @@
     -moz-appearance: none;
     background-color: $white;
     -webkit-appearance: none;
-    @include font-size(16px);
-    @include line-height(16px);
+    @include font-size($grid4x);
     justify-content: flex-start;
     border: 1px solid transparent;
+    @include line-height($grid4x);
+    @include render-hack(width, height, display);
   }
 }

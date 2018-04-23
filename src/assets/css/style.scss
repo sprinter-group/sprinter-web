@@ -59,7 +59,7 @@ a {
   left: 50%;
   margin-right: -50%;
   @include transform(translate(-50%, -50%));
-  @include render-hack(top, left, transform);
+  @include render-hack(top, left, transform, margin-right);
 }
 
 

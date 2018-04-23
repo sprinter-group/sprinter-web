@@ -76,7 +76,7 @@ export default {
         this.FABvalue = !this.FABvalue
         console.log('Modal ' + this.FABvalue + ' by ' + e.keyCode)
       }
-    }
+    },
   },
   components: {
     'moment': moment,
@@ -117,8 +117,8 @@ export default {
   color: $textDark;
   max-width: 480px;
   min-width: 296px;
-  background-color: white;
   @include set-center();
+  background-color: white;
   @include border-radius($grid);
   @include box-shadow($grid4x, $grid8x, $color:$textGrey);
   @include render-hack(width, transform, opacity, padding);
@@ -163,8 +163,8 @@ export default {
       resize: none;
       outline: none;
       height: $grid20x;
-      vertical-align: top;
       margin: 0 0 $grid;
+      vertical-align: top;
       @include font-size($grid6x);
       @include line-height($grid6x);
       @include render-hack(width, margin);
@@ -187,8 +187,8 @@ export default {
   }
   .sub-set-time {
     position: absolute;
-    background-color: black;
     @include set-center();
+    background-color: black;
     @include render-hack(opacity);
     @include border-radius($grid);
     @include keyframes(posi, 0.25s){

@@ -74,8 +74,8 @@ export default {
   flex: 1;
   padding: $grid;
   background: $listBase;
-  min-height: ($grid * 28);
-  @include font-size(24px);
+  min-height: ($grid28x);
+  @include font-size($grid6x);
   @include render-hack(border, flex);
   @include border-ways(1px, solid, $stroke);
   &:hover {
@@ -138,7 +138,7 @@ export default {
     @include border-radius($grid8x);
     @include render-hack(border, border-radius);
             box-shadow: 0px 0px 0px 2px $brand inset;
-        -moz-box-shadow: 0px 0px 0px 2px $brand inset;
+       -moz-box-shadow: 0px 0px 0px 2px $brand inset;
     -webkit-box-shadow: 0px 0px 0px 2px $brand inset;
   }
   p {

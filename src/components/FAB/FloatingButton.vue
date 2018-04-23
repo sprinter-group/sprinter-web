@@ -10,14 +10,14 @@ var FAB = {
 export default {
   data() {
     return{
-      events: []
+      events: [],
     }
   },
   methods: {
 
   },
   components: {
-    'FAB': FAB
+    'FAB': FAB,
   }
 }
 </script>

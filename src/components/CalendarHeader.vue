@@ -113,8 +113,8 @@ export default {
       padding: 0;
         width: $grid24x;
         height: $grid10x;
-        @include render-hack(padding);
         @extend %global-btns;
+        @include render-hack(padding);
         &:nth-child(2){
           margin: auto $grid;
           width: $grid24x;
@@ -134,10 +134,10 @@ export default {
             @include render-hack(width, margin);
           }
         }
+        @include render-hack(transition);
         @media #{$mobile}{ width: $grid12x }
         @media #{$mobile-small}{ width: $grid10x }
         @include transition(background-color .25s ease);
-        @include render-hack(transition);
       &:focus{
         outline: none; // 무쓸모
       }

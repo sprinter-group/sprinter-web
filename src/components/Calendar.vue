@@ -65,14 +65,14 @@ export default {
         return res >= 0 && res <= 6
       },
       default: 0
-    }
+    },
   },
   filters: {
     weekDayName(weekday, firstDay, locale) {
       firstDay = parseInt(firstDay);
       const localMoment = moment().locale(locale);
       return localMoment.localeData().weekdaysShort()[(weekday + firstDay) % 7];
-    }
+    },
   },
   computed: {
     appLocale: function(){
@@ -108,7 +108,7 @@ export default {
     },
     events: function() {
       return this.allEvents;
-    }
+    },
   },
   methods: {
     changeMonthKeyup(event) {
@@ -155,7 +155,7 @@ export default {
       return this.events.filter(event => {
         return date.isSame(event.date, 'day') ? event : null;
       });
-    }
+    },
   },
   created: function() {
     let me = this;
@@ -186,6 +186,7 @@ h1, h2 {
 .weeks {
   display: flex;
   height: $grid8x;
+  @include render-hack(display);
   .week {
     flex: 1;
     color: $textDark;
