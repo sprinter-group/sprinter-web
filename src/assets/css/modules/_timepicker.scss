@@ -1,5 +1,6 @@
 // TODO by Hyouk
-// mqbp tablet 이상에서 monthly-picker 화면 밖으로 나가는 이슈
+// 버튼 위로 클릭되는 이슈
+
 .vue-monthly-picker {
   right: 0;
   top: 50%;
@@ -31,7 +32,6 @@
     }
     .monthItem {
       .item {
-        // border-top: 1px solid $stroke;
         &.active {
           &:hover {
             cursor: pointer;
@@ -58,7 +58,6 @@
         flex: 1;
         flex-basis: 25%;
         @include render-hack(flex, flex-basis);
-        // min-width: 200px !important;
       }
     }
   }
@@ -76,8 +75,8 @@
     position: absolute;
     overflow-x: hidden;
     overflow-y: hidden;
-    border: 1px solid $stroke;
     @include box-shadow();
+    border: 1px solid $stroke;
     @include font-size($grid4x);
     @include border-radius($grid);
     @include render-hack(top, left, margin, transform, width);
@@ -128,8 +127,8 @@
   }
   .next {
     &:after {
-      border-left: $grid2x solid $textLightGrey;
       margin-left: $grid;
+      border-left: $grid2x solid $textLightGrey;
       &:hover {
         border-left: $grid2x solid $textGrey;
       }
@@ -137,8 +136,8 @@
   }
   .prev {
     &:after {
-      border-right: $grid2x solid $textLightGrey;
       margin-left: $grid;
+      border-right: $grid2x solid $textLightGrey;
       &:hover {
         border-left: $grid2x solid $textGrey;
       }
@@ -146,23 +145,23 @@
   }
 
   .input {
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    align-items: center;
-    border: 1px solid transparent;
-    border-radius: $grid;
-    box-shadow: none;
-    display: inline-flex;
+    width: 100%;
     height: 2.25em;
-    justify-content: flex-start;
+    max-width: 100%;
+    color: $textGrey;
+    box-shadow: none;
     position: relative;
     vertical-align: top;
-    background-color: $white;
-    color: $textGrey;
+    align-items: center;
+    border-radius: $grid;
+    display: inline-flex;
     border-color: $stroke;
-    width: 100%;
-    max-width: 100%;
+    -moz-appearance: none;
+    background-color: $white;
+    -webkit-appearance: none;
     @include font-size(16px);
     @include line-height(16px);
+    justify-content: flex-start;
+    border: 1px solid transparent;
   }
 }

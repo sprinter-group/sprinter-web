@@ -105,7 +105,7 @@ export default {
 @import "../../assets/css/style.scss";
 
 .modal-dark-bg{
-  z-index: 11;
+  z-index: 100;
   width: 200vw;
   height: 200vh;
   position: fixed;
@@ -119,7 +119,7 @@ export default {
 }
 .modal-body {
   width: 64%;
-  z-index: 12;
+  z-index: 101;
   position: fixed;
   padding: $grid4x;
   color: $textDark;

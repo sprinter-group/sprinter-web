@@ -106,37 +106,38 @@ export default {
 .hide-me{ display:none }
 
 .header-center {
+  z-index: 15;
   .btn-gourp {
     float: left;
     .btn {
       padding: 0;
-      width: ($grid * 24);
-      height: ($grid * 10);
-      @include render-hack(padding);
-      @extend %global-btns;
-      &:nth-child(2){
-        margin: auto $grid;
-        width: ($grid * 24);
-        height: ($grid * 10);
-        @extend %global-btns-white;
-        @include render-hack(margin);
-      }
-      @media #{$middle}{
-        width: ($grid * 16);
-        @include render-hack(width);
-        span {
-          display: none;
-        }
+        width: $grid24x;
+        height: $grid10x;
+        @include render-hack(padding);
+        @extend %global-btns;
         &:nth-child(2){
-          width: ($grid * 16);
-          margin: auto ($grid / 2);
-          @include render-hack(width, margin);
+          margin: auto $grid;
+          width: $grid24x;
+          height: $grid10x;
+          @extend %global-btns-white;
+          @include render-hack(margin);
         }
-      }
-      @media #{$mobile}{ width: ($grid * 12) }
-      @media #{$mobile-small}{ width: ($grid * 10); }
-      @include transition(background-color .25s ease);
-      @include render-hack(transition);
+        @media #{$middle}{
+          width: $grid16x;
+          @include render-hack(width);
+          span {
+            display: none;
+          }
+          &:nth-child(2){
+            width: $grid16x;
+            margin: auto ($grid / 2);
+            @include render-hack(width, margin);
+          }
+        }
+        @media #{$mobile}{ width: $grid12x }
+        @media #{$mobile-small}{ width: $grid10x }
+        @include transition(background-color .25s ease);
+        @include render-hack(transition);
       &:focus{
         outline: none; // 무쓸모
       }
