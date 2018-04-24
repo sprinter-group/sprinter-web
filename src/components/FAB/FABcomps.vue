@@ -3,12 +3,16 @@
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
     div.modal-body(v-if='FABvalue')
-      i.material-icons.md-close(@click='FABfalse' v-tooltip.bottom='{content: Close, delay: { show: 500, hide: 100 }}') close
+      i.material-icons.md-close(
+        @click='FABfalse'
+        v-tooltip.bottom='{content: Close, delay: { show: 500, hide: 100 }}') close
+
       form
         input.modal-input-title(v-model='TitleData' placeholder='New event')
         textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
         div.modal-input-date(:title='SetTime' @click='STMreverse') {{ selectedMonth }}
         button.modal-submit-btn(v-tooltip.top='{content: Save, delay: { show: 500, hide: 100 }}' @click='ClearData' type='submit') {{ Save }}
+
       sub-set-time(v-if='ShowTimeModal')
 </template>
 
@@ -121,7 +125,7 @@ export default {
   background-color: white;
   @include border-radius($grid);
   @include box-shadow($grid4x, $grid8x, $color:$textGrey);
-  @include render-hack(width, transform, opacity, padding);
+  @include render-hack(width, transform, opacity, padding, keyframes);
   @include keyframes(pos, 0.25s){
     0%   { @include opacity(0); @include transform(translate(-50%, -50%) scale(0.9)); }
     100% { @include opacity(1); @include transform(translate(-50%, -50%) scale(1.0)); }
@@ -135,8 +139,8 @@ export default {
     right: 0;
     position: fixed;
     cursor: pointer;
-    padding: $grid4x $grid4x 0 $grid4x;
     color: $textLightGrey;
+    padding: $grid4x $grid4x 0 $grid4x;
     @include font-size($grid8x + $grid);
     @include transition(color .25s ease);
     @include render-hack(width, top, right, transition);
@@ -159,9 +163,9 @@ export default {
     }
     .modal-input-text {
       border: 0;
+      outline: 0;
       width: 100%;
       resize: none;
-      outline: none;
       height: $grid20x;
       margin: 0 0 $grid;
       vertical-align: top;

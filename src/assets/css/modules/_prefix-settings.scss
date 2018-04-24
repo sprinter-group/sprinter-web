@@ -109,13 +109,13 @@
 /* ==============================
   box shadow (inner border)
 ============================== */
-@mixin inner-border($val, $color){
-  -webkit-box-shadow: inset 0px 0px 0px $val $color;
-  -khtml-box-shadow:  inset 0px 0px 0px $val $color;
-  -moz-box-shadow:    inset 0px 0px 0px $val $color;
-  -ms-box-shadow:     inset 0px 0px 0px $val $color;
-  -o-box-shadow:      inset 0px 0px 0px $val $color;
-  box-shadow:         inset 0px 0px 0px $val $color;
+@mixin inner-border              ($val, $color){
+  -webkit-box-shadow: inset 0 0 0 $val $color;
+  -khtml-box-shadow:  inset 0 0 0 $val $color;
+  -moz-box-shadow:    inset 0 0 0 $val $color;
+  -ms-box-shadow:     inset 0 0 0 $val $color;
+  -o-box-shadow:      inset 0 0 0 $val $color;
+  box-shadow:         inset 0 0 0 $val $color;
   // TODO by Hyouk
   // IE 필터 대응
   // 토요일 윈도우 컴에서 테스트*
@@ -125,13 +125,13 @@
   @include render-hack(box-shadow);
 }
 
-@mixin box-shadow($val:$grid2x, $val2:$grid4x, $color:$lightGrey){
-  -webkit-box-shadow:  0px $val $val2 $color;
-  -khtml-box-shadow:   0px $val $val2 $color;
-  -moz-box-shadow:     0px $val $val2 $color;
-  -ms-box-shadow:      0px $val $val2 $color;
-  -o-box-shadow:       0px $val $val2 $color;
-  box-shadow:          0px $val $val2 $color;
+@mixin box-shadow       ($val:$grid2x, $val2:$grid4x, $color:$lightGrey){
+  -webkit-box-shadow:  0 $val $val2 $color;
+  -khtml-box-shadow:   0 $val $val2 $color;
+  -moz-box-shadow:     0 $val $val2 $color;
+  -ms-box-shadow:      0 $val $val2 $color;
+  -o-box-shadow:       0 $val $val2 $color;
+  box-shadow:          0 $val $val2 $color;
   @include render-hack(box-shadow);
 }
 

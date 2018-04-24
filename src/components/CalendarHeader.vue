@@ -170,7 +170,7 @@ export default {
         @media #{$mobile-small}{ width: $grid10x }
         @include transition(background-color .25s ease);
       &:focus{
-        outline: none; // 무쓸모
+        outline: 0; // 무쓸모
       }
       &:hover{
         background-color: $white-hover;
@@ -198,7 +198,7 @@ export default {
 }
 .main-div-header {
   &:focus {
-    outline: none;
+    outline: 0;
   }
 }
 

@@ -42,10 +42,10 @@ export default {
     vertical-align: middle;
     @include font-size($grid12x);
   }
-  box-shadow: 0px $grid $grid $lightGrey;
+  box-shadow: 0 $grid $grid $lightGrey;
   &:hover {
     background-color: $brand-hover;
-    box-shadow: 0px $grid2x $grid2x $before;
+    box-shadow: 0 $grid2x $grid2x $before;
   }
   @include render-hack(transition, background-color, box-shadow, width, height);
 }

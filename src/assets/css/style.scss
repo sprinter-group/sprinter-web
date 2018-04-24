@@ -22,12 +22,12 @@
   global (tags)
 ============================== */
 body {
-  outline: none;
+  outline: 0;
   color: $textDark;
-  @include font-size(16px);
   @include font-settings();
-  @include line-height(16px);
   @include font-stack-html();
+  @include font-size($grid4x);
+  @include line-height($grid4x);
 }
 
 h1, h2 {
@@ -40,7 +40,7 @@ ul {
 }
 
 li {
-  margin: 0 10px;
+  margin: 0 $grid2x;
   display: inline-block;
 }
 
@@ -60,7 +60,7 @@ a {
   left: 50%;
   margin-right: -50%;
   @include transform(translate(-50%, -50%));
-  @include render-hack(top, left, transform, margin-right);
+  @include render-hack(top, left, transform, translate, margin-right);
 }
 
 
@@ -77,8 +77,8 @@ a {
   global
 ============================== */
 #app {
-  @include font-size(16px);
   @include font-settings();
-  @include line-height(16px);
   @include font-stack-html();
+  @include font-size($grid4x);
+  @include line-height($grid4x);
 }

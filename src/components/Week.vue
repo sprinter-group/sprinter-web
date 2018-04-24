@@ -41,7 +41,7 @@ export default {
     this.$root.$on(WEEK_SELECTED, function (pl) {
       if (pl.weekDate != me.week[0].date) {
         me.showWeekNumFlag = false;
-        //console.log("week : " + me.week[0].date);
+        console.log("week : " + me.week[0].date);
       }
     })
 

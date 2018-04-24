@@ -12,7 +12,7 @@
             <calendar-header :current-month="currentMonth" :firstDay="firstDay" :locale="appLocale"></calendar-header>
             <div class="full-calendar-body">
               <div class="weeks">
-                <strong class="week" v-for="idxDay in 7">{{ (idxDay -1 ) | weekDayName(firstDay, appLocale)}}</strong>
+                <strong class="week" v-for="idxDay in 7" :key="idxDay">{{ (idxDay -1 ) | weekDayName(firstDay, appLocale)}}</strong>
               </div>
 
               <div class="dates" ref="dates">
@@ -34,8 +34,6 @@ import CalendarHeader from './CalendarHeader'
 import {CHANGE_MONTH} from '../actions'
 import {EventBus} from '../event-bus.js'
 
-// TODO by Hyouk
-// 키보드로 달력 넘겨도 날짜 표시 반영되도록 수정
 export default {
   name: 'calendar',
   components: {

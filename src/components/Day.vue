@@ -137,9 +137,9 @@ export default {
     background-color: transparent;
     @include border-radius($grid8x);
     @include render-hack(border, border-radius);
-            box-shadow: 0px 0px 0px 2px $brand inset;
-       -moz-box-shadow: 0px 0px 0px 2px $brand inset;
-    -webkit-box-shadow: 0px 0px 0px 2px $brand inset;
+            box-shadow: 0 0 0 2px $brand inset;
+       -moz-box-shadow: 0 0 0 2px $brand inset;
+    -webkit-box-shadow: 0 0 0 2px $brand inset;
   }
   p {
     color: $brand !important;
