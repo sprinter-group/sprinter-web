@@ -18,7 +18,7 @@
         </div>
       </div>
       <div class="col-sm-2 year-bound">
-        vue-monthly-picker.show-year(v-tooltip.bottom-end='{content: "nowYear", delay: { show: 500, hide: 100 }}'
+        vue-monthly-picker.show-year(v-tooltip.bottom-end='{content: nowYear, delay: { show: 500, hide: 100 }}'
                                     :dateFormat='dateFormat'
                                     @selected='handleSelect'
                                     v-model='selectedMonth')
