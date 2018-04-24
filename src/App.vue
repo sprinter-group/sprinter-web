@@ -42,10 +42,10 @@ export default {
     margin: 0;
     @include render-hack(margin);
     > .panel {
-      border: none;
+      border: 0;
       margin-bottom: 0;
       > .panel-heading {
-        border: none;
+        border: 0;
         padding: $grid4x;
         @include render-hack(padding);
       }
@@ -57,7 +57,7 @@ export default {
             margin-top: $grid4x;
             @include inner-border(0.75px, $stroke);
             .weeks, .dates, .week, .week-row, .day-cell, .current-month {
-              border: none;
+              border: 0;
               @include inner-border(0.5px, $stroke);
             }
           }

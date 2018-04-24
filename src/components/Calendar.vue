@@ -32,6 +32,7 @@ import moment from 'moment'
 import Week from './Week.vue'
 import CalendarHeader from './CalendarHeader'
 import {CHANGE_MONTH} from '../actions'
+import {EventBus} from '../event-bus.js'
 
 // TODO by Hyouk
 // 키보드로 달력 넘겨도 날짜 표시 반영되도록 수정
@@ -124,13 +125,14 @@ export default {
         console.log('[Next] pressed: ' + pl.month())
         this.selectedMonth = pl
       }
+      EventBus.$emit('selected-month', this.selectedMonth);
     },
     getMonthViewStartDate(date, firstDay){
       firstDay = parseInt(firstDay);
       let start = moment(date).local(this.appLocale);
       let startOfMon = moment(start.startOf('month'));
-      console.log("start : " + start);
-      console.log("startOfMonth : " + startOfMon);
+      console.log("start: " + start);
+      console.log("startOfMonth: " + startOfMon);
 
       start.subtract(startOfMon.day(), 'days');
 
@@ -161,7 +163,7 @@ export default {
     let me = this;
     this.$root.$on(CHANGE_MONTH, function(pl){
       me.currentMonth = pl;
-      console.log("now CM : " + this.currentMonth);
+      console.log("now CM: " + this.currentMonth);
     })
 
     // 키보드 이벤트리스너

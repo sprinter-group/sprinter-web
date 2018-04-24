@@ -12,7 +12,7 @@
         </div>
       </div>
       <div class="col-sm-2 year-bound">
-        vue-monthly-picker.show-year(v-model='selectedMonth', :title='nowYear', @selected='handleSelect', :dateFormat='dateFormat')
+        vue-monthly-picker.show-year(v-model='selectedMonth', :title='keyupMonth', @selected='handleSelect', :dateFormat='dateFormat')
       </div>
     </div>
 </template>
@@ -20,7 +20,8 @@
 <script>
 import Vue from 'vue'
 import moment from 'moment'
-import {CHANGE_MONTH} from "../actions"
+import {CHANGE_MONTH} from '../actions'
+import {EventBus} from '../event-bus.js'
 import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
 // http://momentjs.com/docs/#/displaying/format/
@@ -30,6 +31,7 @@ import VueMonthlyPicker from 'vue-monthly-picker'
 export default {
   data: function() {
     return {
+      dat: 0,
       localeSelect: 'en',
       selectedMonth: moment(),
     }
@@ -49,6 +51,14 @@ export default {
       if(!this.currentMonth) return;
       return this.currentMonth.locale(this.locale).format('MMMM YYYY');
     },
+    keyupMonth(){
+      EventBus.$on('selected-month', selectedMonth => {
+        console.log('keyup: ' + selectedMonth.format('MMMM YYYY'));
+        return this.selectedMonth = selectedMonth;
+      })
+      if(!this.currentMonth) return;
+      return this.currentMonth.locale(this.locale).format('MMMM YYYY');
+    }
   },
   methods: {
     setLocale: function(){
@@ -103,7 +113,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
-.hide-me{ display:none }
+.hide-me{ display: none }
 
 .header-center {
   z-index: 15;

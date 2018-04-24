@@ -52,7 +52,7 @@
       div {
         flex-grow: 1;
         padding: $grid2x 0;
-        border: none !important;
+        border: 0 !important;
         @include render-hack(flex-grow);
       }
       .item {

@@ -26,8 +26,8 @@ export default {
 @import "../../assets/css/style.scss";
 
 #floating-button-body {
+  border: 0;
   z-index: 2;
-  border: none;
   right: $grid6x;
   bottom: $grid6x;
   position: fixed;

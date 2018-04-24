@@ -148,9 +148,9 @@ export default {
     width: 100%;
     color: $textDark;
     .modal-input-title {
+      border: 0;
       float: left;
       width: 100%;
-      border: none;
       height: $grid10x;
       font-weight: 900;
       margin-top: $grid4x;
@@ -158,8 +158,8 @@ export default {
       @include render-hack(width);
     }
     .modal-input-text {
+      border: 0;
       width: 100%;
-      border: none;
       resize: none;
       outline: none;
       height: $grid20x;
