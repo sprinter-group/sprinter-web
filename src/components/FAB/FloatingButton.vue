@@ -1,5 +1,5 @@
 <template lang="pug">
-  FAB(v-tooltip.left='title')
+  FAB(v-tooltip.left='{content: title, delay: { show: 500, hide: 100 }}')
 </template>
 
 <script>

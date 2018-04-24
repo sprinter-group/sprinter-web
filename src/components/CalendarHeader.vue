@@ -6,23 +6,22 @@
       </div>
       <div class="col-sm-8 header-center">
         <div class="btn-gourp">
-          button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="$t('generic.previous')")
+          button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: prevMonth, delay: { show: 500, hide: 100 }}")
             i.fa.fa-chevron-left
             span &nbsp;{{ $t('generic.previous') }}
-          button(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="$t('generic.today')")
+          button(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="{content: getToday, delay: { show: 500, hide: 100 }}")
             i.fa.fa-calendar-o
             span &nbsp;{{ $t('generic.today') }}
-          button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="$t('generic.next')")
+          button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: nextMonth, delay: { show: 500, hide: 100 }}")
             span {{ $t('generic.next') }}&nbsp;
             i.fa.fa-chevron-right
         </div>
       </div>
       <div class="col-sm-2 year-bound">
-        vue-monthly-picker.show-year(v-tooltip.bottom-end='nowYear'
+        vue-monthly-picker.show-year(v-tooltip.bottom-end='{content: "nowYear", delay: { show: 500, hide: 100 }}'
                                     :dateFormat='dateFormat'
                                     @selected='handleSelect'
-                                    v-model='selectedMonth'
-                                    :title='keyupMonth')
+                                    v-model='selectedMonth')
       </div>
     </div>
 </template>
@@ -38,7 +37,6 @@ import VueMonthlyPicker from 'vue-monthly-picker'
 
 // TODO by Hyouk
 // Today 누르면 바로 날짜 레이블 변경되도록 수정
-// 버튼 툴팁 내용 반응형으로 설정
 export default {
   data: function() {
     return {
@@ -61,6 +59,18 @@ export default {
     nowYear() {
       if(!this.currentMonth) return;
       return this.currentMonth.locale(this.locale).format('MMMM YYYY');
+    },
+    nextMonth() {
+      let nm = moment(this.currentMonth).add(1, 'months').startOf('month')
+      return nm.locale(this.locale).format('MMMM YYYY');
+    },
+    prevMonth() {
+      let pm = moment(this.currentMonth).subtract(1, 'months').startOf('month')
+      return pm.locale(this.locale).format('MMMM YYYY');
+    },
+    getToday() {
+      let d = moment(new Date()).format("MMMM Do YYYY")
+      return d
     },
     keyupMonth(){
       EventBus.$on('selected-month', selectedMonth => {
