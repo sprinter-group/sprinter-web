@@ -16,9 +16,11 @@
   @include border-radius($grid);
   @include transition(background-color .25s ease);
   @include render-hack(width, height, transition, background-color);
+
   &:hover {
     background-color: $brand-hover;
   }
+
   &::selection {
     background-color: transparent;
   }
@@ -30,12 +32,15 @@
   background-color: white;
   @include transition(all .25s ease);
   @include render-hack(width, height, transition, background-color, color);
+
   &::selection {
     color: $textLightGrey;
   }
-  &:hover{
+
+  &:hover {
     color: $textGrey;
     background-color: $white-hover;
+
     &::selection {
       color: $textGrey;
     }

@@ -30,7 +30,8 @@ body {
   @include line-height($grid4x);
 }
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
 
@@ -46,6 +47,7 @@ li {
 
 a {
   color: $brand;
+
   &:hover {
     color: $brand-hover;
   }

@@ -52,20 +52,21 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
 
-  .week-row {
-    width: 100%;
-    display: flex;
-    cursor:pointer;
-    @include render-hack(width, display);
-  }
-  .week-num {
-    left: -70px;
-    width: 70px;
-    text-align: right;
-    position: absolute;
-    background-color: white;
-            border-radius: $grid 0 0 $grid;
-    -webkit-border-radius: $grid 0 0 $grid;
-    @include render-hack(left, border-radius);
-  }
+.week-row {
+  width: 100%;
+  display: flex;
+  cursor:pointer;
+  @include render-hack(width, display);
+}
+
+.week-num {
+  left: -70px;
+  width: 70px;
+  text-align: right;
+  position: absolute;
+  background-color: white;
+          border-radius: $grid 0 0 $grid;
+  -webkit-border-radius: $grid 0 0 $grid;
+  @include render-hack(left, border-radius);
+}
 </style>

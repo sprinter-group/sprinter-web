@@ -134,7 +134,8 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
-.hide-me{ display: none }
+
+.hide-me{ display: none; }
 
 .header-center {
   z-index: 15;
@@ -146,6 +147,7 @@ export default {
         height: $grid10x;
         @extend %global-btns;
         @include render-hack(padding);
+
         &:nth-child(2){
           margin: auto $grid;
           width: $grid24x;
@@ -153,30 +155,38 @@ export default {
           @extend %global-btns-white;
           @include render-hack(margin);
         }
+
         @media #{$middle}{
           width: $grid16x;
           @include render-hack(width);
+
           span {
             display: none;
           }
+
           &:nth-child(2){
             width: $grid16x;
             margin: auto ($grid / 2);
             @include render-hack(width, margin);
           }
         }
+
         @include render-hack(transition);
         @media #{$mobile}{ width: $grid12x }
         @media #{$mobile-small}{ width: $grid10x }
         @include transition(background-color .25s ease);
+
       &:focus{
         outline: 0; // 무쓸모
       }
+
       &:hover{
         background-color: $white-hover;
       }
+
       &:not(:nth-child(2)){
         background-color: $brand;
+
         &:hover{
           background-color: $brand-hover;
         }
@@ -184,11 +194,13 @@ export default {
     }
   }
 }
+
 .year-bound {
   padding: 0;
   float: right;
   padding-top: $grid;
   @include render-hack(padding);
+
   .show-year {
     color: $textDark;
     text-align: right;
@@ -196,6 +208,7 @@ export default {
     @include line-height($grid8x);
   }
 }
+
 .main-div-header {
   &:focus {
     outline: 0;

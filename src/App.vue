@@ -38,24 +38,30 @@ export default {
 #app {
   text-align: center;
   margin-top: 0 !important;
+
   > .row {
     margin: 0;
     @include render-hack(margin);
+
     > .panel {
       border: 0;
       margin-bottom: 0;
+
       > .panel-heading {
         border: 0;
         padding: $grid4x;
         @include render-hack(padding);
       }
+
       > .panel-body {
         padding: $grid4x;
         @include render-hack(padding);
+
         > .row {
           .full-calendar-body {
             margin-top: $grid4x;
             @include inner-border(0.75px, $stroke);
+
             .weeks, .dates, .week, .week-row, .day-cell, .current-month {
               border: 0;
               @include inner-border(0.5px, $stroke);

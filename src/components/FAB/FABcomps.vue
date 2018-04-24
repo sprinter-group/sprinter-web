@@ -108,11 +108,13 @@ export default {
   @include set-center();
   background-color: $black38;
   @include render-hack(width, height);
+
   @include keyframes(opct, 0.25s){
     0%   { @include opacity(0) }
     100% { @include opacity(1) }
   }
 }
+
 .modal-body {
   width: 64%;
   z-index: 101;
@@ -126,14 +128,17 @@ export default {
   @include border-radius($grid);
   @include box-shadow($grid4x, $grid8x, $color:$textGrey);
   @include render-hack(width, transform, opacity, padding, keyframes);
+
   @include keyframes(pos, 0.25s){
     0%   { @include opacity(0); @include transform(translate(-50%, -50%) scale(0.9)); }
     100% { @include opacity(1); @include transform(translate(-50%, -50%) scale(1.0)); }
   }
+
   @media #{$mobile-small} {
     min-width: 280px !important;
     @include render-hack(width);
   }
+
   > .md-close {
     top: 0;
     right: 0;
@@ -144,13 +149,16 @@ export default {
     @include font-size($grid8x + $grid);
     @include transition(color .25s ease);
     @include render-hack(width, top, right, transition);
+
     &:hover {
       color: $textDark;
     }
   }
+
   form {
     width: 100%;
     color: $textDark;
+
     .modal-input-title {
       border: 0;
       float: left;
@@ -161,6 +169,7 @@ export default {
       @include font-size($grid8x);
       @include render-hack(width);
     }
+
     .modal-input-text {
       border: 0;
       outline: 0;
@@ -173,6 +182,7 @@ export default {
       @include line-height($grid6x);
       @include render-hack(width, margin);
     }
+
     .modal-input-date {
       cursor: pointer;
       height: $grid8x;
@@ -183,18 +193,21 @@ export default {
       @include font-size($grid6x);
       @include line-height($grid8x);
     }
+
     .modal-submit-btn {
       float: right;
       @extend %global-btns;
       @include line-height($grid6x);
     }
   }
+
   .sub-set-time {
     position: absolute;
     @include set-center();
     background-color: black;
     @include render-hack(opacity);
     @include border-radius($grid);
+
     @include keyframes(posi, 0.25s){
       0%   { @include opacity(0); }
       100% { @include opacity(1); }

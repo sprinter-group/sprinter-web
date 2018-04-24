@@ -4,23 +4,31 @@
 ::placeholder {
   color: $before;
 }
+
 ::selection {
   color: $white;
   background-color: $brand;
 }
+
 img::selection {
   visibility:hidden;
   background:transparent;
 }
+
 input[type=text]::-ms-clear {
   display: none;
 }
-select, button, input:focus {
+
+select,
+button,
+input:focus {
   outline: 0 !important;
 }
+
 select::-ms-expand {
   display: none;
 }
+
 button {
   &:hover{
     cursor: pointer !important;

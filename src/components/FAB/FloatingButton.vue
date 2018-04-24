@@ -37,16 +37,19 @@ export default {
   background-color: $brand;
   @include border-radius($grid16x);
   @include transition(all .25s ease);
+  box-shadow: 0 $grid $grid $lightGrey;
+  @include render-hack(transition, background-color, box-shadow, width, height);
+
   .plus {
     color: white;
     vertical-align: middle;
     @include font-size($grid12x);
   }
-  box-shadow: 0 $grid $grid $lightGrey;
+
   &:hover {
     background-color: $brand-hover;
     box-shadow: 0 $grid2x $grid2x $before;
   }
-  @include render-hack(transition, background-color, box-shadow, width, height);
+
 }
 </style>

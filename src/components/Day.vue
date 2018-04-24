@@ -62,7 +62,7 @@ export default {
 
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
-// 9564
+
 @mixin border-ways($val, $line, $color){
   // border-top: $val $line $color;
   // border-left: $val $line $color;
@@ -78,22 +78,26 @@ export default {
   @include font-size($grid6x);
   @include render-hack(border, flex);
   @include border-ways(1px, solid, $stroke);
+
   &:hover {
     cursor: pointer;
     background-color: $listBase;
   }
+
   .row {
     .col-sm-6{
       float: right;
       @media #{$mobile}{
         float: right;
       }
+
       .today-circle{
         position: absolute;
       }
     }
   }
 }
+
 .day-number {
   z-index: 2;
   font-weight: 900;
@@ -102,27 +106,34 @@ export default {
   color: $before !important;
   @include font-size($grid6x);
 }
+
 .current-month {
   background-color: white;
+
   &:hover {
     cursor: pointer;
   }
+
   p {
     color: $textDark !important;
     @include font-size($grid6x);
   }
 }
+
 .weekend {
   p{
     color: $textLightGrey !important;
   }
 }
+
 .today {
   background-color: $listBase;
+
   .today-circle {
     visibility: hidden;
     @include border-radius($grid8x);
     background-color: $brand !important;
+
     p {
       visibility: visible;
       font-weight: bolder;
@@ -131,6 +142,7 @@ export default {
     }
   }
 }
+
 .selected-day {
   .today-circle {
     visibility: visible;
@@ -141,6 +153,7 @@ export default {
        -moz-box-shadow: 0 0 0 2px $brand inset;
     -webkit-box-shadow: 0 0 0 2px $brand inset;
   }
+
   p {
     color: $brand !important;
     font-weight: bolder;

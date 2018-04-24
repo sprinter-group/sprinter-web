@@ -176,17 +176,22 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
 
-h1, h2 {
+h1,
+h2 {
   font-weight: normal;
 }
+
 .full-calendar-body {
   margin-top: $grid5x;
   @include render-hack(margin-top);
+
 }
+
 .weeks {
   display: flex;
   height: $grid8x;
   @include render-hack(display);
+
   .week {
     flex: 1;
     color: $textDark;

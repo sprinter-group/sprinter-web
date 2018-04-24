@@ -10,10 +10,12 @@
   margin-right: -100%;
   @include transform(translate(-100%, 0%));
   @include render-hack(right, top, left, transform, margin-right);
+
   @media #{$tablet}{
     right: auto;
     padding-right: $grid4x;
   }
+
   .picker {
     @media #{$tablet} {
       min-width: 36vw !important;
@@ -25,12 +27,14 @@
       min-width: 56vw !important;
     }
     @include render-hack(min-width);
+
     .next,
     .prev {
       &:hover {
         cursor: pointer;
       }
     }
+
     .monthItem {
       .item {
         &.active {
@@ -44,17 +48,20 @@
         }
       }
     }
+
     .flexbox {
       padding: 0;
       display: flex;
       flex-wrap: wrap;
       @include render-hack(flex-wrap, display, padding);
+
       div {
         flex-grow: 1;
         padding: $grid2x 0;
         border: 0 !important;
         @include render-hack(flex-grow);
       }
+
       .item {
         flex: 1;
         flex-basis: 25%;
@@ -62,9 +69,11 @@
       }
     }
   }
+
   .placeholder {
     color: $before;
   }
+
   .date-popover {
     z-index: 6;
     width: 100%;
@@ -81,36 +90,44 @@
     @include font-size($grid4x);
     @include border-radius($grid);
     @include render-hack(top, left, margin, transform, width);
+
     @include keyframes(popover, 0.25s){
       0%   { @include opacity(0); @include transform(scale(0.9)); }
       100% { @include opacity(1); @include transform(scale(1.0)); }
     }
   }
+
   .month-picker-wrapper {
     display: block;
     min-width: 0px !important;
     @include render-hack(width);
+
     @media #{$tablet-min}{
       right: -25%;
       @include render-hack(right);
     }
   }
+
   .month-year-label {
     outline: none;
   }
+
   .text {
     z-index: 5;
     position: relative;
   }
+
   .month-year-display {
     color: $textGrey;
     font-weight: 400;
     @include transition(color .25s ease);
+
     &:hover {
       cursor: pointer;
       color: $textDark;
     }
   }
+
   .next,
   .prev {
     width: 16%;
@@ -118,6 +135,7 @@
     position: relative;
     text-indent: -10000px;
     @include render-hack(width);
+
     &:after {
       top: 50%;
       left: 50%;
@@ -127,6 +145,7 @@
       @include transform(translateX(-50%) translateY(-50%));
     }
   }
+
   .next {
     &:after {
       margin-left: $grid;
@@ -136,6 +155,7 @@
       }
     }
   }
+
   .prev {
     &:after {
       margin-left: $grid;
