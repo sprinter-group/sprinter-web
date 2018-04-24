@@ -6,13 +6,23 @@
       </div>
       <div class="col-sm-8 header-center">
         <div class="btn-gourp">
-          <button @click.stop="goPrev" class="btn btn-outline btn-primary" :title="$t('generic.previous')"> <i class="fa fa-chevron-left"></i> <span>{{ $t('generic.previous') }}</span></button>
-          <button @click.stop="goToday" class="btn btn-outline btn-default today-button" :title="$t('generic.today')"> <i class="fa fa-calendar-o"></i> <span>{{ $t('generic.today') }}</span></button>
-          <button @click.stop="goNext" class="btn btn-outline btn-primary" :title="$t('generic.next')"><span>{{ $t('generic.next') }}</span> <i class="fa fa-chevron-right"></i> </button>
+          button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="$t('generic.previous')")
+            i.fa.fa-chevron-left
+            span &nbsp;{{ $t('generic.previous') }}
+          button(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="$t('generic.today')")
+            i.fa.fa-calendar-o
+            span &nbsp;{{ $t('generic.today') }}
+          button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="$t('generic.next')")
+            span {{ $t('generic.next') }}&nbsp;
+            i.fa.fa-chevron-right
         </div>
       </div>
       <div class="col-sm-2 year-bound">
-        vue-monthly-picker.show-year(v-model='selectedMonth', :title='keyupMonth', @selected='handleSelect', :dateFormat='dateFormat')
+        vue-monthly-picker.show-year(v-tooltip.bottom-end='nowYear'
+                                    :dateFormat='dateFormat'
+                                    @selected='handleSelect'
+                                    v-model='selectedMonth'
+                                    :title='keyupMonth')
       </div>
     </div>
 </template>
@@ -28,6 +38,7 @@ import VueMonthlyPicker from 'vue-monthly-picker'
 
 // TODO by Hyouk
 // Today 누르면 바로 날짜 레이블 변경되도록 수정
+// 버튼 툴팁 내용 반응형으로 설정
 export default {
   data: function() {
     return {

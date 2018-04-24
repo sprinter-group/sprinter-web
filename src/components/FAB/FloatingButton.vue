@@ -1,5 +1,5 @@
 <template lang="pug">
-  FAB
+  FAB(v-tooltip.left='title')
 </template>
 
 <script>
@@ -11,6 +11,7 @@ export default {
   data() {
     return{
       events: [],
+      title: 'New event'
     }
   },
   methods: {

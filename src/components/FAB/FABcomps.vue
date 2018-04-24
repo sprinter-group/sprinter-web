@@ -3,12 +3,12 @@
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
     div.modal-body(v-if='FABvalue')
-      i.material-icons.md-close(@click='FABfalse' title='Exit') close
+      i.material-icons.md-close(@click='FABfalse' v-tooltip.bottom='Close') close
       form
         input.modal-input-title(v-model='TitleData' placeholder='New event')
         textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
         div.modal-input-date(:title='SetTime' @click='STMreverse') {{ selectedMonth }}
-        button.modal-submit-btn(:title='Save' @click='ClearData' type='submit') {{Save}}
+        button.modal-submit-btn(v-tooltip.top='Save' @click='ClearData' type='submit') {{ Save }}
       sub-set-time(v-if='ShowTimeModal')
 </template>
 
@@ -34,7 +34,7 @@ export default {
       currentMonth: {},
       selectedMonth: moment().format("MMMM Do YYYY"),
       events: [],
-      Exit: 'Exit',
+      Close: 'Close',
       Save: 'Save',
       SetTime: 'Set Time',
       ShowTimeModal: false,
@@ -135,7 +135,7 @@ export default {
     right: 0;
     position: fixed;
     cursor: pointer;
-    padding: $grid4x;
+    padding: $grid4x $grid4x 0 $grid4x;
     color: $textLightGrey;
     @include font-size($grid8x + $grid);
     @include transition(color .25s ease);

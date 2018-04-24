@@ -1,0 +1,95 @@
+.tooltip {
+  z-index: 9999;
+  display: block !important;
+
+  .tooltip-inner {
+    color: white;
+    background: $black54;
+    border-radius: $grid4x;
+    padding: $grid $grid2x $grid;
+  }
+
+  // .tooltip-arrow {
+  //   width: 0;
+  //   height: 0;
+  //   margin: $grid;
+  //   z-index: 9998;
+  //   position: absolute;
+  //   border-style: solid;
+  //   border-color: $black54;
+  // }
+
+  &[x-placement^="top"] {
+    margin-bottom: $grid;
+
+    .tooltip-arrow {
+      margin-top: 0;
+      bottom: -$grid;
+      margin-bottom: 0;
+      left: calc(50% - $grid);
+      border-width: $grid $grid 0 $grid;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+  }
+
+  &[x-placement^="bottom"] {
+    margin-top: $grid;
+
+    .tooltip-arrow {
+      top: -$grid;
+      margin-top: 0;
+      margin-bottom: 0;
+      left: calc(50% - $grid);
+      border-width: 0 $grid $grid $grid;
+      border-top-color: transparent !important;
+      border-left-color: transparent !important;
+      border-right-color: transparent !important;
+    }
+  }
+
+  &[x-placement^="right"] {
+    margin-left: $grid;
+
+    .tooltip-arrow {
+      left: -$grid;
+      margin-left: 0;
+      margin-right: 0;
+      top: calc(50% - $grid);
+      border-width: $grid $grid $grid 0;
+      border-top-color: transparent !important;
+      border-left-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+  }
+
+  &[x-placement^="left"] {
+    margin-right: $grid;
+
+    .tooltip-arrow {
+      right: -$grid;
+      margin-left: 0;
+      margin-right: 0;
+      top: calc(50% - $grid);
+      border-width: $grid 0 $grid $grid;
+      border-top-color: transparent !important;
+      border-right-color: transparent !important;
+      border-bottom-color: transparent !important;
+    }
+  }
+
+  &[aria-hidden='true'] {
+    opacity: 0;
+    visibility: hidden;
+    @include render-hack(transition);
+    transition: opacity .25s, visibility .25s;
+  }
+
+  &[aria-hidden='false'] {
+    opacity: 1;
+    visibility: visible;
+    @include render-hack(transition);
+    @include transition(opacity .25s ease);
+  }
+}
