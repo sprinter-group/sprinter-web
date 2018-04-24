@@ -81,7 +81,7 @@ export default {
 
   &:hover {
     cursor: pointer;
-    background-color: $listBase;
+    background-color: $brand-op;
   }
 
   .row {
@@ -127,7 +127,7 @@ export default {
 }
 
 .today {
-  background-color: $listBase;
+  background-color: $brand-op;
 
   .today-circle {
     visibility: hidden;
