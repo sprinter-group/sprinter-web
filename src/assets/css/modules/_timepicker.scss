@@ -1,6 +1,3 @@
-// TODO by Hyouk
-// 버튼 위로 클릭되는 이슈
-
 .vue-monthly-picker {
   right: 0;
   top: 50%;
@@ -109,7 +106,7 @@
   }
 
   .month-year-label {
-    outline: none;
+    outline: 0;
   }
 
   .text {
