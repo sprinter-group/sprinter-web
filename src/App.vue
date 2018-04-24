@@ -52,7 +52,6 @@ export default {
         padding: $grid4x;
         @include render-hack(padding);
       }
-
       > .panel-body {
         padding: $grid4x;
         @include render-hack(padding);
