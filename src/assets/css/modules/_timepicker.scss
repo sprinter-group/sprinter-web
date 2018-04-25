@@ -82,7 +82,7 @@
     position: absolute;
     overflow-x: hidden;
     overflow-y: hidden;
-    @include box-shadow();
+    @include box-shadow($color: $black38);
     border: 1px solid $stroke;
     @include font-size($grid4x);
     @include border-radius($grid);

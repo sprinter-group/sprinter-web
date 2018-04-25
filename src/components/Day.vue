@@ -1,19 +1,15 @@
-<template>
-    <div class="day-cell" :class="{'today' : day.isToday, 'current-month' : day.isCurrentMon, 'weekend': day.isWeekEnd, 'selected-day': isDaySelected}"
-         @click="showDayOptions">
-      <div class="row">
-        <div class="col-sm-6">
-          <div v-show="isDaySelected">
+<template lang="pug">
+    div.day-cell(:class="{'today' : day.isToday, 'current-month' : day.isCurrentMon, 'weekend': day.isWeekEnd, 'selected-day': isDaySelected}" @click="showDayOptions")
+      div.row
+        div.col-sm-6
+          div(v-show='isDaySelected')
+          
+        div.col-sm-6
+          div.today-circle
+            p.day-number(:title="day.date.format('D')") {{ day.date.format('D') }}
 
-          </div>
-        </div>
-        <div class="col-sm-6">
-          <div class="today-circle">
-            <p class="day-number" :title="day.date.format('D')">{{ day.date.format('D') }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
+      div.event-list-wrapper(v-if='eventList')
+        div.event-list-item(v-for='event in eventList') {{ event.eventName }}
 </template>
 
 <script>
@@ -24,6 +20,11 @@ export default {
   data: function() {
     return {
       isDaySelected: false,
+      eventList: [
+        { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
+        { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
+        { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
+      ]
     }
   },
   props: {
