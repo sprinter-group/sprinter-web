@@ -125,7 +125,7 @@ export default {
   @include set-center();
   background-color: white;
   @include border-radius($grid);
-  @include box-shadow($grid4x, $grid8x, $color: $black54);
+  @include box-shadow($grid4x, $grid8x, $color: $black38);
   @include render-hack(width, transform, opacity, padding, keyframes);
 
   @include keyframes(pos, 0.25s){

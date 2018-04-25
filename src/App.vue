@@ -11,6 +11,7 @@ import Calendar from './components/Calendar.vue'
 import CalendarHeader from './components/CalendarHeader.vue'
 import FABcomps from './components/FAB/FABcomps.vue'
 import {CHANGE_MONTH} from "./actions"
+import {EventBus} from './event-bus.js'
 
 export default {
   name: 'app',

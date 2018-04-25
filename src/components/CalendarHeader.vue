@@ -6,21 +6,22 @@
       </div>
       <div class="col-sm-8 header-center">
         <div class="btn-gourp">
-          button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: prevMonth, delay: { show: 500, hide: 100 }}")
+          button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getPrevMonth, delay: { show: 500, hide: 100 }}")
             i.fa.fa-chevron-left
             span &nbsp;{{ $t('generic.previous') }}
           button(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="{content: getToday, delay: { show: 500, hide: 100 }}")
             i.fa.fa-calendar-o
             span &nbsp;{{ $t('generic.today') }}
-          button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: nextMonth, delay: { show: 500, hide: 100 }}")
+          button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getNextMonth, delay: { show: 500, hide: 100 }}")
             span {{ $t('generic.next') }}&nbsp;
             i.fa.fa-chevron-right
         </div>
       </div>
       <div class="col-sm-2 year-bound">
-        vue-monthly-picker.show-year(v-tooltip.bottom-end='{content: nowYear, delay: { show: 500, hide: 100 }}'
-                                    :dateFormat='dateFormat'
-                                    @selected='handleSelect'
+
+        vue-monthly-picker.show-year(v-tooltip.top='{content: nowYear, delay: { show: 500, hide: 100 }}',
+                                    :dateFormat='dateFormat',
+                                    @selected='handleSelect',
                                     v-model='selectedMonth')
       </div>
     </div>
@@ -58,15 +59,15 @@ export default {
   computed: {
     nowYear() {
       if(!this.currentMonth) return;
-      return this.currentMonth.locale(this.locale).format('MMMM YYYY');
+      return this.currentMonth.locale(this.locale).format('MMMM YYYY')
     },
-    nextMonth() {
+    getNextMonth() {
       let nm = moment(this.currentMonth).add(1, 'months').startOf('month')
-      return nm.locale(this.locale).format('MMMM YYYY');
+      return nm.locale(this.locale).format('MMMM YYYY')
     },
-    prevMonth() {
+    getPrevMonth() {
       let pm = moment(this.currentMonth).subtract(1, 'months').startOf('month')
-      return pm.locale(this.locale).format('MMMM YYYY');
+      return pm.locale(this.locale).format('MMMM YYYY')
     },
     getToday() {
       let d = moment(new Date()).format("MMMM Do YYYY")
@@ -77,8 +78,6 @@ export default {
         console.log('keyup: ' + selectedMonth.format('MMMM YYYY'));
         return this.selectedMonth = selectedMonth;
       })
-      if(!this.currentMonth) return;
-      return this.currentMonth.locale(this.locale).format('MMMM YYYY');
     }
   },
   methods: {
@@ -92,7 +91,7 @@ export default {
     goPrev: function() {
       let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month')
       this.$root.$emit(CHANGE_MONTH, pl)
-      console.log('[goPrev] pressed: ' + pl.month())
+      console.log('[Prev] pressed: ' + pl.month())
       this.selectedMonth = pl
     },
     goNext: function() {
@@ -124,10 +123,10 @@ export default {
     VueMonthlyPicker
   },
   created: function(){
-    document.addEventListener('keyup', this.EscapeMonthlyPicker);
+    document.addEventListener('keyup', this.EscapeMonthlyPicker)
   },
   destroyed: function(){
-    document.removeEventListener('keyup', this.EscapeMonthlyPicker);
+    document.removeEventListener('keyup', this.EscapeMonthlyPicker)
   }
 }
 </script>

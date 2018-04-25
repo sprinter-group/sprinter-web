@@ -7,7 +7,11 @@
     background: $black54;
     border-radius: $grid4x;
     padding: $grid $grid2x $grid;
-    @include render-hack(padding);
+    @include render-hack(padding, transform);
+    @include keyframes(tooltip, 0.25s){
+      0%   { @include transform(scale(0.8)); }
+      100% { @include transform(scale(1.0)); }
+    }
   }
 
   // .tooltip-arrow {

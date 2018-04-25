@@ -3,28 +3,29 @@
       div.row
         div.col-sm-6
           div(v-show='isDaySelected')
-          
+
         div.col-sm-6
           div.today-circle
             p.day-number(:title="day.date.format('D')") {{ day.date.format('D') }}
 
-      div.event-list-wrapper(v-if='eventList')
-        div.event-list-item(v-for='event in eventList') {{ event.eventName }}
+      //- div.event-list-wrapper(v-if='eventList')
+      //-   div.event-list-item(v-for='event in eventList' v-tooltip.top='{content: event.eventName, delay: { show: 500, hide: 100 }}') {{ event.eventName }}
 </template>
 
 <script>
 import moment from 'moment';
+import {EventBus} from '../event-bus.js'
 import {DAY_SELECTED, CHANGE_MONTH} from '../actions';
 
 export default {
   data: function() {
     return {
       isDaySelected: false,
-      eventList: [
-        { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
-        { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
-        { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
-      ]
+      // eventList: [
+      //   { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
+      //   { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
+      //   { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
+      // ]
     }
   },
   props: {

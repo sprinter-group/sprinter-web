@@ -72,19 +72,25 @@
 /* ==============================
   animations
 ============================== */
-@mixin animation-settings  ($name,$dur){
-  -webkit-animation:        $name $dur;
-  -khtml-animation:         $name $dur;
-  -moz-animation:           $name $dur;
-  -ms-animation:            $name $dur;
-  -o-animation:             $name $dur;
-  animation:                $name $dur;
-  -webkit-animation-iteration-count: 1;
-  -khtml-animation-iteration-count:  1;
-  -moz-animation-iteration-count:    1;
-  -ms-animation-iteration-count:     1;
-  -o-animation-iteration-count:      1;
-  animation-iteration-count:         1;
+@mixin animation-settings   ($name,$dur){
+  -webkit-animation:         $name $dur ease;
+  -khtml-animation:          $name $dur ease;
+  -moz-animation:            $name $dur ease;
+  -ms-animation:             $name $dur ease;
+  -o-animation:              $name $dur ease;
+  animation:                 $name $dur ease;
+  -webkit-animation-iteration-count:  1;
+  -khtml-animation-iteration-count:   1;
+  -moz-animation-iteration-count:     1;
+  -ms-animation-iteration-count:      1;
+  -o-animation-iteration-count:       1;
+  animation-iteration-count:          1;
+  -webkit-animation-fill-mode: forwards;
+  -khtml-animation-fill-mode:  forwards;
+  -moz-animation-fill-mode:    forwards;
+  -ms-animation-fill-mode:     forwards;
+  -o-animation-fill-mode:      forwards;
+  animation-fill-mode:         forwards;
   @include render-hack(animation);
 }
 

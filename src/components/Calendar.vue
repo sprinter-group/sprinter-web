@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row" @keyup="changeMonthKeyup">
     <div v-if="loading">{{ $t('generic.loading')}}</div>
     <div v-if="error" class="error"></div>
     <div class="panel panel-default">
@@ -120,10 +120,10 @@ export default {
       else if (event.keyCode === 39) {
         let pl = moment(this.currentMonth).add(1, 'months').startOf('month')
         this.$root.$emit(CHANGE_MONTH, pl)
-        console.log('[Next] pressed: ' + pl.month())
+        console.log('[goNext] pressed: ' + pl.month())
         this.selectedMonth = pl
       }
-      EventBus.$emit('selected-month', this.selectedMonth);
+      EventBus.$emit('selected-month-key', this.selectedMonth);
     },
     getMonthViewStartDate(date, firstDay){
       firstDay = parseInt(firstDay);
