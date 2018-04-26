@@ -4,25 +4,30 @@
         <div class="form-group">
         </div>
       </div>
+
       <div class="col-sm-8 header-center">
         <div class="btn-gourp">
           button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getPrevMonth, delay: { show: 500, hide: 100 }}")
             i.fa.fa-chevron-left
             span &nbsp;{{ $t('generic.previous') }}
+
           button(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="{content: getToday, delay: { show: 500, hide: 100 }}")
             i.fa.fa-calendar-o
             span &nbsp;{{ $t('generic.today') }}
+
           button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getNextMonth, delay: { show: 500, hide: 100 }}")
             span {{ $t('generic.next') }}&nbsp;
             i.fa.fa-chevron-right
         </div>
       </div>
-      <div class="col-sm-2 year-bound">
 
-        vue-monthly-picker.show-year(v-tooltip.top='{content: nowYear, delay: { show: 500, hide: 100 }}',
+      <div class="col-sm-2 year-bound">
+        //- vue-monthly-picker.show-year(v-tooltip.top='{content: nowYear, delay: { show: 500, hide: 100 }}',
+        vue-monthly-picker.show-year(:title='keyupEvents',
+                                    v-model='selectedMonth',
                                     :dateFormat='dateFormat',
                                     @selected='handleSelect',
-                                    v-model='selectedMonth')
+                                    )
       </div>
     </div>
 </template>
@@ -73,7 +78,7 @@ export default {
       let d = moment(new Date()).format("MMMM Do YYYY")
       return d
     },
-    keyupMonth(){
+    keyupEvents(){
       EventBus.$on('selected-month', selectedMonth => {
         console.log('keyup: ' + selectedMonth.format('MMMM YYYY'));
         return this.selectedMonth = selectedMonth;
@@ -101,7 +106,7 @@ export default {
       this.selectedMonth = pl
     },
     goToday: function() {
-      let pl = moment(this.currentMonth)
+      let pl = (CHANGE_MONTH, moment())
       this.$root.$emit(CHANGE_MONTH, moment())
       console.log('[Today] pressed: ' + this.currentMonth.locale(this.locale).format('MMMM YYYY'))
       this.selectedMonth = pl
@@ -113,6 +118,8 @@ export default {
       this.$root.$emit(CHANGE_MONTH, value)
       console.log('Selected: ' + this.selectedMonth.locale(this.locale).format('MMMM YYYY'))
     },
+    // TODO by Hyouk
+    // escape 로 monthlyPicker 닫기
     EscapeMonthlyPicker: function(e){
       if (e.keyCode === 27){
         console.log(e.keyCode)
@@ -142,38 +149,38 @@ export default {
     float: left;
     .btn {
       padding: 0;
+      width: $grid24x;
+      height: $grid10x;
+      @extend %global-btns;
+      @include render-hack(padding);
+
+      &:nth-child(2){
+        margin: auto $grid;
         width: $grid24x;
         height: $grid10x;
-        @extend %global-btns;
-        @include render-hack(padding);
+        @extend %global-btns-white;
+        @include render-hack(margin);
+      }
+
+      @media #{$middle}{
+        width: $grid16x;
+        @include render-hack(width);
+
+        span {
+          display: none;
+        }
 
         &:nth-child(2){
-          margin: auto $grid;
-          width: $grid24x;
-          height: $grid10x;
-          @extend %global-btns-white;
-          @include render-hack(margin);
-        }
-
-        @media #{$middle}{
           width: $grid16x;
-          @include render-hack(width);
-
-          span {
-            display: none;
-          }
-
-          &:nth-child(2){
-            width: $grid16x;
-            margin: auto ($grid / 2);
-            @include render-hack(width, margin);
-          }
+          margin: auto ($grid / 2);
+          @include render-hack(width, margin);
         }
+      }
 
-        @include render-hack(transition);
-        @media #{$mobile}{ width: $grid12x }
-        @media #{$mobile-small}{ width: $grid10x }
-        @include transition(background-color .25s ease);
+      @include render-hack(transition);
+      @media #{$mobile}{ width: $grid12x }
+      @media #{$mobile-small}{ width: $grid10x }
+      @include transition(background-color .25s ease);
 
       &:focus{
         outline: 0; // 무쓸모

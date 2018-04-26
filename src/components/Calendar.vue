@@ -1,5 +1,5 @@
 <template>
-  <div class="row" @keyup="changeMonthKeyup">
+  <div class="row" @keyup.stop="keyupEvents">
     <div v-if="loading">{{ $t('generic.loading')}}</div>
     <div v-if="error" class="error"></div>
     <div class="panel panel-default">
@@ -16,8 +16,7 @@
               </div>
 
               <div class="dates" ref="dates">
-                <week v-for="(week, idx) in Weeks" :firstDay="firstDay" :key="idx" :week="week">
-                </week>
+                <week v-for="(week, idx) in Weeks" :firstDay="firstDay" :key="idx" :week="week"></week>
               </div>
             </div>
           </div>
@@ -110,7 +109,7 @@ export default {
     },
   },
   methods: {
-    changeMonthKeyup(event) {
+    keyupEvents(event) {
       if (event.keyCode === 37) {
         let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month')
         this.$root.$emit(CHANGE_MONTH, pl)
@@ -123,7 +122,10 @@ export default {
         console.log('[goNext] pressed: ' + pl.month())
         this.selectedMonth = pl
       }
-      EventBus.$emit('selected-month-key', this.selectedMonth);
+      else {
+        return 0
+      }
+      EventBus.$emit('selected-month', this.selectedMonth);
     },
     getMonthViewStartDate(date, firstDay){
       firstDay = parseInt(firstDay);
@@ -158,17 +160,15 @@ export default {
     },
   },
   created: function() {
+    document.addEventListener('keyup', this.keyupEvents)
     let me = this;
     this.$root.$on(CHANGE_MONTH, function(pl){
       me.currentMonth = pl;
       console.log("now CM: " + this.currentMonth);
-    })
-
-    // 키보드 이벤트리스너
-    document.addEventListener('keyup', this.changeMonthKeyup);
+    });
   },
   destroyed: function() {
-    document.removeEventListener('keyup', this.changeMonthKeyup);
+    document.removeEventListener('keyup', this.keyupEvents)
   },
 }
 </script>
