@@ -23,11 +23,12 @@
 
       <div class="col-sm-2 year-bound">
         //- vue-monthly-picker.show-year(v-tooltip.top='{content: nowYear, delay: { show: 500, hide: 100 }}',
-        vue-monthly-picker.show-year(:title='keyupEvents',
-                                    v-model='selectedMonth',
-                                    :dateFormat='dateFormat',
-                                    @selected='handleSelect',
-                                    )
+        vue-monthly-picker.show-year(
+                          :title='keyupEvents',
+                          v-model='selectedMonth',
+                          @selected='handleSelect',
+                          :dateFormat='dateFormat',
+                          )
       </div>
     </div>
 </template>
@@ -41,8 +42,6 @@ import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
 // http://momentjs.com/docs/#/displaying/format/
 
-// TODO by Hyouk
-// Today 누르면 바로 날짜 레이블 변경되도록 수정
 export default {
   data: function() {
     return {
@@ -59,7 +58,7 @@ export default {
     dateFormat: {
       type: String,
       default: 'MMMM YYYY'
-    }
+    },
   },
   computed: {
     nowYear() {

@@ -5,13 +5,18 @@
     div.modal-body(v-if='FABvalue')
       i.material-icons.md-close(
         @click='FABfalse'
-        v-tooltip.bottom='{content: Close, delay: { show: 500, hide: 100 }}') close
+        v-tooltip.bottom='{content: Close, delay: { show: 500, hide: 100 }}'
+        ) close
 
       form
         input.modal-input-title(v-model='TitleData' placeholder='New event')
         textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
         div.modal-input-date(:title='SetTime' @click='STMreverse') {{ selectedMonth }}
-        button.modal-submit-btn(v-tooltip.top='{content: Save, delay: { show: 500, hide: 100 }}' @click='ClearData' type='submit') {{ Save }}
+        button.modal-submit-btn(
+              v-tooltip.top='{content: Save, delay: { show: 500, hide: 100 }}',
+              @click='ClearData',
+              type='submit',
+              ) {{ Save }}
 
       sub-set-time(v-if='ShowTimeModal')
 </template>

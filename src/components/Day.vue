@@ -17,6 +17,9 @@ import moment from 'moment';
 import {EventBus} from '../event-bus.js'
 import {DAY_SELECTED, CHANGE_MONTH} from '../actions';
 
+// TODO by Hyouk
+// 리스트 생성
+
 export default {
   data: function() {
     return {
