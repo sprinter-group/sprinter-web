@@ -35,6 +35,7 @@ export default {
   width: $grid14x;
   height: $grid14x;
   background-color: $brand;
+  @extend %btn-pressed-scale;
   @include border-radius($grid16x);
   @include transition(all .25s ease);
   box-shadow: 0 $grid $grid $black16;

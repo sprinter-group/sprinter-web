@@ -7,15 +7,15 @@
 
       <div class="col-sm-8 header-center">
         <div class="btn-gourp">
-          button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getPrevMonth, delay: { show: 500, hide: 100 }}")
+          button.btn-ripple(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getPrevMonth, delay: { show: 500, hide: 100 }}")
             i.fa.fa-chevron-left
             span &nbsp;{{ $t('generic.previous') }}
 
-          button(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="{content: getToday, delay: { show: 500, hide: 100 }}")
+          button.btn-ripple(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="{content: getToday, delay: { show: 500, hide: 100 }}")
             i.fa.fa-calendar-o
             span &nbsp;{{ $t('generic.today') }}
 
-          button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getNextMonth, delay: { show: 500, hide: 100 }}")
+          button.btn-ripple(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getNextMonth, delay: { show: 500, hide: 100 }}")
             span {{ $t('generic.next') }}&nbsp;
             i.fa.fa-chevron-right
         </div>

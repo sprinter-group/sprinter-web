@@ -1,6 +1,14 @@
 /* ==============================
   button global extends
 ============================== */
+%btn-pressed-scale {
+  &:active {
+      @include transform(scale(0.95));
+      @include inner-border(0, transparent);
+  }
+}
+
+
 %global-btns {
   border: 0;
   color: white;
@@ -11,11 +19,12 @@
   font-weight: bolder;
   vertical-align: middle;
   background-color: $brand;
+  @extend %btn-pressed-scale;
   @include font-size($grid5x);
   @include line-height($grid8x);
   @include border-radius($grid);
-  @include transition(background-color .25s ease);
-  @include render-hack(width, height, transition, background-color);
+  @include transition(all .25s ease !important);
+  @include render-hack(width, height, transform, transition, background-color);
 
   &:hover {
     background-color: $brand-hover;
@@ -25,6 +34,7 @@
     background-color: transparent;
   }
 }
+
 
 %global-btns-white {
   @extend %global-btns;
