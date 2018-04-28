@@ -2,6 +2,11 @@
   <div class="row" @keyup.stop="keyupEvents">
     <div v-if="loading">{{ $t('generic.loading')}}</div>
     <div v-if="error" class="error"></div>
+
+    <div>
+
+    </div>
+
     <div class="panel panel-default">
       <!-- <div class="panel-heading">
         <h2>{{$t('generic.calender')}}</h2>

@@ -25,9 +25,9 @@ export default {
     return {
       isDaySelected: false,
       // eventList: [
-      //   { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
-      //   { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
-      //   { eventName: 'Event', eventDetails: 'Task', eventDate: 'New' },
+      //   { eventName: 'Event', eventDetails: 'Dt', eventDate: 'Ed' },
+      //   { eventName: 'Task', eventDetails: 'Dt', eventDate: 'Ed' },
+      //   { eventName: 'New', eventDetails: 'Dt', eventDate: 'Ed' },
       // ]
     }
   },
@@ -75,7 +75,7 @@ export default {
   border-bottom: $val $line $color;
 }
 
-.day-cell{
+.day-cell {
   flex: 1;
   padding: $grid;
   background: $listBase;
@@ -90,11 +90,11 @@ export default {
   }
 
   .row {
-    @media #{$tablet-min}{
+    @media #{$tablet-min} {
       width: 0;
     }
 
-    .col-sm-6{
+    .col-sm-6 {
       .today-circle{
         position: absolute;
       }
@@ -125,7 +125,7 @@ export default {
 }
 
 .weekend {
-  p{
+  p {
     color: $textLightGrey !important;
   }
 }

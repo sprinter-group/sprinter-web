@@ -2,6 +2,7 @@
   div#app
     FloatingButton(@click.native='FABready')
     div.modal-dark-bg(v-if='FABvalue' @click='FABfalse')
+
     div.modal-body(v-if='FABvalue')
       i.material-icons.md-close(
         @click='FABfalse'
@@ -9,8 +10,8 @@
         ) close
 
       form
-        input.modal-input-title(v-model='TitleData' placeholder='New event')
-        textarea.modal-input-text(v-model='DetailsData' placeholder='Details about your task...')
+        input.modal-input-title(v-model='InputData.TitleData' placeholder='New event')
+        textarea.modal-input-text(v-model='InputData.DetailsData' placeholder='Details about your task...')
         div.modal-input-date(:title='SetTime' @click='STMreverse') {{ selectedMonth }}
         button.modal-submit-btn(
               v-tooltip.top='{content: Save, delay: { show: 500, hide: 100 }}',
@@ -47,14 +48,16 @@ export default {
       Save: 'Save',
       SetTime: 'Set Time',
       ShowTimeModal: false,
-      TitleData: '',
-      DetailsData: '',
+      InputData: {
+        TitleData: '',
+        DetailsData: ''
+        }
     }
   },
   methods: {
     ClearData: function(){
-      this.TitleData = ''
-      this.DetailsData = ''
+      this.InputData.TitleData = ''
+      this.InputData.DetailsData = ''
     },
     STMreverse: function(){
       if (this.FABvalue === true){
@@ -105,7 +108,7 @@ export default {
 <style lang="scss">
 @import "../../assets/css/style.scss";
 
-.modal-dark-bg{
+.modal-dark-bg {
   z-index: 100;
   width: 200vw;
   height: 200vh;
@@ -114,7 +117,7 @@ export default {
   background-color: $black38;
   @include render-hack(width, height);
 
-  @include keyframes(opct, 0.25s){
+  @include keyframes(opct, 0.25s) {
     0%   { @include opacity(0) }
     100% { @include opacity(1) }
   }
@@ -134,7 +137,7 @@ export default {
   @include box-shadow($grid4x, $grid8x, $color: $black38);
   @include render-hack(width, transform, opacity, padding, keyframes);
 
-  @include keyframes(pos, 0.25s){
+  @include keyframes(pos, 0.25s) {
     0%   { @include opacity(0); @include transform(translate(-50%, -50%) scale(0.9)); }
     100% { @include opacity(1); @include transform(translate(-50%, -50%) scale(1.0)); }
   }
@@ -213,11 +216,10 @@ export default {
     @include render-hack(opacity);
     @include border-radius($grid);
 
-    @include keyframes(posi, 0.25s){
+    @include keyframes(posi, 0.25s) {
       0%   { @include opacity(0); }
       100% { @include opacity(1); }
     }
   }
 }
-
 </style>

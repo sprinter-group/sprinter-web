@@ -55,7 +55,7 @@ export default {
 .week-row {
   width: 100%;
   display: flex;
-  cursor:pointer;
+  cursor: pointer;
   @include render-hack(width, display);
 }
 

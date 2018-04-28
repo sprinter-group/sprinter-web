@@ -3,8 +3,8 @@
 ============================== */
 %btn-pressed-scale {
   &:active {
-      @include transform(scale(0.95));
-      @include inner-border(0, transparent);
+    @include transform(scale(0.95));
+    @include inner-border(0, transparent);
   }
 }
 
@@ -43,13 +43,13 @@
   @include transition(all .25s ease);
   @include render-hack(width, height, transition, background-color, color);
 
-  &::selection {
-    color: $textLightGrey;
-  }
+    &::selection {
+      color: $textLightGrey;
+    }
 
-  &:hover {
-    color: $textGrey;
-    background-color: $white-hover;
+    &:hover {
+      color: $textGrey;
+      background-color: $white-hover;
 
     &::selection {
       color: $textGrey;

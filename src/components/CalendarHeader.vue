@@ -6,23 +6,23 @@
       div.col-sm-8.header-center
         div.btn-gourp
           button.btn.btn-outline.btn-primary(
-            @click.stop='goPrev',
-            v-tooltip.bottom='{content: getPrevMonth, delay: { show: 500, hide: 100 }}'
-            )
+                @click.stop='goPrev',
+                v-tooltip.bottom='{content: getPrevMonth, delay: { show: 500, hide: 100 }}'
+                )
             i.fa.fa-chevron-left
             span &nbsp;{{ $t('generic.previous') }}
 
           button.btn.btn-outline.btn-primary(
-            @click.stop='goToday',
-            v-tooltip.bottom='{content: getToday, delay: { show: 500, hide: 100 }}'
-            )
-            i.fa.fa-calendar-o
+                @click.stop='goToday',
+                v-tooltip.bottom='{content: getToday, delay: { show: 500, hide: 100 }}'
+                )
+            i.material-icons.md-18.md-today today
             span &nbsp;{{ $t('generic.today') }}
 
           button.btn.btn-outline.btn-primary(
-            @click.stop='goNext',
-            v-tooltip.bottom='{content: getNextMonth, delay: { show: 500, hide: 100 }}'
-            )
+                @click.stop='goNext',
+                v-tooltip.bottom='{content: getNextMonth, delay: { show: 500, hide: 100 }}'
+                )
             span {{ $t('generic.next') }}&nbsp;
             i.fa.fa-chevron-right
 
@@ -44,6 +44,11 @@ import {EventBus} from '../event-bus.js'
 import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
 // http://momentjs.com/docs/#/displaying/format/
+
+// TODO by Hyouk
+// monthly -> date
+// https://www.npmjs.com/package/vue2-datepicker
+//https://github.com/charliekassel/vuejs-datepicker#demo
 
 export default {
   data: function() {
@@ -143,12 +148,14 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
 
-.hide-me { display: none; }
+.hide-me { display: none }
 
 .header-center {
   z-index: 15;
+
   .btn-gourp {
     float: left;
+
     .btn {
       padding: 0;
       width: $grid24x;
@@ -156,15 +163,20 @@ export default {
       @extend %global-btns;
       @include render-hack(padding);
 
-      &:nth-child(2){
-        margin: auto $grid;
+      .md-today {
+        vertical-align: middle;
+        padding-bottom: ($grid / 2);
+      }
+
+      &:nth-child(2) {
         width: $grid24x;
         height: $grid10x;
+        margin: auto $grid;
         @extend %global-btns-white;
         @include render-hack(margin);
       }
 
-      @media #{$middle}{
+      @media #{$middle} {
         width: $grid16x;
         @include render-hack(width);
 
@@ -172,7 +184,7 @@ export default {
           display: none;
         }
 
-        &:nth-child(2){
+        &:nth-child(2) {
           width: $grid16x;
           margin: auto ($grid / 2);
           @include render-hack(width, margin);
@@ -180,19 +192,25 @@ export default {
       }
 
       @include render-hack(transition);
-      @media #{$mobile}{ width: $grid12x }
-      @media #{$mobile-small}{ width: $grid10x }
+
+      @media #{$mobile} {
+        width: $grid12x;
+      }
+      @media #{$mobile-small} {
+        width: $grid10x;
+      }
+
       @include transition(background-color .25s ease);
 
       &:focus{
-        outline: 0; // 무쓸모
-      }
+        outline: 0;
+      } // 무쓸모
 
-      &:hover{
+      &:hover {
         background-color: $white-hover;
       }
 
-      &:not(:nth-child(2)){
+      &:not(:nth-child(2)) {
         background-color: $brand;
 
         &:hover {
@@ -222,5 +240,4 @@ export default {
     outline: 0;
   }
 }
-
 </style>
