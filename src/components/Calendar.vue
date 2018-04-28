@@ -35,6 +35,7 @@ import {EventBus} from '../event-bus.js'
 
 // TODO by Hyouk
 // 모달창 열려있을때 키보드로 달력전환 안되게
+// https://alligator.io/vuejs/global-event-bus/
 
 export default {
   name: 'calendar',

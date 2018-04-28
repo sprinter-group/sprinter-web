@@ -90,12 +90,11 @@ export default {
   }
 
   .row {
-    .col-sm-6{
-      float: right;
-      @media #{$mobile}{
-        float: right;
-      }
+    @media #{$tablet-min}{
+      width: 0;
+    }
 
+    .col-sm-6{
       .today-circle{
         position: absolute;
       }
@@ -107,8 +106,8 @@ export default {
   z-index: 2;
   font-weight: 900;
   text-align: center;
-  padding: ($grid * 1.9);
   color: $before !important;
+  padding: $grid2x ($grid * 1.8);
   @include font-size($grid6x);
 }
 

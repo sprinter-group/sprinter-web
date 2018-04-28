@@ -1,27 +1,32 @@
 <template lang="pug">
-    <div class="row main-div-header" tabindex="0">
-      <div class="col-sm-2 hide-me">
-        <div class="form-group">
-        </div>
-      </div>
+    div.row.main-div-header(tabindex='0')
+      div.col-sm-2.hide-me
+        div.form-group
 
-      <div class="col-sm-8 header-center">
-        <div class="btn-gourp">
-          button(@click.stop="goPrev" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getPrevMonth, delay: { show: 500, hide: 100 }}")
+      div.col-sm-8.header-center
+        div.btn-gourp
+          button.btn.btn-outline.btn-primary(
+            @click.stop='goPrev',
+            v-tooltip.bottom='{content: getPrevMonth, delay: { show: 500, hide: 100 }}'
+            )
             i.fa.fa-chevron-left
             span &nbsp;{{ $t('generic.previous') }}
 
-          button(@click.stop="goToday" class="btn btn-outline btn-default today-button" v-tooltip.bottom="{content: getToday, delay: { show: 500, hide: 100 }}")
+          button.btn.btn-outline.btn-primary(
+            @click.stop='goToday',
+            v-tooltip.bottom='{content: getToday, delay: { show: 500, hide: 100 }}'
+            )
             i.fa.fa-calendar-o
             span &nbsp;{{ $t('generic.today') }}
 
-          button(@click.stop="goNext" class="btn btn-outline btn-primary" v-tooltip.bottom="{content: getNextMonth, delay: { show: 500, hide: 100 }}")
+          button.btn.btn-outline.btn-primary(
+            @click.stop='goNext',
+            v-tooltip.bottom='{content: getNextMonth, delay: { show: 500, hide: 100 }}'
+            )
             span {{ $t('generic.next') }}&nbsp;
             i.fa.fa-chevron-right
-        </div>
-      </div>
 
-      <div class="col-sm-2 year-bound">
+      div.col-sm-2.year-bound
         //- vue-monthly-picker.show-year(v-tooltip.top='{content: nowYear, delay: { show: 500, hide: 100 }}',
         vue-monthly-picker.show-year(
                           :title='keyupEvents',
@@ -29,8 +34,6 @@
                           @selected='handleSelect',
                           :dateFormat='dateFormat',
                           )
-      </div>
-    </div>
 </template>
 
 <script>
@@ -140,7 +143,7 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
 
-.hide-me{ display: none; }
+.hide-me { display: none; }
 
 .header-center {
   z-index: 15;
@@ -192,7 +195,7 @@ export default {
       &:not(:nth-child(2)){
         background-color: $brand;
 
-        &:hover{
+        &:hover {
           background-color: $brand-hover;
         }
       }

@@ -24,6 +24,7 @@
 <script>
 import moment from 'moment';
 import Calendar from '../Calendar.vue';
+import {EventBus} from '../../event-bus.js'
 import FloatingButton from './FloatingButton.vue';
 
 // TODO by Hyouk

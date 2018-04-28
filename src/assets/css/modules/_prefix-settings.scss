@@ -1,7 +1,7 @@
 /* ==============================
   gpu hack
 ============================== */
-@mixin render-hack    ($val...){
+@mixin     render-hack($val...){
   -webkit-will-change: $val;
   -khtml-will-change:  $val;
   -moz-will-change:    $val;
@@ -72,7 +72,7 @@
 /* ==============================
   animations
 ============================== */
-@mixin animation-settings   ($name,$dur){
+@mixin    animation-settings($name,$dur){
   -webkit-animation:         $name $dur ease;
   -khtml-animation:          $name $dur ease;
   -moz-animation:            $name $dur ease;
@@ -115,7 +115,7 @@
 /* ==============================
   box shadow (inner border)
 ============================== */
-@mixin inner-border              ($val,$color){
+@mixin               inner-border($val,$color){
   -webkit-box-shadow: inset 0 0 0 $val $color;
   -khtml-box-shadow:  inset 0 0 0 $val $color;
   -moz-box-shadow:    inset 0 0 0 $val $color;
@@ -135,7 +135,7 @@
 /* ==============================
   box-shadow
 ============================== */
-@mixin box-shadow       ($val:$grid2x, $val2:$grid4x, $color:$lightGrey){
+@mixin        box-shadow($val:$grid2x, $val2:$grid4x, $color:$lightGrey){
   -webkit-box-shadow:  0 $val $val2 $color;
   -khtml-box-shadow:   0 $val $val2 $color;
   -moz-box-shadow:     0 $val $val2 $color;
@@ -149,7 +149,7 @@
 /* ==============================
     box border bgcolor
 ============================== */
-@mixin box-settings        ($bd: $stroke, $bg: white, $n: 0px) {
+@mixin         box-settings($bd: $stroke, $bg: white, $n: 0px) {
   -webkit-border: 1px solid $bd;
   -khtml-border:  1px solid $bd;
   -moz-border:    1px solid $bd;
