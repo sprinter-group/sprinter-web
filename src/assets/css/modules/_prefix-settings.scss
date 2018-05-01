@@ -58,7 +58,7 @@
 /* ==============================
   border radius
 ============================== */
-@mixin     border-radius($val){
+@mixin     border-radius($val...){
   -webkit-border-radius: $val;
   -khtml-border-radius:  $val;
   -moz-border-radius:    $val;

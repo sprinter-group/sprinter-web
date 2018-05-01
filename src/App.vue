@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import moment from 'moment'
 import Vue from 'vue'
+import moment from 'moment'
 import Calendar from './components/Calendar.vue'
 import CalendarHeader from './components/CalendarHeader.vue'
 import FABcomps from './components/FAB/FABcomps.vue'
@@ -60,11 +60,20 @@ export default {
         > .row {
           .full-calendar-body {
             margin-top: $grid4x;
-            @include inner-border(0.75px, $stroke);
+            @include inner-border(0.75px, $stroke !important);
+
+            // @media screen and (-webkit-min-device-pixel-ratio:0) {
+            //   @include inner-border(1px, $stroke !important);
+            // }
 
             .weeks, .dates, .week, .week-row, .day-cell, .current-month {
               border: 0;
-              @include inner-border(0.5px, $stroke);
+              @include inner-border(0.5px, $stroke !important);
+              // safari hack
+              @media screen and (-webkit-min-device-pixel-ratio:0) {
+                @include box-sizing(border-box !important);
+                @include inner-border(1px, $whiteGreyB !important);
+              }
             }
           }
         }

@@ -65,8 +65,7 @@ export default {
   text-align: right;
   position: absolute;
   background-color: white;
-          border-radius: $grid 0 0 $grid;
-  -webkit-border-radius: $grid 0 0 $grid;
   @include render-hack(left, border-radius);
+  @include border-radius($grid, 0, 0, $grid);
 }
 </style>

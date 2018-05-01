@@ -69,10 +69,10 @@ export default {
 @import "../assets/css/style.scss";
 
 @mixin border-ways($val, $line, $color){
-  // border-top: $val $line $color;
-  // border-left: $val $line $color;
-  border-right: $val $line $color;
-  border-bottom: $val $line $color;
+  border-top:      $val $line $color;
+  border-left:     $val $line $color;
+  border-right:    $val $line $color;
+  border-bottom:   $val $line $color;
 }
 
 .day-cell {
@@ -82,7 +82,7 @@ export default {
   min-height: ($grid28x);
   @include font-size($grid6x);
   @include render-hack(border, flex);
-  @include border-ways(1px, solid, $stroke);
+  // @include border-ways(1px, solid, $stroke !important);
 
   &:hover {
     cursor: pointer;
@@ -153,9 +153,7 @@ export default {
     background-color: transparent;
     @include border-radius($grid8x);
     @include render-hack(border, border-radius);
-            box-shadow: 0 0 0 2px $brand inset;
-       -moz-box-shadow: 0 0 0 2px $brand inset;
-    -webkit-box-shadow: 0 0 0 2px $brand inset;
+    @include inner-border(($grid / 2), $brand !important);
   }
 
   p {
