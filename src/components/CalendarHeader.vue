@@ -28,12 +28,16 @@
 
       div.col-sm-2.year-bound
         //- vue-monthly-picker.show-year(v-tooltip.top='{content: nowYear, delay: { show: 500, hide: 100 }}',
-        vue-monthly-picker.show-year(
-                          :title='keyupEvents',
-                          v-model='selectedMonth',
-                          @selected='handleSelect',
-                          :dateFormat='dateFormat',
-                          )
+        //- vue-monthly-picker.show-year(
+        //-                   :title='keyupEvents',
+        //-                   v-model='selectedMonth',
+        //-                   @selected='handleSelect',
+        //-                   :dateFormat='dateFormat',
+        //-                   )
+        datepicker(
+                  :title='keyupEvents',
+                  :placeholder='selectedMonth',
+                  )
 </template>
 
 <script>
@@ -43,12 +47,11 @@ import {CHANGE_MONTH} from '../actions'
 import {EventBus} from '../event-bus.js'
 import VueMonthlyPicker from 'vue-monthly-picker'
 // https://github.com/ittus/vue-monthly-picker
-// http://momentjs.com/docs/#/displaying/format/
+import Datepicker from 'vuejs-datepicker'
+// https://codesandbox.io/embed/mpklq49wp?codemirror=1
 
 // TODO by Hyouk
 // monthly -> date
-// https://www.npmjs.com/package/vue2-datepicker
-//https://github.com/charliekassel/vuejs-datepicker#demo
 
 export default {
   data: function() {
@@ -134,7 +137,8 @@ export default {
     }
   },
   components: {
-    VueMonthlyPicker
+    VueMonthlyPicker,
+    Datepicker
   },
   created: function(){
     document.addEventListener('keyup', this.EscapeMonthlyPicker)
