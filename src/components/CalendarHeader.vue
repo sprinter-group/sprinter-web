@@ -36,7 +36,7 @@
         //-                   )
         datepicker(
                   :title='keyupEvents',
-                  :placeholder='selectedMonth',
+                  :placeholder='nowYear',
                   )
 </template>
 

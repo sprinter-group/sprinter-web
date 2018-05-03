@@ -23,9 +23,9 @@
     "vue": "^2.5.11",
     "vue-i18n": "^7.6.0",
     "vue-moment": "^3.2.0",
-    "vue-monthly-picker": "^0.1.8",
+    "vue-monthly-picker": "^0.2.0",
     "vue-router": "^3.0.1",
-    "vuejs-datepicker": "^1.1.0",
+    "vuejs-datepicker": "^1.1.1",
     "vuex": "^3.0.1",
     "vuex-router-sync": "^5.0.0"
   },
