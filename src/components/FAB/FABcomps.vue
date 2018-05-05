@@ -12,7 +12,7 @@
       form
         input.modal-input-title(v-model='InputData.TitleData' placeholder='New event')
         textarea.modal-input-text(v-model='InputData.DetailsData' placeholder='Details about your task...')
-        div.modal-input-date(:title='SetTime' @click='STMreverse') {{ selectedMonth }}
+        div.modal-input-date(:title='SetTime' @click='STMreverse') {{ getDate }}
         button.modal-submit-btn(
               v-tooltip.top='{content: Save, delay: { show: 500, hide: 100 }}',
               @click='ClearData',
@@ -25,7 +25,7 @@
 <script>
 import moment from 'moment';
 import Calendar from '../Calendar.vue';
-import {EventBus} from '../../event-bus.js'
+import {EventBus} from '../../event-bus.js';
 import FloatingButton from './FloatingButton.vue';
 
 // TODO by Hyouk
@@ -39,10 +39,10 @@ let SubSetTime = {
 
 export default {
   data() {
-    return{
+    return {
       FABvalue: false,
       currentMonth: {},
-      selectedMonth: moment().format("MMMM Do YYYY"),
+      selectedMonth: moment().format("MMMM Do, YYYY"),
       events: [],
       Close: 'Close',
       Save: 'Save',
@@ -51,13 +51,29 @@ export default {
       InputData: {
         TitleData: '',
         DetailsData: ''
-        }
+      }
+    }
+  },
+  computed: {
+    getDate: function(){
+      // let getSelectedDate = document.querySelector('.today-circle')
+      // if (getSelectedDate){
+      //   EventBus.$on('sendWeekNum', date => {
+      //     let dt = date
+      //     return dt
+      //   })
+      // }
+      // else if (!getSelectedDate){
+        let dt = this.selectedMonth
+        return dt
+      // }
     }
   },
   methods: {
     ClearData: function(){
       this.InputData.TitleData = ''
       this.InputData.DetailsData = ''
+      // 이게 맞는 방법인가...?
     },
     STMreverse: function(){
       if (this.FABvalue === true){

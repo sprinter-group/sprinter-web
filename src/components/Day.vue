@@ -6,7 +6,9 @@
 
         div.col-sm-6
           div.today-circle
-            p.day-number(:title="day.date.format('D')") {{ day.date.format('D') }}
+            p.day-number(
+              v-tooltip.bottom="{content: day.date.format('Do'), delay: { show: 500, hide: 100 }}")
+              | {{ day.date.format('D') }}
 
       //- div.event-list-wrapper(v-if='eventList')
       //-   div.event-list-item(v-for='event in eventList' v-tooltip.top='{content: event.eventName, delay: { show: 500, hide: 100 }}') {{ event.eventName }}
@@ -53,7 +55,7 @@ export default {
     let me = this;
     this.$root.$on(DAY_SELECTED, function (pl) {
       if (pl.dayDate != me.day.date) {
-        //console.log("day : "+ me.day.date);
+        // console.log("day : "+ me.day.date);
         me.isDaySelected = false;
       }
     })
@@ -68,7 +70,7 @@ export default {
 <style lang="scss" scoped>
 @import "../assets/css/style.scss";
 
-@mixin border-ways($val, $line, $color){
+@mixin border-ways($val,$line,$color){
   border-top:      $val $line $color;
   border-left:     $val $line $color;
   border-right:    $val $line $color;

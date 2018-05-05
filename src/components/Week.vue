@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import moment from 'moment'
+import moment from 'moment';
 import {WEEK_SELECTED} from "../actions";
+import {EventBus} from '../event-bus.js';
 import Day from './Day';
 
 export default {
@@ -30,6 +31,8 @@ export default {
       // 콘솔창에서 띄워주는 메세지
       console.log("SELECTED week num : " + {weekDate:me.week[0].date});
       this.$root.$emit(WEEK_SELECTED, {weekDate:me.week[0].date});
+      // EventBus
+      EventBus.$emit('sendWeekNum', date)
     },
   },
   components: {

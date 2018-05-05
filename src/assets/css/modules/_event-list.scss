@@ -7,10 +7,10 @@
   margin-top: $grid6x;
 
   .event-list-item {
-    color: white;
+    color: $white;
     margin: $grid 0;
     padding: ($grid / 2);
-    background-color: $brand;
+    background-color: $brand-hover;
     @include border-radius($grid);
   }
 }

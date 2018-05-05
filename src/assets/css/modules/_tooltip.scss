@@ -4,7 +4,7 @@
 
   .tooltip-inner {
     color: white;
-    background: $black54;
+    background: $black64;
     border-radius: $grid4x;
     padding: $grid $grid2x $grid;
     @include render-hack(padding, transform);

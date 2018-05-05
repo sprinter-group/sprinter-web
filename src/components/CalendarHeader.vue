@@ -7,37 +7,34 @@
         div.btn-gourp
           button.btn.btn-outline.btn-primary(
                 @click.stop='goPrev',
-                v-tooltip.bottom='{content: getPrevMonth, delay: { show: 500, hide: 100 }}'
-                )
+                v-tooltip.bottom='{content: getPrevMonth, delay: { show: 500, hide: 100 }}')
             i.fa.fa-chevron-left
             span &nbsp;{{ $t('generic.previous') }}
 
           button.btn.btn-outline.btn-primary(
                 @click.stop='goToday',
-                v-tooltip.bottom='{content: getToday, delay: { show: 500, hide: 100 }}'
-                )
+                v-tooltip.bottom='{content: getToday, delay: { show: 500, hide: 100 }}')
             i.material-icons.md-18.md-today today
             span &nbsp;{{ $t('generic.today') }}
 
           button.btn.btn-outline.btn-primary(
                 @click.stop='goNext',
-                v-tooltip.bottom='{content: getNextMonth, delay: { show: 500, hide: 100 }}'
-                )
+                v-tooltip.bottom='{content: getNextMonth, delay: { show: 500, hide: 100 }}')
             span {{ $t('generic.next') }}&nbsp;
             i.fa.fa-chevron-right
 
       div.col-sm-2.year-bound
         //- vue-monthly-picker.show-year(v-tooltip.top='{content: nowYear, delay: { show: 500, hide: 100 }}',
-        //- vue-monthly-picker.show-year(
-        //-                   :title='keyupEvents',
-        //-                   v-model='selectedMonth',
-        //-                   @selected='handleSelect',
-        //-                   :dateFormat='dateFormat',
-        //-                   )
-        datepicker(
-                  :title='keyupEvents',
-                  :placeholder='nowYear',
-                  )
+        vue-monthly-picker.show-year(
+                          :title='keyupEvents',
+                          v-model='selectedMonth',
+                          @selected='handleSelect',
+                          :dateFormat='dateFormat',
+                          )
+        //- datepicker(
+        //-           :title='keyupEvents',
+        //-           :placeholder='nowYear',
+        //-           )
 </template>
 
 <script>
@@ -85,7 +82,7 @@ export default {
       return pm.locale(this.locale).format('MMMM YYYY')
     },
     getToday() {
-      let d = moment(new Date()).format("MMMM Do YYYY")
+      let d = moment(new Date()).format("MMMM Do, YYYY")
       return d
     },
     keyupEvents(){
