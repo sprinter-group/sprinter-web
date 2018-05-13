@@ -14,7 +14,6 @@
         textarea.modal-input-text(v-model='InputData.DetailsData' placeholder='Details about your task...')
         div.modal-input-date(:title='SetTime' @click='STMreverse') {{ getDate }}
         button.modal-submit-btn(
-              v-tooltip.top='{content: Save, delay: { show: 500, hide: 100 }}',
               @click='ClearData',
               type='submit',
               ) {{ Save }}
