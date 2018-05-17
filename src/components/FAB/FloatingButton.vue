@@ -3,8 +3,6 @@
 </template>
 
 <script>
-import VTooltip from 'v-tooltip'
-
 var FAB = {
   template: '<button id="floating-button-body"><span class="plus">+</span></button>'
 }
