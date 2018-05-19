@@ -24,7 +24,13 @@
   @include render-hack(box-sizing);
 }
 
-*{ @include box-sizing(border-box) }
+html {
+  @include box-sizing(border-box);
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
 
 
 /* ==============================

@@ -30,6 +30,7 @@ select::-ms-expand {
 }
 
 button {
+  // all: unset;
   &:hover{
     cursor: pointer !important;
   }
