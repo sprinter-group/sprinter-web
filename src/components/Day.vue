@@ -19,7 +19,7 @@ import moment from 'moment';
 import {EventBus} from '../event-bus.js'
 import {DAY_SELECTED, CHANGE_MONTH} from '../actions';
 
-// TODO by Hyouk
+// TODO:
 // 리스트 생성
 
 export default {
@@ -84,7 +84,7 @@ export default {
   min-height: ($grid28x);
   @include font-size($grid6x);
   @include render-hack(border, flex);
-  // @include border-ways(1px, solid, $stroke !important);
+  // TODO: @include border-ways(1px, solid, $stroke !important);
 
   &:hover {
     cursor: pointer;
