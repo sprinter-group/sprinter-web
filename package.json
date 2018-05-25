@@ -30,9 +30,8 @@
     "vuex-router-sync": "^5.0.0"
   },
   "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not ie <= 8"
+    "cover 99.5%",
+    "ie 6-8"
   ],
   "devDependencies": {
     "babel-core": "^6.26.3",

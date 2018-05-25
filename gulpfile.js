@@ -12,8 +12,11 @@ const gulp = require('gulp'),
   css autoprefixer & minify -> src to dist
 ============================== */
 gulp.task('prefix-css', function () {
-  return watch('src/assets/css/src/*css', { ignoreInitial: false })
-      .pipe(autoprefixer())
+  return watch('src/assets/css/src/*.css', { ignoreInitial: false })
+      .pipe(autoprefixer({
+          browsers: ['cover 99.5%'],
+          cascade: false
+      }))
       .pipe(cleanCSS())
       .pipe(gulp.dest('src/assets/css/dist'));
 });
