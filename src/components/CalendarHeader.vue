@@ -47,7 +47,7 @@ import VueMonthlyPicker from 'vue-monthly-picker'
 import Datepicker from 'vuejs-datepicker'
 // https://codesandbox.io/embed/mpklq49wp?codemirror=1
 
-// TODO by Hyouk
+// TODO:
 // monthly -> date
 
 export default {
@@ -125,7 +125,7 @@ export default {
       this.$root.$emit(CHANGE_MONTH, value)
       console.log('Selected: ' + this.selectedMonth.locale(this.locale).format('MMMM YYYY'))
     },
-    // TODO by Hyouk
+    // TODO:
     // escape 로 monthlyPicker 닫기
     EscapeMonthlyPicker: function(e){
       if (e.keyCode === 27){

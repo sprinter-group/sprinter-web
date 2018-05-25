@@ -33,7 +33,7 @@ export default {
 <style lang="scss">
 @import "./assets/css/style.scss";
 
-// TODO by Hyouk
+// TODO:
 // 행 높이 vh 단위로 맞추기
 // safari inset 대응
 #app {

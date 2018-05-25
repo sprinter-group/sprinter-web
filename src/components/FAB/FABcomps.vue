@@ -28,7 +28,7 @@ import Calendar from '../Calendar.vue';
 import {EventBus} from '../../event-bus.js';
 import FloatingButton from './FloatingButton.vue';
 
-// TODO by Hyouk
+// TODO:
 // Date Picker
 // 모달창에 selected 날짜 가져오기 (selected 가 없으면 today)
 // submit 누르고 그자리에 등록되도록 (화면 깜빡임 없이))
@@ -73,6 +73,7 @@ export default {
     ClearData: function(){
       this.InputData.TitleData = ''
       this.InputData.DetailsData = ''
+      // TODO:
       // 이게 맞는 방법인가...?
     },
     STMreverse: function(){
