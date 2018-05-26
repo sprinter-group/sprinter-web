@@ -16,6 +16,8 @@
     "gulp-imagemin": "^4.1.0",
     "gulp-inject": "^4.3.2",
     "gulp-js-minify": "0.0.3",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-watch": "^5.0.0",
     "moment": "^2.22.1",
     "npm-check-updates": "^2.14.2",
@@ -30,6 +32,7 @@
     "vuex-router-sync": "^5.0.0"
   },
   "browserslist": [
+    "unreleased versions",
     "cover 99.5%",
     "ie 6-8"
   ],

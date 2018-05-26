@@ -118,23 +118,30 @@ export default {
     },
   },
   methods: {
+    // TODO:
+    // this.FABvalue 가 false 일때
+    // 지금 말 안들음
     keyupEvents(event) {
-      if (event.keyCode === 37) {
-        let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month')
-        this.$root.$emit(CHANGE_MONTH, pl)
-        console.log('[goPrev] pressed: ' + pl.month())
-        this.selectedMonth = pl
-      }
-      else if (event.keyCode === 39) {
-        let pl = moment(this.currentMonth).add(1, 'months').startOf('month')
-        this.$root.$emit(CHANGE_MONTH, pl)
-        console.log('[goNext] pressed: ' + pl.month())
-        this.selectedMonth = pl
-      }
-      else {
-        return 0
-      }
-      EventBus.$emit('selected-month', this.selectedMonth);
+      EventBus.$on('fab-ready', FABready => {
+        if (FABready === false) {
+          if (event.keyCode === 37) {
+            let pl = moment(this.currentMonth).subtract(1, 'months').startOf('month')
+            this.$root.$emit(CHANGE_MONTH, pl)
+            console.log('[goPrev] pressed: ' + pl.month())
+            this.selectedMonth = pl
+          }
+          else if (event.keyCode === 39) {
+            let pl = moment(this.currentMonth).add(1, 'months').startOf('month')
+            this.$root.$emit(CHANGE_MONTH, pl)
+            console.log('[goNext] pressed: ' + pl.month())
+            this.selectedMonth = pl
+          }
+          else {
+            return 0
+          }
+          EventBus.$emit('selected-month', this.selectedMonth);
+        }
+      });
     },
     getMonthViewStartDate(date, firstDay){
       firstDay = parseInt(firstDay);
